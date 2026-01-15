@@ -19,7 +19,10 @@ const FLAG_DEFS = {
     { id:"touch", label:"Touch", hint:"Touchscreen (es. Touch MEC 1000)" },
     { id:"laser", label:"Laser", hint:"Guida applicazione pesi (VDL / VDLL…)" },
     { id:"sonar", label:"Sonar", hint:"Misurazione/diagnosi con sonar" },
-    { id:"nls", label:"Bloccaggio NLS", hint:"Centraggio più ripetibile (opzione premium)" },
+
+    // ✅ AGGIORNATO: NLS / Versioni P
+    { id:"nls", label:"Bloccaggio pneumatico (NLS – Versioni P)", hint:"Centraggio automatico pneumatico. Disponibile sulle versioni P" },
+
     { id:"sollevatore", label:"Sollevatore ruota", hint:"Ergonomia: sollevatore ruota (integrato o accessorio)" },
     { id:"rlc", label:"RLC", hint:"Analisi eccentricità (quando previsto)" },
     { id:"mobile_service", label:"Mobile service", hint:"Modelli portatili / alimentazione dedicata" }
@@ -242,7 +245,6 @@ function render(){
       res.appendChild(box);
     });
   }
-
 
   // Load more
   if(ranked.length > state.limit){
