@@ -1,26 +1,28 @@
 /* CORMACH Configuratore — v3 (No Prezzi)
    - Data-driven: data/products.json + data/accessori.json
    - Output: modello + codice (articolo)
-   - UX: 7 risultati default + Mostra altri (10)
+   - Default risultati: 7, poi "Mostra altri" +10
+   - Accessori: da matrice compatibilità (S/X) per product_code (come PDF)
 */
 
+const DEFAULT_LIMIT = 7;
+const MORE_STEP = 10;
+
 const state = {
-  limit: 7,                 // ✅ default 7
-  step: 10,                 // ✅ load more +10
+  limit: DEFAULT_LIMIT,
   family: "equilibratrici_auto",
   selected: new Set(),
   q: "",
   uso: "auto",
-  showAccessori: true,      // ✅ toggle accessori
   products: [],
   accessori: []
 };
 
-// Mutua esclusione tra alcuni flag
+// Mutua esclusione tra alcuni flag (selezioni uno -> l'altro si disattiva)
 const EXCLUSIVE_FLAGS = {
   smontagomme_auto: [
     ["platorello", "piatto"],
-    ["motoinverter", "doppia_velocita"] // ✅ MI ≠ 2 Vel
+    ["motoinverter", "doppia_velocita"] // vincolo: MI e 2 Vel non insieme
   ]
 };
 
@@ -30,7 +32,10 @@ const FLAG_DEFS = {
     { id:"touch", label:"Touch", hint:"Touchscreen (es. Touch MEC 1000)" },
     { id:"laser", label:"Laser", hint:"Guida applicazione pesi (VDL / VDLL…)" },
     { id:"sonar", label:"Sonar", hint:"Misurazione/diagnosi con sonar" },
+
+    // NLS / Versioni P
     { id:"nls", label:"Bloccaggio pneumatico (NLS – Versioni P)", hint:"Centraggio automatico pneumatico. Disponibile sulle versioni P" },
+
     { id:"sollevatore", label:"Sollevatore ruota", hint:"Ergonomia: sollevatore ruota (integrato o accessorio)" },
     { id:"rlc", label:"RLC", hint:"Analisi eccentricità (quando previsto)" },
     { id:"mobile_service", label:"Mobile service", hint:"Modelli portatili / alimentazione dedicata" }
@@ -38,10 +43,10 @@ const FLAG_DEFS = {
 
   smontagomme_auto: [
     { id:"platorello", label:"A platorello", hint:"Bloccaggio con platorelli (PUMA, CM 1200 BB…)" },
-    { id:"piatto", label:"A piatto", hint:"Bloccaggio a piatto / autocentrante" },
+    { id:"piatto", label:"A piatto", hint:"Bloccaggio a piatto / autocentrante (molti modelli auto/moto)" },
 
-    { id:"motoinverter", label:"Motoinverter (MI)", hint:"Controllo elettronico coppia e velocità (non è 2 Vel)" },
-    { id:"doppia_velocita", label:"Doppia velocità", hint:"Mandrino con 2 velocità (tipico 3ph; NON MI; NON 1ph)" },
+    { id:"motoinverter", label:"Motoinverter (MI)", hint:"Controllo elettronico coppia e velocità (non è 2 velocità)" },
+    { id:"doppia_velocita", label:"Doppia velocità", hint:"Mandrino con 2 velocità di rotazione (no MI, no 1ph)" },
 
     { id:"tubeless_gt", label:"Tubeless (GT)", hint:"Gruppo gonfiaggio / funzioni tubeless" },
     { id:"bb_doppio_disco", label:"BB doppio disco", hint:"Stallonatore evoluto (BB)" },
@@ -68,12 +73,9 @@ async function loadData(){
     fetch("./data/products.json").then(r=>r.json()),
     fetch("./data/accessori.json").then(r=>r.json())
   ]);
-
   state.products = Array.isArray(p) ? p : [];
   state.accessori = Array.isArray(a) ? a : [];
-
   renderTabs();
-  ensureAccessoriToggle();
   renderFlags();
   render();
 }
@@ -83,10 +85,9 @@ function renderTabs(){
     btn.addEventListener("click", ()=>{
       document.querySelectorAll(".tabbtn").forEach(b=>b.setAttribute("aria-selected","false"));
       btn.setAttribute("aria-selected","true");
-
       state.family = btn.dataset.family;
       state.selected.clear();
-      state.limit = 7;
+      state.limit = DEFAULT_LIMIT;
       renderFlags();
       render();
     });
@@ -94,17 +95,13 @@ function renderTabs(){
 
   $("#q").addEventListener("input", (e)=>{
     state.q = e.target.value.trim();
-    state.limit = 7;
+    state.limit = DEFAULT_LIMIT;
     render();
   });
 
-  // ✅ uso deve cambiare davvero i modelli
   $("#uso").addEventListener("change", (e)=>{
     state.uso = e.target.value;
-    state.limit = 7;
-    // opzionale: quando cambio uso, tolgo preset incongruenti
-    sanitizeSelectedFlags();
-    renderFlags();
+    state.limit = DEFAULT_LIMIT;
     render();
   });
 
@@ -112,44 +109,17 @@ function renderTabs(){
     state.selected.clear();
     state.q = ""; $("#q").value = "";
     $("#uso").value = "auto"; state.uso = "auto";
-    state.limit = 7;
+    state.limit = DEFAULT_LIMIT;
     renderFlags();
     render();
   });
 
   $("#applyPresetBtn").addEventListener("click", ()=>{
     applyPreset();
-    sanitizeSelectedFlags();
+    state.limit = DEFAULT_LIMIT;
     renderFlags();
-    state.limit = 7;
     render();
   });
-}
-
-/* ✅ Crea pulsante Accessori (senza toccare index.html) */
-function ensureAccessoriToggle(){
-  const flagsBox = $("#flags");
-  if(!flagsBox) return;
-
-  // se già esiste, non duplicare
-  if(document.getElementById("accessoriToggleRow")) return;
-
-  const row = el("div", { id:"accessoriToggleRow", class:"row", style:"margin:10px 0 4px" });
-  const lbl = el("span", { class:"pill", html:"Accessori:" });
-
-  const btn = el("button", { class:"ghost", id:"toggleAccessoriBtn", type:"button" });
-  btn.textContent = state.showAccessori ? "ON" : "OFF";
-  btn.addEventListener("click", ()=>{
-    state.showAccessori = !state.showAccessori;
-    btn.textContent = state.showAccessori ? "ON" : "OFF";
-    render();
-  });
-
-  row.appendChild(lbl);
-  row.appendChild(btn);
-
-  // inserisco il toggle sopra ai flag
-  flagsBox.parentNode.insertBefore(row, flagsBox);
 }
 
 function applyPreset(){
@@ -164,13 +134,15 @@ function applyPreset(){
   }
 
   if(state.family === "smontagomme_auto"){
-    // ✅ preset “sensati” (senza forzare truck su PUMA)
-    if(state.uso === "auto") ["platorello","motoinverter"].forEach(t=>state.selected.add(t));
-    if(state.uso === "suv") ["piatto","tubeless_gt"].forEach(t=>state.selected.add(t));
-    if(state.uso === "furgoni") ["platorello","motoinverter"].forEach(t=>state.selected.add(t));
-    if(state.uso === "truck") ["runflat"].forEach(t=>state.selected.add(t)); // truck: famiglia truck, niente PUMA
+    // preset “ragionevole” — poi rifiniamo nel prossimo step se vuoi
+    if(state.uso === "auto") ["piatto","motoinverter"].forEach(t=>state.selected.add(t));
+    if(state.uso === "suv") ["piatto","tubeless_gt","motoinverter"].forEach(t=>state.selected.add(t));
+    if(state.uso === "furgoni") ["piatto","motoinverter"].forEach(t=>state.selected.add(t));
+    if(state.uso === "truck") ["runflat"].forEach(t=>state.selected.add(t));
     if(state.uso === "moto") ["piatto"].forEach(t=>state.selected.add(t));
   }
+
+  normalizeConstraints();
 }
 
 function applyExclusives(defId){
@@ -184,15 +156,12 @@ function applyExclusives(defId){
   }
 }
 
-/* ✅ regole logiche richieste dall’utente */
-function sanitizeSelectedFlags(){
-  // MI non può essere doppia velocità
-  if(state.selected.has("motoinverter") && state.selected.has("doppia_velocita")){
-    state.selected.delete("doppia_velocita");
-  }
-  // piatto / platorello esclusivi
-  if(state.selected.has("piatto") && state.selected.has("platorello")){
-    state.selected.delete("platorello");
+// regole globali: (MI non può essere 2Vel) + (2Vel non può essere 1ph a livello prodotto → gestito in score)
+function normalizeConstraints(){
+  if(state.family === "smontagomme_auto"){
+    if(state.selected.has("doppia_velocita") && state.selected.has("motoinverter")){
+      state.selected.delete("motoinverter");
+    }
   }
 }
 
@@ -208,106 +177,105 @@ function renderFlags(){
 
     cb.checked = state.selected.has(def.id);
 
-    // ✅ disabilitazioni “smart”
-    if(state.family === "smontagomme_auto"){
-      // se MI selezionato, disabilita 2 Vel (e viceversa gestita da exclusives)
-      if(def.id === "doppia_velocita" && state.selected.has("motoinverter")){
-        cb.disabled = true;
-        cb.checked = false;
-      }
-      if(def.id === "motoinverter" && state.selected.has("doppia_velocita")){
-        cb.disabled = true;
-        cb.checked = false;
-      }
-    }
-
     cb.addEventListener("change", ()=>{
       if(cb.checked){
         state.selected.add(def.id);
         applyExclusives(def.id);
-        sanitizeSelectedFlags();
-        renderFlags(); // refresh UI
+        normalizeConstraints();
+        renderFlags(); // refresh per aggiornare check esclusivi
       }else{
         state.selected.delete(def.id);
+        normalizeConstraints();
       }
-      state.limit = 7;
+      state.limit = DEFAULT_LIMIT;
       render();
     });
 
-    const hint = cb.disabled
-      ? `${def.hint} <span style="display:block;color:rgba(242,181,63,.9);font-size:12px;margin-top:3px">Non compatibile con i flag già selezionati.</span>`
-      : def.hint;
-
-    const txt = el("div", { html:`<b>${def.label}</b><span>${hint}</span>` });
+    const txt = el("div", { html:`<b>${def.label}</b><span>${def.hint}</span>` });
     wrap.appendChild(cb); wrap.appendChild(txt); box.appendChild(wrap);
   });
 }
 
-/* ✅ filtro famiglie davvero coerente con “Uso”
-   - Truck: solo truck (PUMA sparisce)
-   - Moto: solo moto (priorità)
-*/
 function familyProducts(){
   const fam = state.family;
 
   if(fam === "equilibratrici_auto"){
-    if(state.uso === "truck") {
-      return state.products.filter(p => p.family === "equilibratrici_truck");
-    }
-    if(state.uso === "furgoni") {
-      // furgoni: auto + truck (mix)
-      return state.products.filter(p => ["equilibratrici_auto","equilibratrici_truck"].includes(p.family));
-    }
-    // auto/suv/moto: solo auto (di default)
-    return state.products.filter(p => p.family === "equilibratrici_auto");
+    let fams = ["equilibratrici_auto"];
+    if(state.uso === "truck" || state.uso === "furgoni") fams = ["equilibratrici_auto","equilibratrici_truck"];
+    return state.products.filter(p => fams.includes(p.family));
   }
 
   if(fam === "smontagomme_auto"){
-    if(state.uso === "truck"){
-      return state.products.filter(p => p.family === "smontagomme_truck");
+    // base: auto + moto, truck se richiesto
+    let fams = ["smontagomme_auto","smontagomme_moto"];
+    if(state.uso === "truck" || state.uso === "furgoni") fams = ["smontagomme_auto","smontagomme_truck","smontagomme_moto"];
+
+    // ✅ MOTO: include auto SOLO se marcati come adatti anche a moto → PUMA resta fuori
+    if(state.uso === "moto") {
+      fams = ["smontagomme_moto","smontagomme_auto"];
+      const base = state.products.filter(p => fams.includes(p.family));
+      return base.filter(p => {
+        if(p.family === "smontagomme_moto") return true;
+        const tags = new Set(p.tags || []);
+        return tags.has("moto_ok") || tags.has("moto");
+      });
     }
-    if(state.uso === "moto"){
-      return state.products.filter(p => p.family === "smontagomme_moto");
-    }
-    if(state.uso === "furgoni"){
-      // furgoni: auto (+ truck se presente) ma NON forziamo truck-only
-      return state.products.filter(p => ["smontagomme_auto","smontagomme_truck"].includes(p.family));
-    }
-    // auto/suv: auto (+ moto solo se vuoi, ma qui lo evitiamo per non “sporcare”)
-    return state.products.filter(p => p.family === "smontagomme_auto");
+
+    return state.products.filter(p => fams.includes(p.family));
   }
 
   return state.products.filter(p => p.family === fam);
 }
 
-/* ✅ scoring: fa emergere risultati pertinenti anche senza flag */
+// boost per far emergere prodotti coerenti con “Uso”
 function usageBoost(p){
   const tags = new Set(p.tags || []);
   let b = 0;
 
   if(state.family === "smontagomme_auto"){
-    if(state.uso === "suv"){
-      if(tags.has("tubeless_gt")) b += 3;
-      if(tags.has("piatto")) b += 2;
+    if(state.uso === "moto"){
+      if(p.family === "smontagomme_moto") b += 8;
+      if(tags.has("moto")) b += 3;
+    }
+    if(state.uso === "truck"){
+      if(p.family === "smontagomme_truck") b += 8;
+      if(tags.has("truck")) b += 3;
     }
     if(state.uso === "furgoni"){
+      if(p.family === "smontagomme_truck") b += 3;
       if(tags.has("furgoni")) b += 3;
-      if(tags.has("platorello")) b += 1;
     }
   }
 
   if(state.family === "equilibratrici_auto"){
-    if(state.uso === "suv"){
-      if(tags.has("sonar")) b += 2;
-      if(tags.has("laser")) b += 2;
+    if(state.uso === "truck"){
+      if(p.family === "equilibratrici_truck") b += 8;
+      if(tags.has("truck")) b += 3;
     }
     if(state.uso === "furgoni"){
-      if(tags.has("sollevatore")) b += 2;
-      if(tags.has("nls")) b += 2;
+      if(p.family === "equilibratrici_truck") b += 3;
+      if(tags.has("furgoni")) b += 3;
     }
   }
 
   return b;
+}
+
+function constraintPenalty(p){
+  const tags = new Set(p.tags || []);
+  let pen = 0;
+
+  // vincolo: se user vuole 2 velocità, un prodotto MI non va bene
+  if(state.selected.has("doppia_velocita") && tags.has("motoinverter")) pen -= 12;
+
+  // vincolo: se user vuole 2 velocità, un prodotto 1ph / 230V non va bene
+  // (assumo tag standard: alimentazione_1ph oppure 230v)
+  if(state.selected.has("doppia_velocita") && (tags.has("alimentazione_1ph") || tags.has("230v"))) pen -= 12;
+
+  // inverso: se user vuole MI, e prodotto è 2 velocità (se esiste tag)
+  if(state.selected.has("motoinverter") && tags.has("doppia_velocita")) pen -= 8;
+
+  return pen;
 }
 
 function matchScore(p){
@@ -315,20 +283,18 @@ function matchScore(p){
   const sel = [...state.selected];
   let score = 0;
 
-  // match con flag
   for(const t of sel){
     if(tags.has(t)) score += 2;
     else score -= 3;
   }
 
-  // boost per uso
   score += usageBoost(p);
+  score += constraintPenalty(p);
 
-  // ricerca testo
   if(state.q){
     const q = state.q.toUpperCase();
     const hay = (p.name + " " + p.code).toUpperCase();
-    if(hay.includes(q)) score += 2;
+    if(hay.includes(q)) score += 3;
   }
 
   return score;
@@ -336,66 +302,73 @@ function matchScore(p){
 
 function filterAndRank(){
   const list = familyProducts();
-  const q = state.q.toUpperCase();
 
   let filtered = list;
   if(state.q){
+    const q = state.q.toUpperCase();
     filtered = list.filter(p => (p.name + " " + p.code).toUpperCase().includes(q));
   }
 
   const sel = [...state.selected];
-  let strict = filtered;
 
-  // strict match su flag
+  // strict: tutti i flag selezionati devono essere presenti
+  let strict = filtered;
   if(sel.length){
     strict = filtered.filter(p => sel.every(t => (p.tags || []).includes(t)));
   }
 
-  // fallback: se strict vuoto, mostra comunque alternative ordinate
+  // se strict vuoto, mostro alternative ranked
   let ranked = strict.length ? strict : filtered;
 
-  ranked = ranked
-    .map(p => ({...p, _score: matchScore(p)}))
-    .sort((a,b)=> b._score - a._score);
+  ranked = ranked.map(p => ({...p, _score: matchScore(p)}))
+                 .sort((a,b)=> b._score - a._score);
 
   return { ranked, strictCount: strict.length, total: filtered.length };
 }
 
-/* ✅ Accessori: mostra tutti quelli compatibili con la famiglia attiva.
-   - Se accessori.json contiene mappe compatibilità (models/compat/compatible_with), le visualizziamo.
+/* Accessori da compatibilità stile PDF:
+   accessorio.compat = [{ product_code:"00100208", type:"S"|"X" }, ...]
 */
-function accessoriForCurrent(){
-  const currentFamilies =
-    state.family.startsWith("equilibratrici")
-      ? (state.uso === "truck" ? ["equilibratrici_truck"]
-        : state.uso === "furgoni" ? ["equilibratrici_auto","equilibratrici_truck"]
-        : ["equilibratrici_auto"])
-      : (state.uso === "truck" ? ["smontagomme_truck"]
-        : state.uso === "furgoni" ? ["smontagomme_auto","smontagomme_truck"]
-        : state.uso === "moto" ? ["smontagomme_moto"]
-        : ["smontagomme_auto"]);
+function accessoriCompatibili(rankedProducts){
+  const activeCodes = new Set(rankedProducts.map(p => p.code));
+  const activeByCode = new Map(rankedProducts.map(p => [p.code, p.name]));
 
-  const out = state.accessori.filter(a=>{
-    const applies = Array.isArray(a.applies_to) ? a.applies_to : [];
-    return applies.some(x => currentFamilies.includes(x));
-  });
+  const famAllowed = state.family.startsWith("equilibratrici")
+    ? new Set(["equilibratrici_auto","equilibratrici_truck"])
+    : new Set(["smontagomme_auto","smontagomme_truck","smontagomme_moto"]);
 
-  // opzionale: filtri “piatto/platorello” se l’accessorio ha tags coerenti
-  const sel = state.selected;
-  const want = [];
-  if(sel.has("piatto")) want.push("piatto");
-  if(sel.has("platorello")) want.push("platorello");
+  const out = [];
 
-  if(want.length){
-    return out.filter(a=>{
-      const at = new Set(a.tags || []);
-      // se l’accessorio non ha tag specifici → lo teniamo
-      const hasSpecific = at.has("piatto") || at.has("platorello");
-      if(!hasSpecific) return true;
-      return want.some(w => at.has(w));
+  for(const a of state.accessori){
+    const applies = (a.applies_to || []).some(x => famAllowed.has(x));
+    if(!applies) continue;
+
+    const compat = Array.isArray(a.compat) ? a.compat : [];
+    const hits = compat.filter(c => activeCodes.has(String(c.product_code)));
+
+    if(!hits.length) continue;
+
+    const models = hits.map(h => ({
+      code: String(h.product_code),
+      name: activeByCode.get(String(h.product_code)) || String(h.product_code),
+      type: (h.type || "X").toUpperCase() === "S" ? "S" : "X"
+    }));
+
+    // raggruppo per tipo, così è leggibile
+    const sList = models.filter(m => m.type === "S");
+    const xList = models.filter(m => m.type === "X");
+
+    out.push({
+      code: String(a.code || ""),
+      name: a.name || a.descrizione || "Accessorio",
+      _s: sList,
+      _x: xList,
+      _modelsCount: models.length
     });
   }
 
+  // ordina per utilità (più modelli coperti)
+  out.sort((a,b)=> b._modelsCount - a._modelsCount);
   return out;
 }
 
@@ -416,11 +389,11 @@ function render(){
     res.appendChild(el("div", { class:"note", html:"Nessun risultato. Prova a rimuovere qualche flag o cambia ricerca." }));
   } else {
     top.forEach((p, idx)=>{
-      const tags = (p.tags || []).slice(0, 12).map(t => `<span class="tag">${t}</span>`).join("");
+      const tags = (p.tags || []).slice(0, 10).map(t => `<span class="tag">${t}</span>`).join("");
       const box = el("div", { class:"result" });
 
       const topRow = el("div", { class:"r-top" }, [
-        el("div", { html:`<div class="r-name">${idx===0 ? "✅ Consigliato: " : ""}${p.name}</div><div class="tagline">Famiglia: ${String(p.family||"").replaceAll("_"," ")}</div>` }),
+        el("div", { html:`<div class="r-name">${idx===0 ? "✅ Consigliato: " : ""}${p.name}</div><div class="tagline">Famiglia: ${p.family.replaceAll("_"," ")}</div>` }),
         el("div", { class:"r-code", html:`Codice: ${p.code}` })
       ]);
 
@@ -430,47 +403,68 @@ function render(){
     });
   }
 
-  // ✅ Load more: +10
+  // ✅ Mostra altri: +10
   if(ranked.length > state.limit){
     const remaining = ranked.length - state.limit;
-    const moreBtn = el("button", { class:"primary", style:"width:100%;margin-top:10px;padding:12px;border-radius:12px;" });
-    moreBtn.textContent = `Mostra altri (${Math.min(state.step, remaining)})`;
+    const step = Math.min(MORE_STEP, remaining);
+
+    const moreBtn = el("button", {
+      class:"primary",
+      style:"width:100%;margin-top:10px;padding:12px;border-radius:12px;"
+    });
+
+    moreBtn.textContent = `Mostra altri (${step})`;
     moreBtn.addEventListener("click", ()=>{
-      state.limit = Math.min(ranked.length, state.limit + state.step);
+      state.limit = Math.min(ranked.length, state.limit + MORE_STEP);
       render();
     });
+
     res.appendChild(moreBtn);
   }
 
-  // ✅ Accessori box
+  // ✅ Accessori: calcolati su TUTTI i risultati filtrati (ranked)
   const accBox = $("#accessoriBox");
   accBox.innerHTML = "";
 
-  if(state.showAccessori){
-    const acc = accessoriForCurrent();
-    if(acc.length){
-      const html = acc.map(a=>{
-        const code = a.code || a.codice || "";
-        const name = a.name || a.descrizione || a.title || "Accessorio";
-        const extra =
-          Array.isArray(a.models) ? ` <span class="tagline" style="margin-top:6px">Compatibile con: ${a.models.join(", ")}</span>` :
-          Array.isArray(a.compatible_with) ? ` <span class="tagline" style="margin-top:6px">Compatibile con: ${a.compatible_with.join(", ")}</span>` :
-          (typeof a.compat === "string" ? ` <span class="tagline" style="margin-top:6px">${a.compat}</span>` : "");
+  const acc = accessoriCompatibili(ranked);
+  if(acc.length){
+    const html = acc.map(a=>{
+      const sTags = a._s.length
+        ? `<div class="tagline" style="margin-top:8px"><b>S (standard)</b></div>
+           <div>${a._s.map(m=>`<span class="tag">S — ${m.name}</span>`).join("")}</div>`
+        : "";
 
-        return `<div style="margin:6px 0">• <b>${name}</b> — <span class="r-code">cod. ${code}</span>${extra}</div>`;
-      }).join("");
+      const xTags = a._x.length
+        ? `<div class="tagline" style="margin-top:8px"><b>X (optional)</b></div>
+           <div>${a._x.map(m=>`<span class="tag">X — ${m.name}</span>`).join("")}</div>`
+        : "";
 
-      accBox.appendChild(
-        el("div", {
-          class:"acc",
-          html:`<b>Accessori compatibili</b>
-                <div class="tagline">Filtrati per famiglia + uso (e piatto/platorello se disponibili nei tag).</div>
-                <div style="margin-top:8px">${html}</div>`
-        })
-      );
-    } else {
-      accBox.appendChild(el("div", { class:"note", html:"Nessun accessorio disponibile per questa combinazione (dataset accessori.json da completare con tabella PDF)." }));
-    }
+      return `
+        <div class="result" style="border-color: rgba(53,194,107,.18)">
+          <div class="r-top">
+            <div>
+              <div class="r-name">${a.name}</div>
+              <div class="tagline">Codice accessorio: <b>${a.code}</b></div>
+            </div>
+          </div>
+          ${sTags}
+          ${xTags}
+        </div>
+      `;
+    }).join("");
+
+    accBox.appendChild(el("div", {
+      class:"acc",
+      html:`<b>Accessori compatibili</b>
+            <div class="tagline">Derivati dalla compatibilità (S / X) per i modelli filtrati (come matrice del PDF).</div>
+            <div style="margin-top:10px">${html}</div>`
+    }));
+  } else {
+    // se non escono accessori, probabile compat[] ancora non popolato: meglio farlo capire
+    accBox.appendChild(el("div", {
+      class:"note",
+      html:"Accessori: nessuna compatibilità trovata. Verifica che data/accessori.json contenga <b>compat[]</b> con mappa S/X → product_code (come nel PDF)."
+    }));
   }
 }
 
