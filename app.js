@@ -1,9 +1,12 @@
-/* CORMACH Configuratore — v4.4 (No Prezzi)
-   FIX principali:
-   - Truck: include famiglie truck anche se family nel JSON varia (match robusto)
-   - A PIATTO: riconosce "PIATTO" in name/descrizione + evita falsi positivi platorello
-   - A PLATORELLO: riconosce anche "PLATORELLO" in name/descrizione
-   - resto invariato: tabs/pill/preset, risultati 7 poi +10, accessori toggle no duplicati
+/* CORMACH Configuratore — v4.5 (No Prezzi)
+   FIX principali (richieste tue):
+   - Smontagomme TRUCK: con uso=truck mostra davvero la famiglia truck (match robusto su family + testo)
+   - A PIATTO: non deve “buttarti” solo su moto → riconosce anche AUTO a piatto/autocentrante (euristica su descrizioni)
+   - Doppia velocità: ESCLUDE SEMPRE i modelli moto (BIKE/moto) perché moto = 1 velocità
+   - BB / Runflat / Ribassati / Racing: ora influenzano davvero i risultati anche se nel JSON mancano tags,
+     usando fallback su testo (name/descrizione/description/note)
+   - Accessori ON/OFF: nessun duplicato; se esiste un toggle in pagina lo usa, altrimenti lo crea una volta sola
+   - Default risultati 7, poi "Mostra altri" +10
 */
 
 const DEFAULT_LIMIT = 7;
@@ -11,7 +14,7 @@ const MORE_STEP = 10;
 
 const state = {
   limit: DEFAULT_LIMIT,
-  family: "equilibratrici_auto",
+  family: "equilibratrici_auto", // tab selezionato
   selected: new Set(),
   q: "",
   uso: "auto",
@@ -20,6 +23,7 @@ const state = {
   accessori: []
 };
 
+// Mutua esclusione tra flag
 const EXCLUSIVE_FLAGS = {
   smontagomme_auto: [
     ["platorello", "piatto"],
@@ -44,7 +48,7 @@ const FLAG_DEFS = {
     { id:"piatto", label:"A piatto", hint:"Bloccaggio a piatto / autocentrante" },
 
     { id:"motoinverter", label:"Motoinverter (MI)", hint:"Controllo elettronico coppia e velocità (non è 2 velocità)" },
-    { id:"doppia_velocita", label:"Doppia velocità", hint:"Mandrino con 2 velocità (no MI, no 1ph)" },
+    { id:"doppia_velocita", label:"Doppia velocità", hint:"Mandrino con 2 velocità (no MI, no 1ph, NO MOTO)" },
 
     { id:"tubeless_gt", label:"Tubeless (GT)", hint:"Gruppo gonfiaggio / funzioni tubeless" },
     { id:"bb_doppio_disco", label:"BB doppio disco", hint:"Stallonatore evoluto (BB)" },
@@ -71,12 +75,11 @@ function el(tag, attrs={}, children=[]){
 function upper(s){ return String(s || "").toUpperCase(); }
 
 function tagsOf(p){
-  const t = Array.isArray(p.tags) ? p.tags : [];
+  const t = Array.isArray(p?.tags) ? p.tags : [];
   return new Set(t);
 }
 
 function textOf(p){
-  // prova a leggere anche descrizione/descrizione_breve/note se esistono
   const parts = [
     p?.name,
     p?.descrizione,
@@ -86,15 +89,42 @@ function textOf(p){
   return upper(parts.join(" | "));
 }
 
-/* ✅ Match robusto: fallback SOLO per platorello/piatto */
+function isMotoProduct(p){
+  const tags = tagsOf(p);
+  const txt = textOf(p);
+  const fam = String(p?.family || "");
+  return (
+    tags.has("moto") ||
+    tags.has("moto_ok") ||
+    /\bBIKE\b/.test(txt) ||
+    txt.includes(" MOTO") ||
+    fam.includes("moto")
+  );
+}
+
+function isTruckProduct(p){
+  const fam = String(p?.family || "");
+  const txt = textOf(p);
+  return (
+    fam.includes("truck") ||
+    txt.includes("TRUCK") ||
+    txt.includes("AUTOCARRO") ||
+    txt.includes("CAMION")
+  );
+}
+
+/* ========= MATCH FLAG (tag + fallback su testo) =========
+   Regola: inventiamo il minimo indispensabile SOLO per far funzionare i flag anche
+   quando tags nel JSON sono incompleti.
+*/
 function hasFlag(p, flag){
   const tags = tagsOf(p);
   if(tags.has(flag)) return true;
 
   const txt = textOf(p);
 
+  // --- strutturali ---
   if(flag === "platorello"){
-    // keyword + modelli tipici
     if(txt.includes("PLATORELLO")) return true;
     if(/\bPUMA\b/.test(txt)) return true;
     if(/\b1200\b/.test(txt) || /\b1200BB\b/.test(txt)) return true;
@@ -102,19 +132,128 @@ function hasFlag(p, flag){
   }
 
   if(flag === "piatto"){
-    // keyword PIATTO (auto) oppure BIKE/moto
-    if(txt.includes("PIATTO")) return true;
-    if(/\bBIKE\b/.test(txt)) return true;
-    if(tags.has("moto")) return true;
+    // AUTO a piatto/autocentrante + MOTO BIKE
+    const isMoto = isMotoProduct(p);
 
-    // fallback “anti-platorello”: se NON è platorello e nel testo c’è qualche indizio
-    // (qui volutamente conservativo: senza PIATTO/BIKE/moto NON lo considero piatto)
+    const piattoWords =
+      txt.includes("PIATTO") ||
+      txt.includes("AUTOCENTRANTE") ||
+      txt.includes("AUTOCENTR") ||
+      txt.includes("AUTOCENT") ||
+      txt.includes("CENTRANTE") ||
+      txt.includes("TAVOLA") ||
+      txt.includes("TAVOLO") ||
+      txt.includes("PIATTAFORMA");
+
+    // escludo chiaramente i platorello
+    const isPlat = hasFlag(p, "platorello");
+    if(isMoto) return true;
+    if(piattoWords && !isPlat) return true;
+    return false;
+  }
+
+  // --- funzionali Smontagomme ---
+  if(flag === "tubeless_gt"){
+    // GT / tubeless / gonfiaggio
+    if(tags.has("tubeless") || tags.has("gt")) return true;
+    if(/\bGT\b/.test(txt)) return true;
+    if(txt.includes("TUBELESS")) return true;
+    if(txt.includes("GONFIAGG")) return true;
+    return false;
+  }
+
+  if(flag === "bb_doppio_disco"){
+    if(tags.has("bb")) return true;
+    if(/\bBB\b/.test(txt)) return true;
+    if(txt.includes("DOPPIO DISCO")) return true;
+    if(txt.includes("DOPPIODISCO")) return true;
+    if(txt.includes("STALLONAT")) return true; // stallonatore evoluto spesso è BB
+    return false;
+  }
+
+  if(flag === "runflat"){
+    if(tags.has("runflat")) return true;
+    if(txt.includes("RUNFLAT")) return true;
+    return false;
+  }
+
+  if(flag === "ribassati"){
+    if(tags.has("ribassati")) return true;
+    if(txt.includes("RIBASSAT")) return true;
+    if(txt.includes("PROFILO BASSO")) return true;
+    if(txt.includes("LOW PROFILE")) return true;
+    return false;
+  }
+
+  if(flag === "racing"){
+    if(tags.has("racing")) return true;
+    if(txt.includes("RACING")) return true;
+    return false;
+  }
+
+  if(flag === "motoinverter"){
+    if(tags.has("mi") || tags.has("motoinverter")) return true;
+    if(/\bMI\b/.test(txt)) return true;
+    if(txt.includes("MOTOINVERTER")) return true;
+    if(txt.includes("INVERTER")) return true;
+    return false;
+  }
+
+  if(flag === "doppia_velocita"){
+    // NOTA: non devo mai considerare MOTO come doppia velocità
+    if(isMotoProduct(p)) return false;
+
+    if(tags.has("doppia_velocita")) return true;
+    if(txt.includes("DOPPIA VELOC")) return true;
+    if(txt.includes("2 VELOC")) return true;
+    if(/\b2V\b/.test(txt)) return true;
+    return false;
+  }
+
+  // --- equilibratrici (fallback molto conservativo) ---
+  if(flag === "monitor"){
+    if(txt.includes("MONITOR")) return true;
+    if(txt.includes("VD") || txt.includes("VDL") || txt.includes("VDBL")) return true;
+    return false;
+  }
+  if(flag === "touch"){
+    if(txt.includes("TOUCH")) return true;
+    return false;
+  }
+  if(flag === "laser"){
+    if(txt.includes("LASER")) return true;
+    if(txt.includes("VDL")) return true;
+    return false;
+  }
+  if(flag === "sonar"){
+    if(txt.includes("SONAR")) return true;
+    return false;
+  }
+  if(flag === "nls"){
+    if(txt.includes("NLS")) return true;
+    if(txt.includes("PNEUM")) return true;
+    if(txt.includes("BLOCCAGGIO") && txt.includes("PNEUM")) return true;
+    return false;
+  }
+  if(flag === "sollevatore"){
+    if(txt.includes("SOLLEV")) return true;
+    return false;
+  }
+  if(flag === "rlc"){
+    if(/\bRLC\b/.test(txt)) return true;
+    return false;
+  }
+  if(flag === "mobile_service"){
+    if(txt.includes("MOBILE")) return true;
+    if(txt.includes("SERVICE")) return true;
+    if(txt.includes("PORTAT")) return true;
     return false;
   }
 
   return false;
 }
 
+/* ========= DATA LOAD ========= */
 async function loadData(){
   const [p, a] = await Promise.all([
     fetch("./data/products.json").then(r=>r.json()),
@@ -223,8 +362,13 @@ function applyExclusives(defId){
 
 function normalizeConstraints(){
   if(state.family === "smontagomme_auto"){
+    // se selezioni doppia velocità, MI va tolto
     if(state.selected.has("doppia_velocita") && state.selected.has("motoinverter")){
       state.selected.delete("motoinverter");
+    }
+    // se sei in moto, togli doppia velocità (moto = 1 velocità)
+    if(state.uso === "moto" && state.selected.has("doppia_velocita")){
+      state.selected.delete("doppia_velocita");
     }
   }
 }
@@ -237,6 +381,11 @@ function renderFlags(){
   const defs = FLAG_DEFS[state.family] || [];
 
   defs.forEach(def=>{
+    // Nascondi doppia velocità quando uso=moto (per evitare confusione)
+    if(state.family === "smontagomme_auto" && state.uso === "moto" && def.id === "doppia_velocita"){
+      return;
+    }
+
     const id = `flag_${def.id}`;
     const wrap = el("label", { class:"chk", for:id });
     const cb = el("input", { type:"checkbox", id });
@@ -265,26 +414,29 @@ function renderFlags(){
 }
 
 /* ===================== ACCESSORI TOGGLE (NO DUPLICATI) ===================== */
-function findLeftAccessoriButton(){
-  const leftCard = document.querySelector('section.card[aria-label="Filtri"]') || document.querySelectorAll(".card")[0];
-  if(!leftCard) return null;
-  const buttons = leftCard.querySelectorAll("button");
-  for(const b of buttons){
-    const t = (b.textContent || "").trim();
-    if(/^Accessori\s*:/i.test(t) || t.toLowerCase() === "accessori") return b;
+function findExistingAccessoriButton(){
+  // Se nel tuo HTML esiste già un bottone dedicato (sinistra), lo usiamo.
+  const candidates = Array.from(document.querySelectorAll("button"))
+    .filter(b => /accessori/i.test((b.textContent || "").trim()) || b.id === "toggleAccessoriBtn");
+  // Preferisci uno nel pannello filtri
+  const leftCard = document.querySelector('section.card[aria-label="Filtri"]') || document.querySelectorAll(".card")[0] || null;
+  if(leftCard){
+    const inLeft = candidates.find(b => leftCard.contains(b));
+    if(inLeft) return inLeft;
   }
-  return null;
+  return candidates[0] || null;
 }
 
 function bindAccessoriToggle(){
-  const leftBtn = findLeftAccessoriButton();
-  if(leftBtn){
-    leftBtn.id = "toggleAccessoriBtn";
-    leftBtn.type = "button";
-    leftBtn.disabled = false;
-    leftBtn.style.pointerEvents = "auto";
-    leftBtn.onclick = null;
-    leftBtn.addEventListener("click", ()=>{
+  // Se c'è già un bottone, lo “normalizzo”
+  const existing = findExistingAccessoriButton();
+  if(existing){
+    existing.id = "toggleAccessoriBtn";
+    existing.type = "button";
+    existing.disabled = false;
+    existing.style.pointerEvents = "auto";
+    existing.onclick = null;
+    existing.addEventListener("click", ()=>{
       state.showAccessori = !state.showAccessori;
       paintAccessoriToggle();
       render();
@@ -293,11 +445,7 @@ function bindAccessoriToggle(){
     return;
   }
 
-  if(byId("toggleAccessoriBtn")) {
-    paintAccessoriToggle();
-    return;
-  }
-
+  // Altrimenti lo creo nell'header risultati
   const hd = document.querySelector('section.card[aria-label="Risultati"] .hd') ||
              (document.querySelectorAll(".card")[1] ? document.querySelectorAll(".card")[1].querySelector(".hd") : null);
   if(!hd) return;
@@ -327,7 +475,7 @@ function paintAccessoriToggle(){
 
 /* ===================== DATA FILTERING ===================== */
 function isFamily(p, key){
-  // key esempio: "smontagomme_truck" — match robusto
+  // match robusto su family string
   const f = String(p?.family || "");
   return f === key || f.startsWith(key) || f.includes(key);
 }
@@ -342,26 +490,44 @@ function familyProducts(){
   }
 
   if(fam === "smontagomme_auto"){
-    // NB: qui serve davvero truck quando uso=truck
+    // base: auto + moto
     let fams = ["smontagomme_auto","smontagomme_moto"];
-    if(state.uso === "truck" || state.uso === "furgoni") fams = ["smontagomme_auto","smontagomme_truck","smontagomme_moto"];
 
-    if(state.uso === "moto"){
-      fams = ["smontagomme_moto","smontagomme_auto"];
-      const base = state.products.filter(p => fams.some(k => isFamily(p, k)));
-      return base.filter(p=>{
-        if(isFamily(p, "smontagomme_moto")) return true;
-        const tags = tagsOf(p);
-        return tags.has("moto_ok") || tags.has("moto");
-      });
+    // truck/furgoni: includi truck
+    if(state.uso === "truck" || state.uso === "furgoni"){
+      fams = ["smontagomme_auto","smontagomme_truck","smontagomme_moto"];
     }
 
-    return state.products.filter(p => fams.some(k => isFamily(p, k)));
+    // se uso=truck voglio preferire/trattenere anche se family è “sporca” → fallback su testo
+    const base = state.products.filter(p => fams.some(k => isFamily(p, k)));
+
+    if(state.uso === "truck"){
+      // aggiungi eventuali prodotti “truck-like” anche se family non è perfetta
+      const extra = state.products.filter(p =>
+        !base.includes(p) &&
+        (String(p?.family || "").includes("smontagomme") || textOf(p).includes("SMONTAGOMME")) &&
+        isTruckProduct(p)
+      );
+      return base.concat(extra);
+    }
+
+    if(state.uso === "moto"){
+      // includi auto solo se moto_ok/moto
+      const motoSet = base.filter(p=>{
+        if(isFamily(p, "smontagomme_moto")) return true;
+        const tags = tagsOf(p);
+        return tags.has("moto_ok") || tags.has("moto") || isMotoProduct(p);
+      });
+      return motoSet;
+    }
+
+    return base;
   }
 
   return state.products.filter(p => isFamily(p, fam));
 }
 
+/* filtro strutturale: se seleziono platorello/piatto, la lista deve rispettarlo SEMPRE */
 function applyStructuralFilters(list){
   if(state.family !== "smontagomme_auto") return list;
 
@@ -372,16 +538,29 @@ function applyStructuralFilters(list){
 
   return list.filter(p=>{
     if(wantPlatorello) return hasFlag(p, "platorello");
-    if(wantPiatto) return hasFlag(p, "piatto") && !hasFlag(p, "platorello"); // evita contaminazioni
+
+    if(wantPiatto){
+      // A piatto: sì auto a piatto + sì moto, ma mai platorello
+      return hasFlag(p, "piatto") && !hasFlag(p, "platorello");
+    }
     return true;
   });
+}
+
+function applySpecialConstraints(list){
+  // Doppia velocità: niente moto (sempre)
+  if(state.family === "smontagomme_auto" && state.selected.has("doppia_velocita")){
+    list = list.filter(p => !isMotoProduct(p));
+  }
+  return list;
 }
 
 function constraintPenalty(p){
   const tags = tagsOf(p);
   let pen = 0;
 
-  if(state.selected.has("doppia_velocita") && tags.has("motoinverter")) pen -= 12;
+  // 2 vel non compatibile con MI e 1ph/230v (se tag presenti)
+  if(state.selected.has("doppia_velocita") && hasFlag(p, "motoinverter")) pen -= 12;
   if(state.selected.has("doppia_velocita") && (tags.has("alimentazione_1ph") || tags.has("230v"))) pen -= 12;
 
   return pen;
@@ -404,6 +583,17 @@ function matchScore(p){
     if(hay.includes(q)) score += 3;
   }
 
+  // Preferisci truck-like se uso=truck
+  if(state.family === "smontagomme_auto" && state.uso === "truck"){
+    if(isTruckProduct(p)) score += 3;
+    else score -= 2;
+  }
+
+  // Preferisci non-moto se uso != moto
+  if(state.family === "smontagomme_auto" && state.uso !== "moto"){
+    if(isMotoProduct(p)) score -= 1;
+  }
+
   return score;
 }
 
@@ -416,9 +606,11 @@ function filterAndRank(){
   }
 
   list = applyStructuralFilters(list);
+  list = applySpecialConstraints(list);
 
   const sel = [...state.selected];
 
+  // strict match: usa hasFlag (tag + fallback testo)
   let strict = list;
   if(sel.length){
     strict = list.filter(p => sel.every(t => hasFlag(p, t)));
@@ -445,7 +637,15 @@ function accessoriCompatibili(visibleProducts){
   const out = [];
 
   for(const a of state.accessori){
-    if(!(a.applies_to || []).some(f => [...famAllowed].some(k => String(f).includes(k)))) continue;
+    // famiglia corretta (match robusto)
+    const applies = (a.applies_to || []).some(f => {
+      const sf = String(f || "");
+      for(const k of famAllowed){
+        if(sf === k || sf.includes(k)) return true;
+      }
+      return false;
+    });
+    if(!applies) continue;
 
     const compat = Array.isArray(a.compat) ? a.compat : [];
     if(!compat.length) continue;
