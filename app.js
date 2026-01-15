@@ -4,19 +4,21 @@
 */
 
 const state = {
-  limit: 20,
+  limit: 7,                 // ✅ default 7 risultati
   family: "equilibratrici_auto",
   selected: new Set(),
   q: "",
   uso: "auto",
   products: [],
-  accessori: []
+  accessori: [],
+  showAccessori: true       // ✅ toggle accessori
 };
 
 // Mutua esclusione tra alcuni flag (selezioni uno -> l'altro si disattiva)
 const EXCLUSIVE_FLAGS = {
   smontagomme_auto: [
-    ["platorello", "piatto"]
+    ["platorello", "piatto"],
+    ["motoinverter", "doppia_velocita"] // ✅ MI vs doppia velocità
   ]
 };
 
@@ -36,13 +38,13 @@ const FLAG_DEFS = {
   ],
 
   smontagomme_auto: [
-    // ✅ NUOVI: tipo serraggio
+    // ✅ tipo serraggio
     { id:"platorello", label:"A platorello", hint:"Bloccaggio con platorelli (PUMA, CM 1200 BB…)" },
     { id:"piatto", label:"A piatto", hint:"Bloccaggio a piatto / autocentrante" },
 
-    // ✅ MI e 2 Vel sono cose diverse
+    // ✅ MI e 2 Vel sono incompatibili (gestito da EXCLUSIVE_FLAGS)
     { id:"motoinverter", label:"Motoinverter (MI)", hint:"Controllo elettronico coppia e velocità" },
-    { id:"doppia_velocita", label:"Doppia velocità", hint:"Mandrino con 2 velocità di rotazione" },
+    { id:"doppia_velocita", label:"Doppia velocità", hint:"Mandrino con 2 velocità (non compatibile con MI e 1PH)" },
 
     { id:"tubeless_gt", label:"Tubeless (GT)", hint:"Gruppo gonfiaggio / funzioni tubeless" },
     { id:"bb_doppio_disco", label:"BB doppio disco", hint:"Stallonatore evoluto (BB)" },
@@ -71,43 +73,74 @@ async function loadData(){
   ]);
   state.products = p;
   state.accessori = a;
+
   renderTabs();
   renderFlags();
   render();
 }
 
 function renderTabs(){
+  // Tabs
   document.querySelectorAll(".tabbtn").forEach(btn=>{
     btn.addEventListener("click", ()=>{
       document.querySelectorAll(".tabbtn").forEach(b=>b.setAttribute("aria-selected","false"));
       btn.setAttribute("aria-selected","true");
+
       state.family = btn.dataset.family;
       state.selected.clear();
-      state.limit = 20;
+      state.limit = 7;
+
       renderFlags();
       render();
     });
   });
 
-  $("#q").addEventListener("input", (e)=>{ state.q = e.target.value.trim(); state.limit = 20; render(); });
-
-  // ✅ fix: cambio "Uso" deve aggiornare davvero la lista a destra
-  $("#uso").addEventListener("change", (e)=>{
-    state.uso = e.target.value;
-    state.limit = 20;
+  // Ricerca
+  $("#q").addEventListener("input", (e)=>{
+    state.q = e.target.value.trim();
+    state.limit = 7;
     render();
   });
 
+  // Uso
+  $("#uso").addEventListener("change", (e)=>{
+    state.uso = e.target.value;
+    state.limit = 7;
+    render();
+  });
+
+  // Reset
   $("#clearBtn").addEventListener("click", ()=>{
     state.selected.clear();
     state.q = ""; $("#q").value = "";
     $("#uso").value = "auto"; state.uso = "auto";
-    renderFlags(); state.limit = 20; render();
+    state.limit = 7;
+    renderFlags();
+    render();
   });
 
+  // Preset
   $("#applyPresetBtn").addEventListener("click", ()=>{
-    applyPreset(); renderFlags(); state.limit = 20; render();
+    applyPreset();
+    state.limit = 7;
+    renderFlags();
+    render();
   });
+
+  // ✅ Toggle accessori
+  const tbtn = $("#toggleAccBtn");
+  if(tbtn){
+    // init label
+    tbtn.textContent = `Accessori: ${state.showAccessori ? "ON" : "OFF"}`;
+    if(!state.showAccessori) tbtn.classList.add("off");
+
+    tbtn.addEventListener("click", ()=>{
+      state.showAccessori = !state.showAccessori;
+      tbtn.textContent = `Accessori: ${state.showAccessori ? "ON" : "OFF"}`;
+      tbtn.classList.toggle("off", !state.showAccessori);
+      render();
+    });
+  }
 }
 
 function applyPreset(){
@@ -126,8 +159,12 @@ function applyPreset(){
     if(state.uso === "suv") ["motoinverter","tubeless_gt"].forEach(t=>state.selected.add(t));
     if(state.uso === "furgoni") ["motoinverter"].forEach(t=>state.selected.add(t));
     if(state.uso === "truck") ["runflat"].forEach(t=>state.selected.add(t));
-    if(state.uso === "moto") ["piatto"].forEach(t=>state.selected.add(t)); // moto: priorità piatto
+    if(state.uso === "moto") ["piatto"].forEach(t=>state.selected.add(t));
   }
+
+  // Applica mutue esclusioni (es: MI vs doppia_velocita)
+  // (se preset impostasse cose incompatibili, qui le normalizza)
+  for(const t of [...state.selected]) applyExclusives(t);
 }
 
 function applyExclusives(defId){
@@ -157,10 +194,12 @@ function renderFlags(){
       if(cb.checked){
         state.selected.add(def.id);
         applyExclusives(def.id);
-        renderFlags(); // refresh per aggiornare i check esclusivi
+        // refresh per aggiornare i check esclusivi
+        renderFlags();
       }else{
         state.selected.delete(def.id);
       }
+      state.limit = 7;
       render();
     });
 
@@ -183,14 +222,14 @@ function familyProducts(){
   if(fam === "smontagomme_auto"){
     let fams = ["smontagomme_auto","smontagomme_moto"];
     if(state.uso === "truck" || state.uso === "furgoni") fams = ["smontagomme_auto","smontagomme_truck","smontagomme_moto"];
-    if(state.uso === "moto") fams = ["smontagomme_moto","smontagomme_auto"]; // moto in priorità
+    if(state.uso === "moto") fams = ["smontagomme_moto","smontagomme_auto"];
     return state.products.filter(p => fams.includes(p.family));
   }
 
   return state.products.filter(p => p.family === fam);
 }
 
-// ✅ Uso -> boost di scoring per far comparire a destra i prodotti “giusti”
+// Uso -> boost di scoring per far comparire a destra i prodotti “giusti”
 function usageBoost(p){
   const tags = new Set(p.tags || []);
   let b = 0;
@@ -206,7 +245,7 @@ function usageBoost(p){
       if(tags.has("truck")) b += 3;
     }
     if(state.uso === "furgoni"){
-      if(p.family === "smontagomme_truck") b += 3; // furgoni spesso verso heavy
+      if(p.family === "smontagomme_truck") b += 3;
       if(tags.has("furgoni")) b += 3;
     }
   }
@@ -237,7 +276,7 @@ function matchScore(p){
     else score -= 3;
   }
 
-  // ✅ boost per "Uso" (così a destra cambiano davvero i prodotti)
+  // boost per "Uso"
   score += usageBoost(p);
 
   // ricerca testo
@@ -250,6 +289,40 @@ function matchScore(p){
   return score;
 }
 
+function applyLogicalConstraints(list){
+  // ✅ Vincoli logici Smontagomme:
+  // - MI ↔ Doppia velocità (già gestito da EXCLUSIVE in UI)
+  // - Doppia velocità NON compatibile con 1PH
+  if(state.family !== "smontagomme_auto") return list;
+
+  const wantMI = state.selected.has("motoinverter");
+  const want2V = state.selected.has("doppia_velocita");
+
+  let out = list;
+
+  if(want2V){
+    out = out.filter(p => {
+      const tags = p.tags || [];
+      // se il modello è MI -> fuori
+      if(tags.includes("motoinverter")) return false;
+      // se il modello è 1PH -> fuori
+      if(tags.includes("alimentazione_1ph")) return false;
+      return true;
+    });
+  }
+
+  if(wantMI){
+    out = out.filter(p => {
+      const tags = p.tags || [];
+      // se il modello è doppia velocità -> fuori
+      if(tags.includes("doppia_velocita")) return false;
+      return true;
+    });
+  }
+
+  return out;
+}
+
 function filterAndRank(){
   const list = familyProducts();
   const q = state.q.toUpperCase();
@@ -258,6 +331,9 @@ function filterAndRank(){
   if(state.q){
     filtered = list.filter(p => (p.name + " " + p.code).toUpperCase().includes(q));
   }
+
+  // vincoli logici prima del match perfetto
+  filtered = applyLogicalConstraints(filtered);
 
   const sel = [...state.selected];
   let strict = filtered;
@@ -313,11 +389,12 @@ function render(){
   res.innerHTML = "";
 
   const top = ranked.slice(0, state.limit);
+
   if(!top.length){
     res.appendChild(el("div", { class:"note", html:"Nessun risultato. Prova a rimuovere qualche flag o cambia ricerca." }));
   } else {
     top.forEach((p, idx)=>{
-      const tags = (p.tags || []).slice(0, 10).map(t => `<span class="tag">${t}</span>`).join("");
+      const tags = (p.tags || []).slice(0, 12).map(t => `<span class="tag">${t}</span>`).join("");
       const box = el("div", { class:"result" });
 
       const topRow = el("div", { class:"r-top" }, [
@@ -331,23 +408,27 @@ function render(){
     });
   }
 
-  // Load more
+  // ✅ Load more +10
   if(ranked.length > state.limit){
     const moreBtn = el("button", { class:"primary", style:"width:100%;margin-top:10px;padding:12px;border-radius:12px;" });
-    moreBtn.textContent = `Mostra altri (${Math.min(20, ranked.length - state.limit)} )`;
+    moreBtn.textContent = `Mostra altri (${Math.min(10, ranked.length - state.limit)})`;
     moreBtn.addEventListener("click", ()=>{
-      state.limit = Math.min(ranked.length, state.limit + 20);
+      state.limit = Math.min(ranked.length, state.limit + 10);
       render();
     });
     res.appendChild(moreBtn);
   }
 
+  // Accessori (toggle)
   const accBox = $("#accessoriBox");
   accBox.innerHTML = "";
-  const acc = accessoriSuggeriti();
-  if(acc.length){
-    const html = acc.map(a=>`<div>• <b>${a.name}</b> — <span class="r-code">cod. ${a.code}</span></div>`).join("");
-    accBox.appendChild(el("div", { class:"acc", html:`<b>Optional consigliati</b><div class="tagline">In base a uso e flag selezionati.</div><div style="margin-top:8px">${html}</div>` }));
+
+  if(state.showAccessori){
+    const acc = accessoriSuggeriti();
+    if(acc.length){
+      const html = acc.map(a=>`<div>• <b>${a.name}</b> — <span class="r-code">cod. ${a.code}</span></div>`).join("");
+      accBox.appendChild(el("div", { class:"acc", html:`<b>Optional consigliati</b><div class="tagline">In base a uso e flag selezionati.</div><div style="margin-top:8px">${html}</div>` }));
+    }
   }
 }
 
