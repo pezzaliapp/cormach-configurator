@@ -3,549 +3,956 @@
     "code": "00100208",
     "name": "PUMA CE 1ph 230V 50-60Hz",
     "family": "smontagomme_auto",
-    "tags": [],
-    "source": "excel_rev_23_09_2025"
+    "tags": [
+      "230v",
+      "alimentazione_1ph",
+      "ce"
+    ],
+    "source": "csv_09_01_26"
   },
   {
     "code": "00100210",
     "name": "CM 1200BB CE 1ph 230V 50-60Hz MI",
     "family": "smontagomme_auto",
     "tags": [
+      "230v",
+      "alimentazione_1ph",
+      "ce",
       "motoinverter"
     ],
-    "source": "excel_rev_23_09_2025"
+    "source": "csv_09_01_26"
   },
   {
     "code": "00100299",
     "name": "F 26A BIKE CE 1ph 230V NERO",
     "family": "smontagomme_moto",
     "tags": [
+      "230v",
+      "alimentazione_1ph",
+      "ce",
       "moto"
     ],
-    "source": "excel_rev_23_09_2025"
+    "source": "csv_09_01_26"
   },
   {
     "code": "00100301",
     "name": "F 536S GT RACING CE 1ph 230V MI",
     "family": "smontagomme_auto",
     "tags": [
+      "230v",
+      "alimentazione_1ph",
+      "ce",
       "motoinverter",
       "racing",
       "tubeless_gt"
     ],
-    "source": "excel_rev_23_09_2025"
+    "source": "csv_09_01_26"
   },
   {
     "code": "00100302",
     "name": "F 524S CE 3ph 400V",
     "family": "smontagomme_auto",
-    "tags": [],
-    "source": "excel_rev_23_09_2025"
+    "tags": [
+      "400v",
+      "alimentazione_3ph",
+      "ce"
+    ],
+    "source": "csv_09_01_26"
   },
   {
     "code": "00100318",
     "name": "F 535S CE 3ph 400V 2 Vel",
     "family": "smontagomme_auto",
-    "tags": [],
-    "source": "excel_rev_23_09_2025"
+    "tags": [
+      "400v",
+      "alimentazione_3ph",
+      "ce"
+    ],
+    "source": "csv_09_01_26"
   },
   {
     "code": "00100319",
     "name": "F 535S GT CE 3ph 400V 2 Vel",
     "family": "smontagomme_auto",
     "tags": [
+      "400v",
+      "alimentazione_3ph",
+      "ce",
       "tubeless_gt"
     ],
-    "source": "excel_rev_23_09_2025"
+    "source": "csv_09_01_26"
   },
   {
     "code": "00100321",
     "name": "F 524S CE 1ph 230V",
     "family": "smontagomme_auto",
-    "tags": [],
-    "source": "excel_rev_23_09_2025"
+    "tags": [
+      "230v",
+      "alimentazione_1ph",
+      "ce"
+    ],
+    "source": "csv_09_01_26"
   },
   {
     "code": "00100322",
     "name": "F 26A BIKE CE 3ph 400V NERO",
-    "family": "smontagomme_auto",
+    "family": "smontagomme_moto",
     "tags": [
+      "400v",
+      "alimentazione_3ph",
+      "ce",
       "moto"
     ],
-    "source": "excel_rev_23_09_2025"
+    "source": "csv_09_01_26"
   },
   {
     "code": "00100323",
     "name": "F 524SW CE 1ph 230V",
     "family": "smontagomme_auto",
-    "tags": [],
-    "source": "excel_rev_23_09_2025"
+    "tags": [
+      "230v",
+      "alimentazione_1ph",
+      "ce"
+    ],
+    "source": "csv_09_01_26"
   },
   {
     "code": "00100324",
     "name": "F 524SW CE 3ph 400V",
     "family": "smontagomme_auto",
-    "tags": [],
-    "source": "excel_rev_23_09_2025"
+    "tags": [
+      "400v",
+      "alimentazione_3ph",
+      "ce"
+    ],
+    "source": "csv_09_01_26"
   },
   {
     "code": "00100328",
     "name": "CM 646 CE 1ph 230V 50-60Hz MI",
     "family": "smontagomme_auto",
     "tags": [
+      "230v",
+      "alimentazione_1ph",
+      "ce",
       "motoinverter"
     ],
-    "source": "excel_rev_23_09_2025"
+    "source": "csv_09_01_26"
   },
   {
     "code": "00100329",
     "name": "CM 646 GT CE 1ph 230V 50-60Hz MI",
     "family": "smontagomme_auto",
     "tags": [
+      "230v",
+      "alimentazione_1ph",
+      "ce",
       "motoinverter",
       "tubeless_gt"
     ],
-    "source": "excel_rev_23_09_2025"
+    "source": "csv_09_01_26"
   },
   {
     "code": "00100330",
     "name": "F 535S CE 1ph 230V 50/60Hz MI",
     "family": "smontagomme_auto",
     "tags": [
+      "230v",
+      "alimentazione_1ph",
+      "ce",
       "motoinverter"
     ],
-    "source": "excel_rev_23_09_2025"
+    "source": "csv_09_01_26"
   },
   {
     "code": "00100331",
     "name": "F 535S GT CE 1ph 230V 50/60Hz MI",
     "family": "smontagomme_auto",
     "tags": [
+      "230v",
+      "alimentazione_1ph",
+      "ce",
       "motoinverter",
       "tubeless_gt"
     ],
-    "source": "excel_rev_23_09_2025"
+    "source": "csv_09_01_26"
   },
   {
     "code": "00100336",
     "name": "F 524S CE 3ph 400V 2Vel",
     "family": "smontagomme_auto",
-    "tags": [],
-    "source": "excel_rev_23_09_2025"
+    "tags": [
+      "400v",
+      "alimentazione_3ph",
+      "ce"
+    ],
+    "source": "csv_09_01_26"
   },
   {
     "code": "00100337",
     "name": "F 524S GT CE 3ph 400V 2Vel",
     "family": "smontagomme_auto",
     "tags": [
+      "400v",
+      "alimentazione_3ph",
+      "ce",
       "tubeless_gt"
     ],
-    "source": "excel_rev_23_09_2025"
+    "source": "csv_09_01_26"
   },
   {
     "code": "00100341",
     "name": "F 536S GT RACING CE 3ph 400V 2Vel",
     "family": "smontagomme_auto",
     "tags": [
+      "400v",
+      "alimentazione_3ph",
+      "ce",
       "racing",
       "tubeless_gt"
     ],
-    "source": "excel_rev_23_09_2025"
+    "source": "csv_09_01_26"
   },
   {
     "code": "00100343",
     "name": "F 536S GT RAC LIGHT NOW 1ph 230V MI",
     "family": "smontagomme_auto",
     "tags": [
+      "230v",
+      "alimentazione_1ph",
       "motoinverter",
       "tubeless_gt"
     ],
-    "source": "excel_rev_23_09_2025"
+    "source": "csv_09_01_26"
   },
   {
     "code": "00100347",
     "name": "LIGRO CE 1ph 230V 50/60Hz",
     "family": "smontagomme_auto",
-    "tags": [],
-    "source": "excel_rev_23_09_2025"
+    "tags": [
+      "230v",
+      "alimentazione_1ph",
+      "ce"
+    ],
+    "source": "csv_09_01_26"
   },
   {
     "code": "00100348",
     "name": "LIGRO GT CE 1ph 230V 50/60Hz",
     "family": "smontagomme_auto",
     "tags": [
+      "230v",
+      "alimentazione_1ph",
+      "ce",
       "tubeless_gt"
     ],
-    "source": "excel_rev_23_09_2025"
+    "source": "csv_09_01_26"
   },
   {
     "code": "00100365",
     "name": "F 528S GT CE 1ph 230V MI",
     "family": "smontagomme_auto",
     "tags": [
+      "230v",
+      "alimentazione_1ph",
+      "ce",
       "motoinverter",
       "tubeless_gt"
     ],
-    "source": "excel_rev_23_09_2025"
+    "source": "csv_09_01_26"
   },
   {
     "code": "00101056",
     "name": "F 24 BIKE CE 1ph 230V NERO",
     "family": "smontagomme_moto",
     "tags": [
+      "230v",
+      "alimentazione_1ph",
+      "ce",
       "moto"
     ],
-    "source": "excel_rev_23_09_2025"
+    "source": "csv_09_01_26"
   },
   {
     "code": "00101064",
     "name": "F 24 BIKE CE 3ph 400V NERO",
     "family": "smontagomme_moto",
     "tags": [
+      "400v",
+      "alimentazione_3ph",
+      "ce",
       "moto"
     ],
-    "source": "excel_rev_23_09_2025"
+    "source": "csv_09_01_26"
   },
   {
     "code": "00200013",
     "name": "CM SUPER 27\" CE 3ph 400V",
     "family": "smontagomme_truck",
-    "tags": [],
-    "source": "excel_rev_23_09_2025"
+    "tags": [
+      "400v",
+      "alimentazione_3ph",
+      "ce",
+      "truck"
+    ],
+    "source": "csv_09_01_26"
   },
   {
     "code": "00200025",
     "name": "CM SUPER 56N CE 3ph 400V",
     "family": "smontagomme_truck",
-    "tags": [],
-    "source": "excel_rev_23_09_2025"
+    "tags": [
+      "400v",
+      "alimentazione_3ph",
+      "ce",
+      "truck"
+    ],
+    "source": "csv_09_01_26"
   },
   {
     "code": "00200034",
     "name": "SUPER VIGOR 2450N CE 3ph 400V",
-    "family": "smontagomme_truck",
-    "tags": [],
-    "source": "excel_rev_23_09_2025"
+    "family": "smontagomme_auto",
+    "tags": [
+      "400v",
+      "alimentazione_3ph",
+      "ce"
+    ],
+    "source": "csv_09_01_26"
   },
   {
     "code": "00200037",
     "name": "SUPER VIGOR 60\" CE 3ph 400V",
-    "family": "smontagomme_truck",
-    "tags": [],
-    "source": "excel_rev_23_09_2025"
+    "family": "smontagomme_auto",
+    "tags": [
+      "400v",
+      "alimentazione_3ph",
+      "ce"
+    ],
+    "source": "csv_09_01_26"
   },
   {
     "code": "00201022",
     "name": "TMS 26” CE 3ph 400V",
     "family": "smontagomme_truck",
-    "tags": [],
-    "source": "excel_rev_23_09_2025"
+    "tags": [
+      "400v",
+      "alimentazione_3ph",
+      "ce",
+      "truck"
+    ],
+    "source": "csv_09_01_26"
   },
   {
     "code": "00201023",
     "name": "FT 560SN CE 3ph 400V",
     "family": "smontagomme_truck",
-    "tags": [],
-    "source": "excel_rev_23_09_2025"
+    "tags": [
+      "400v",
+      "alimentazione_3ph",
+      "ce",
+      "truck"
+    ],
+    "source": "csv_09_01_26"
   },
   {
     "code": "00201024",
     "name": "TMS 26”+GENERATORE CE 3ph 400V",
     "family": "smontagomme_truck",
-    "tags": [],
-    "source": "excel_rev_23_09_2025"
+    "tags": [
+      "400v",
+      "alimentazione_3ph",
+      "ce",
+      "truck"
+    ],
+    "source": "csv_09_01_26"
   },
   {
     "code": "00201025",
     "name": "FT 26SN CE 3PH 400V",
     "family": "smontagomme_truck",
-    "tags": [],
-    "source": "excel_rev_23_09_2025"
+    "tags": [
+      "400v",
+      "alimentazione_3ph",
+      "ce",
+      "truck"
+    ],
+    "source": "csv_09_01_26"
   },
   {
     "code": "00201030",
-    "name": "FT 600 HY CE 3ph 400V (NON ORDINABILE)",
+    "name": "FT 600 HY CE 3ph 400V",
     "family": "smontagomme_truck",
-    "tags": [],
-    "source": "excel_rev_23_09_2025"
+    "tags": [
+      "400v",
+      "alimentazione_3ph",
+      "ce",
+      "truck"
+    ],
+    "source": "csv_09_01_26"
   },
   {
     "code": "01100208",
     "name": "MEC 820VDL-P SONAR CE 1ph 230V",
     "family": "equilibratrici_auto",
     "tags": [
+      "230v",
+      "alimentazione_1ph",
+      "ce",
       "laser",
       "monitor",
       "nls",
       "sonar"
     ],
-    "source": "excel_rev_23_09_2025"
+    "source": "csv_09_01_26"
   },
   {
     "code": "01100213",
     "name": "TOUCH MEC 1000-P RLC SONAR 1ph 230V",
     "family": "equilibratrici_auto",
     "tags": [
+      "230v",
+      "alimentazione_1ph",
       "monitor",
       "nls",
       "rlc",
       "sonar",
       "touch"
     ],
-    "source": "excel_rev_23_09_2025"
+    "source": "csv_09_01_26"
   },
   {
     "code": "01100216",
     "name": "TOUCH MEC 1000 SONAR CE 1ph 230V",
     "family": "equilibratrici_auto",
     "tags": [
+      "230v",
+      "alimentazione_1ph",
+      "ce",
       "monitor",
       "sonar",
       "touch"
     ],
-    "source": "excel_rev_23_09_2025"
+    "source": "csv_09_01_26"
   },
   {
     "code": "01100218",
     "name": "TOUCH MEC 1000-P SONAR CE 1ph 230V",
     "family": "equilibratrici_auto",
     "tags": [
+      "230v",
+      "alimentazione_1ph",
+      "ce",
       "monitor",
       "nls",
       "sonar",
       "touch"
     ],
-    "source": "excel_rev_23_09_2025"
+    "source": "csv_09_01_26"
   },
   {
     "code": "01100223",
     "name": "MEC 820VDL SONAR CE 1ph 230V",
     "family": "equilibratrici_auto",
     "tags": [
+      "230v",
+      "alimentazione_1ph",
+      "ce",
       "laser",
       "monitor",
       "sonar"
     ],
-    "source": "excel_rev_23_09_2025"
+    "source": "csv_09_01_26"
   },
   {
     "code": "01100224",
     "name": "MEC 820VDLL SONAR CE 1ph 230V",
     "family": "equilibratrici_auto",
     "tags": [
+      "230v",
+      "alimentazione_1ph",
+      "ce",
       "laser",
       "monitor",
       "sollevatore",
       "sonar"
     ],
-    "source": "excel_rev_23_09_2025"
+    "source": "csv_09_01_26"
   },
   {
     "code": "01100230",
     "name": "MEC 820VDLL-P SONAR CE 1ph 230V",
     "family": "equilibratrici_auto",
     "tags": [
+      "230v",
+      "alimentazione_1ph",
+      "ce",
       "laser",
       "monitor",
       "nls",
       "sollevatore",
       "sonar"
     ],
-    "source": "excel_rev_23_09_2025"
+    "source": "csv_09_01_26"
   },
   {
     "code": "01100232",
     "name": "MEC 810VD CE 1ph 230V",
     "family": "equilibratrici_auto",
-    "tags": [],
-    "source": "excel_rev_23_09_2025"
+    "tags": [
+      "230v",
+      "alimentazione_1ph",
+      "ce"
+    ],
+    "source": "csv_09_01_26"
   },
   {
     "code": "01100233",
     "name": "MEC 810VDB CE 1ph 230V",
     "family": "equilibratrici_auto",
-    "tags": [],
-    "source": "excel_rev_23_09_2025"
+    "tags": [
+      "230v",
+      "alimentazione_1ph",
+      "ce"
+    ],
+    "source": "csv_09_01_26"
   },
   {
     "code": "01100235",
     "name": "MEC 810VDBL CE 1ph 230V",
     "family": "equilibratrici_auto",
     "tags": [
+      "230v",
+      "alimentazione_1ph",
+      "ce",
       "freno_pedale",
       "laser",
       "monitor"
     ],
-    "source": "excel_rev_23_09_2025"
+    "source": "csv_09_01_26"
   },
   {
     "code": "01100240",
     "name": "MEC 20 SONAR CE 1ph 230V",
     "family": "equilibratrici_auto",
     "tags": [
+      "230v",
+      "alimentazione_1ph",
+      "ce",
       "sonar"
     ],
-    "source": "excel_rev_23_09_2025"
+    "source": "csv_09_01_26"
   },
   {
     "code": "01100245",
     "name": "MEC 20L SONAR CE 1ph 230V",
     "family": "equilibratrici_auto",
     "tags": [
+      "230v",
+      "alimentazione_1ph",
+      "ce",
       "sonar"
     ],
-    "source": "excel_rev_23_09_2025"
+    "source": "csv_09_01_26"
   },
   {
     "code": "01100246",
     "name": "MEC 20L-P SONAR CE 1ph 230V",
     "family": "equilibratrici_auto",
     "tags": [
+      "230v",
+      "alimentazione_1ph",
+      "ce",
       "nls",
       "sonar"
     ],
-    "source": "excel_rev_23_09_2025"
+    "source": "csv_09_01_26"
   },
   {
     "code": "01100257",
     "name": "MEC 5 CE 1ph 230V",
     "family": "equilibratrici_auto",
-    "tags": [],
-    "source": "excel_rev_23_09_2025"
+    "tags": [
+      "230v",
+      "alimentazione_1ph",
+      "ce"
+    ],
+    "source": "csv_09_01_26"
   },
   {
     "code": "01100260",
     "name": "MEC 1 CE 12V",
     "family": "equilibratrici_auto",
     "tags": [
-      "mobile_service"
+      "ce"
     ],
-    "source": "excel_rev_23_09_2025"
+    "source": "csv_09_01_26"
   },
   {
     "code": "01100261",
     "name": "MEC 1 BAT CE 12V",
     "family": "equilibratrici_auto",
     "tags": [
-      "mobile_service"
+      "ce"
     ],
-    "source": "excel_rev_23_09_2025"
+    "source": "csv_09_01_26"
   },
   {
     "code": "01100296",
     "name": "BENCH MOTO MEC CE 12V",
     "family": "equilibratrici_auto",
     "tags": [
-      "mobile_service"
+      "ce",
+      "moto"
     ],
-    "source": "excel_rev_23_09_2025"
+    "source": "csv_09_01_26"
   },
   {
     "code": "01100350",
     "name": "MEC 10 ESD CE 1ph 230V",
     "family": "equilibratrici_auto",
-    "tags": [],
-    "source": "excel_rev_23_09_2025"
+    "tags": [
+      "230v",
+      "alimentazione_1ph",
+      "ce"
+    ],
+    "source": "csv_09_01_26"
   },
   {
     "code": "01100351",
     "name": "MEC 10BL ESD CE 1ph 230V",
     "family": "equilibratrici_auto",
-    "tags": [],
-    "source": "excel_rev_23_09_2025"
+    "tags": [
+      "230v",
+      "alimentazione_1ph",
+      "ce"
+    ],
+    "source": "csv_09_01_26"
   },
   {
-    "code": "01200111",
-    "name": "MEC 200 TRUCK CE 1ph 230V",
-    "family": "equilibratrici_truck",
+    "code": "01100262",
+    "name": "MOTO MEC CE 12V",
+    "family": "equilibratrici_auto",
     "tags": [
-      "truck"
+      "ce",
+      "moto"
     ],
-    "source": "excel_rev_23_09_2025"
-  },
-  {
-    "code": "01200112",
-    "name": "MEC 200-C TRUCK CE 1ph 230V  ( C=CARTER )",
-    "family": "equilibratrici_truck",
-    "tags": [
-      "truck"
-    ],
-    "source": "excel_rev_23_09_2025"
-  },
-  {
-    "code": "01200115",
-    "name": "MEC 200A TRUCK CE 1ph 230V   (A=AUTOMATICA )",
-    "family": "equilibratrici_truck",
-    "tags": [
-      "truck"
-    ],
-    "source": "excel_rev_23_09_2025"
-  },
-  {
-    "code": "01200116",
-    "name": "MEC 200A-C TRUCK CE 1ph 230V  (A=AUTOMATICA ) ( C=CARTER )",
-    "family": "equilibratrici_truck",
-    "tags": [
-      "truck"
-    ],
-    "source": "excel_rev_23_09_2025"
-  },
-  {
-    "code": "01200119",
-    "name": "MEC 200A-C TRUCK RLC CE 1ph 230V",
-    "family": "equilibratrici_truck",
-    "tags": [
-      "rlc",
-      "truck"
-    ],
-    "source": "excel_rev_23_09_2025"
-  },
-  {
-    "code": "01201003",
-    "name": "MOBILE TRUCK BALANCER",
-    "family": "equilibratrici_truck",
-    "tags": [
-      "truck"
-    ],
-    "source": "excel_rev_23_09_2025"
+    "source": "csv_09_01_26"
   },
   {
     "code": "00101079",
     "name": "BASIC 224 3Ph 400V-50Hz",
     "family": "smontagomme_auto",
-    "tags": [],
-    "source": "excel_rev_23_09_2025"
+    "tags": [
+      "400v",
+      "alimentazione_3ph"
+    ],
+    "source": "csv_09_01_26"
   },
   {
     "code": "00101083",
     "name": "BASIC 224 2 VELOCITA - 3Ph 400V-50Hz",
     "family": "smontagomme_auto",
-    "tags": [],
-    "source": "excel_rev_23_09_2025"
+    "tags": [
+      "400v",
+      "alimentazione_3ph"
+    ],
+    "source": "csv_09_01_26"
   },
   {
     "code": "00101084",
     "name": "BASIC 224 1PH 230V-50Hz",
     "family": "smontagomme_auto",
-    "tags": [],
-    "source": "excel_rev_23_09_2025"
+    "tags": [
+      "230v",
+      "alimentazione_1ph"
+    ],
+    "source": "csv_09_01_26"
   },
   {
     "code": "00101080",
     "name": "BASIC 22 BIKE 3Ph 400V-50Hz",
     "family": "smontagomme_moto",
     "tags": [
+      "400v",
+      "alimentazione_3ph",
       "moto"
     ],
-    "source": "excel_rev_23_09_2025"
+    "source": "csv_09_01_26"
   },
   {
     "code": "00101081",
     "name": "BASIC 22 BIKE 1PH 230V-50Hz",
     "family": "smontagomme_moto",
     "tags": [
+      "230v",
+      "alimentazione_1ph",
       "moto"
     ],
-    "source": "excel_rev_23_09_2025"
+    "source": "csv_09_01_26"
+  },
+  {
+    "code": "01100313",
+    "name": "TOUCH MEC 2000S SONAR",
+    "family": "equilibratrici_auto",
+    "tags": [
+      "monitor",
+      "sonar",
+      "touch"
+    ],
+    "source": "csv_09_01_26"
+  },
+  {
+    "code": "01100394",
+    "name": "TOUCH MEC 2000S LIFT (Sonar + Sollevatore)",
+    "family": "equilibratrici_auto",
+    "tags": [
+      "monitor",
+      "sonar",
+      "touch"
+    ],
+    "source": "csv_09_01_26"
+  },
+  {
+    "code": "01100317",
+    "name": "TOUCH MEC 2000 SONAR -P (Sonar + Pneumatica)",
+    "family": "equilibratrici_auto",
+    "tags": [
+      "monitor",
+      "nls",
+      "sonar",
+      "touch"
+    ],
+    "source": "csv_09_01_26"
+  },
+  {
+    "code": "01100395",
+    "name": "TOUCH MEC 2000 SONAR -P LIFT (Sonar + Pneumatica + Sollevatore)",
+    "family": "equilibratrici_auto",
+    "tags": [
+      "monitor",
+      "nls",
+      "sonar",
+      "touch"
+    ],
+    "source": "csv_09_01_26"
+  },
+  {
+    "code": "01100370",
+    "name": "TOUCH MEC 2000 SONAR -P RLC PLUS (sonar + Pneumatica + RLC)",
+    "family": "equilibratrici_auto",
+    "tags": [
+      "monitor",
+      "nls",
+      "rlc",
+      "sonar",
+      "touch"
+    ],
+    "source": "csv_09_01_26"
+  },
+  {
+    "code": "01100396",
+    "name": "TOUCH MEC 2000S-P RLC LIFT (Sonar + Pneumatica + RLC + Sollevatore)",
+    "family": "equilibratrici_auto",
+    "tags": [
+      "monitor",
+      "nls",
+      "rlc",
+      "sonar",
+      "touch"
+    ],
+    "source": "csv_09_01_26"
+  },
+  {
+    "code": "01100367",
+    "name": "MEC 822 VDL SONAR",
+    "family": "equilibratrici_auto",
+    "tags": [
+      "laser",
+      "monitor",
+      "sonar"
+    ],
+    "source": "csv_09_01_26"
+  },
+  {
+    "code": "01100368",
+    "name": "MEC 822 VDL-P SONAR (Sonar + Pneumatica + Laser)",
+    "family": "equilibratrici_auto",
+    "tags": [
+      "laser",
+      "monitor",
+      "nls",
+      "sonar"
+    ],
+    "source": "csv_09_01_26"
+  },
+  {
+    "code": "01100369",
+    "name": "MEC 822 VDLL SONAR (Sonar + Laser + Sollevatore)",
+    "family": "equilibratrici_auto",
+    "tags": [
+      "laser",
+      "monitor",
+      "sollevatore",
+      "sonar"
+    ],
+    "source": "csv_09_01_26"
+  },
+  {
+    "code": "01100316",
+    "name": "MEC 822 VDLL-P SONAR (Sonar + Laser + Pneumatica + Sollevatore",
+    "family": "equilibratrici_auto",
+    "tags": [
+      "laser",
+      "monitor",
+      "nls",
+      "sollevatore",
+      "sonar"
+    ],
+    "source": "csv_09_01_26"
+  },
+  {
+    "code": "01100314",
+    "name": "TOUCH 900 ESD LASER +LED (ESD + Laser + Luce)",
+    "family": "equilibratrici_auto",
+    "tags": [
+      "ce",
+      "laser",
+      "monitor",
+      "touch"
+    ],
+    "source": "csv_09_01_26"
+  },
+  {
+    "code": "01100384",
+    "name": "TOUCH 900 FRENO + ESD (ESD + Freno)",
+    "family": "equilibratrici_auto",
+    "tags": [
+      "monitor",
+      "touch"
+    ],
+    "source": "csv_09_01_26"
+  },
+  {
+    "code": "01100385",
+    "name": "TOUCH 900-P BAS ESD NLS (Basamento + ESD + Pneumatica)",
+    "family": "equilibratrici_auto",
+    "tags": [
+      "monitor",
+      "nls",
+      "touch"
+    ],
+    "source": "csv_09_01_26"
+  },
+  {
+    "code": "01100392",
+    "name": "MEC 22 SONAR",
+    "family": "equilibratrici_auto",
+    "tags": [
+      "sonar"
+    ],
+    "source": "csv_09_01_26"
+  },
+  {
+    "code": "01100393",
+    "name": "MEC 22L SONAR (sonar + Laser)",
+    "family": "equilibratrici_auto",
+    "tags": [
+      "laser",
+      "sonar"
+    ],
+    "source": "csv_09_01_26"
+  },
+  {
+    "code": "01100381",
+    "name": "MEC 22L-P SONAR (sonar + Laser + Pneumatica)",
+    "family": "equilibratrici_auto",
+    "tags": [
+      "laser",
+      "nls",
+      "sonar"
+    ],
+    "source": "csv_09_01_26"
+  },
+  {
+    "code": "01100387",
+    "name": "MEC 110",
+    "family": "equilibratrici_auto",
+    "tags": [],
+    "source": "csv_09_01_26"
+  },
+  {
+    "code": "01100388",
+    "name": "MEC 110B (freno)",
+    "family": "equilibratrici_auto",
+    "tags": [],
+    "source": "csv_09_01_26"
+  },
+  {
+    "code": "01100389",
+    "name": "MEC 110BL (freno + Laser)",
+    "family": "equilibratrici_auto",
+    "tags": [
+      "laser"
+    ],
+    "source": "csv_09_01_26"
+  },
+  {
+    "code": "01100390",
+    "name": "MEC 110 ESD",
+    "family": "equilibratrici_auto",
+    "tags": [],
+    "source": "csv_09_01_26"
+  },
+  {
+    "code": "01100391",
+    "name": "MEC 110B ESD  (ESD + freno)",
+    "family": "equilibratrici_auto",
+    "tags": [],
+    "source": "csv_09_01_26"
+  },
+  {
+    "code": "01100382",
+    "name": "MEC 110BL ESD (freno + laser + Esd)",
+    "family": "equilibratrici_auto",
+    "tags": [
+      "laser"
+    ],
+    "source": "csv_09_01_26"
+  },
+  {
+    "code": "00100417",
+    "name": "F 535S GT MI LEVERLESS (Made in Italy)",
+    "family": "smontagomme_auto",
+    "tags": [
+      "motoinverter",
+      "tubeless_gt"
+    ],
+    "source": "csv_09_01_26"
+  },
+  {
+    "code": "00100418",
+    "name": "F 535S MI LEVERLESS (Made in Italy)",
+    "family": "smontagomme_auto",
+    "tags": [
+      "motoinverter"
+    ],
+    "source": "csv_09_01_26"
+  },
+  {
+    "code": "00100419",
+    "name": "F 535S 2 VEL LEVERLESS",
+    "family": "smontagomme_auto",
+    "tags": [],
+    "source": "csv_09_01_26"
+  },
+  {
+    "code": "00100420",
+    "name": "F 535S GT 2 VEL LEVERLESS",
+    "family": "smontagomme_auto",
+    "tags": [
+      "tubeless_gt"
+    ],
+    "source": "csv_09_01_26"
   }
 ]

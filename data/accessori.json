@@ -1,99 +1,160 @@
 [
   {
-    "code": "21100303",
-    "name": "CONO+DISTANZIALE D.40 MEC",
+    "code": "20100101",
+    "name": "PISTOLA GONF.EURODAINU CE",
     "applies_to": [
-      "equilibratrici_auto",
-      "equilibratrici_truck"
+      "smontagomme_auto",
+      "smontagomme_truck",
+      "smontagomme_moto"
     ],
-    "tags": [
-      "centraggio",
-      "furgoni",
-      "truck"
-    ]
+    "tags": [],
+    "source": "csv_09_01_26"
   },
   {
-    "code": "21100304",
-    "name": "CONO+DISTANZ.190-223 MEC",
+    "code": "20100112",
+    "name": "KIT RADIOCOMANDO SUPER VIGOR 2450",
     "applies_to": [
-      "equilibratrici_auto",
-      "equilibratrici_truck"
+      "smontagomme_auto",
+      "smontagomme_truck",
+      "smontagomme_moto"
     ],
-    "tags": [
-      "centraggio",
-      "furgoni",
-      "truck"
-    ]
+    "tags": [],
+    "source": "csv_09_01_26"
   },
   {
-    "code": "21100345",
-    "name": "GHIERA D. 40X4 LINEA MEC",
+    "code": "20100118",
+    "name": "PROTEZ.GRIFFA 4 PCS. F 21-F 23AS",
     "applies_to": [
-      "equilibratrici_auto",
-      "equilibratrici_truck"
+      "smontagomme_auto",
+      "smontagomme_truck",
+      "smontagomme_moto"
     ],
-    "tags": [
-      "bloccaggio_rapido"
-    ]
+    "tags": [],
+    "source": "csv_09_01_26"
   },
   {
-    "code": "21100349",
-    "name": "GHIERA D.40x4 CON POMOLO",
+    "code": "20100123",
+    "name": "SET 4 ADATT RUOTE MOTO F23 AS-F 21",
     "applies_to": [
-      "equilibratrici_auto",
-      "equilibratrici_truck"
+      "smontagomme_auto",
+      "smontagomme_truck",
+      "smontagomme_moto"
     ],
-    "tags": [
-      "bloccaggio_rapido"
-    ]
+    "tags": [],
+    "source": "csv_09_01_26"
   },
   {
-    "code": "21100399",
-    "name": "SOLLEVATORE PNEUMATICO AUTOM.MEC",
+    "code": "20100128",
+    "name": "LEVA ALZA TALLONE",
     "applies_to": [
-      "equilibratrici_auto",
-      "equilibratrici_truck"
+      "smontagomme_auto",
+      "smontagomme_truck",
+      "smontagomme_moto"
     ],
-    "tags": [
-      "ergonomia",
-      "sollevatore_ruota"
-    ]
+    "tags": [],
+    "source": "csv_09_01_26"
   },
   {
-    "code": "21100397",
-    "name": "SOLLEVATORE RUOTA",
+    "code": "20100129",
+    "name": "PINZA PER CERCHIONI",
     "applies_to": [
-      "equilibratrici_auto",
-      "equilibratrici_truck"
+      "smontagomme_auto",
+      "smontagomme_truck",
+      "smontagomme_moto"
     ],
-    "tags": [
-      "ergonomia",
-      "sollevatore_ruota"
-    ]
+    "tags": [],
+    "source": "csv_09_01_26"
   },
   {
-    "code": "20100164",
-    "name": "GRUPPO GONFIAGGIO GT PUMA",
+    "code": "20100134",
+    "name": "LEVA PER CERCHIETTI",
+    "applies_to": [
+      "smontagomme_auto",
+      "smontagomme_truck",
+      "smontagomme_moto"
+    ],
+    "tags": [],
+    "source": "csv_09_01_26"
+  },
+  {
+    "code": "20100138",
+    "name": "RULLO TUBELESS CM SUPER 56N\"",
+    "applies_to": [
+      "smontagomme_auto",
+      "smontagomme_truck",
+      "smontagomme_moto"
+    ],
+    "tags": [],
+    "source": "csv_09_01_26"
+  },
+  {
+    "code": "20100141",
+    "name": "SET 2 MORSETTI FISSAGGIO CERCHIETTI",
+    "applies_to": [
+      "smontagomme_auto",
+      "smontagomme_truck",
+      "smontagomme_moto"
+    ],
+    "tags": [],
+    "source": "csv_09_01_26"
+  },
+  {
+    "code": "20100144",
+    "name": "SET DI 4 ADATTATORI RUOTE ALLUMINIO",
+    "applies_to": [
+      "smontagomme_auto",
+      "smontagomme_truck",
+      "smontagomme_moto"
+    ],
+    "tags": [],
+    "source": "csv_09_01_26"
+  },
+  {
+    "code": "20100153",
+    "name": "RULLO TUBELESS CM SUPER 27",
+    "applies_to": [
+      "smontagomme_auto",
+      "smontagomme_truck",
+      "smontagomme_moto"
+    ],
+    "tags": [],
+    "source": "csv_09_01_26"
+  },
+  {
+    "code": "20100154",
+    "name": "DISPOSITIVO GONFIAGGIO PEDALE",
+    "applies_to": [
+      "smontagomme_auto",
+      "smontagomme_truck",
+      "smontagomme_moto"
+    ],
+    "tags": [],
+    "source": "csv_09_01_26"
+  },
+  {
+    "code": "20100155",
+    "name": "TORRETTA SCOOTER F24BIKE-F21-F23AS",
+    "applies_to": [
+      "smontagomme_auto",
+      "smontagomme_truck",
+      "smontagomme_moto"
+    ],
+    "tags": [],
+    "source": "csv_09_01_26"
+  },
+  {
+    "code": "20100159",
+    "name": "PINZA PREMITALLONE X CERCHI IN LEGA",
     "applies_to": [
       "smontagomme_auto",
       "smontagomme_truck",
       "smontagomme_moto"
     ],
     "tags": [
-      "tubeless_gt"
-    ]
-  },
-  {
-    "code": "20100165",
-    "name": "KIT PER CERCHI FURGONE PUMA",
-    "applies_to": [
-      "smontagomme_auto",
-      "smontagomme_truck",
-      "smontagomme_moto"
+      "helper",
+      "runflat"
     ],
-    "tags": [
-      "furgoni"
-    ]
+    "source": "csv_09_01_26"
   },
   {
     "code": "20100161",
@@ -105,13 +166,366 @@
     ],
     "tags": [
       "helper",
-      "ribassati",
       "runflat"
-    ]
+    ],
+    "source": "csv_09_01_26"
   },
   {
-    "code": "20100387",
-    "name": "BASIC HELPER ARM",
+    "code": "20100162",
+    "name": "PINZA PREMITAL.RUN FLAT LIGRO-PUMA",
+    "applies_to": [
+      "smontagomme_auto",
+      "smontagomme_truck",
+      "smontagomme_moto"
+    ],
+    "tags": [
+      "runflat"
+    ],
+    "source": "csv_09_01_26"
+  },
+  {
+    "code": "20100163",
+    "name": "KIT BLOCC CERCHI SENZA FORO PUMA",
+    "applies_to": [
+      "smontagomme_auto",
+      "smontagomme_truck",
+      "smontagomme_moto"
+    ],
+    "tags": [],
+    "source": "csv_09_01_26"
+  },
+  {
+    "code": "20100164",
+    "name": "GRUPPO GONFIAGGIO GT PUMA",
+    "applies_to": [
+      "smontagomme_auto",
+      "smontagomme_truck",
+      "smontagomme_moto"
+    ],
+    "tags": [
+      "tubeless_gt"
+    ],
+    "source": "csv_09_01_26"
+  },
+  {
+    "code": "20100165",
+    "name": "KIT PER CERCHI FURGONE PUMA",
+    "applies_to": [
+      "smontagomme_auto",
+      "smontagomme_truck",
+      "smontagomme_moto"
+    ],
+    "tags": [
+      "furgoni"
+    ],
+    "source": "csv_09_01_26"
+  },
+  {
+    "code": "20100166",
+    "name": "MORSETTO BASCULANTE PUMA",
+    "applies_to": [
+      "smontagomme_auto",
+      "smontagomme_truck",
+      "smontagomme_moto"
+    ],
+    "tags": [],
+    "source": "csv_09_01_26"
+  },
+  {
+    "code": "20100171",
+    "name": "PROTEZ. CERCHI IN LEGA 4 PCS.",
+    "applies_to": [
+      "smontagomme_auto",
+      "smontagomme_truck",
+      "smontagomme_moto"
+    ],
+    "tags": [],
+    "source": "csv_09_01_26"
+  },
+  {
+    "code": "20100178",
+    "name": "FLANGIA BLOC X PER CERCHI PUMA",
+    "applies_to": [
+      "smontagomme_auto",
+      "smontagomme_truck",
+      "smontagomme_moto"
+    ],
+    "tags": [],
+    "source": "csv_09_01_26"
+  },
+  {
+    "code": "20100179",
+    "name": "GRUPPO LUBRIFICATORE LIGRO-CM 646",
+    "applies_to": [
+      "smontagomme_auto",
+      "smontagomme_truck",
+      "smontagomme_moto"
+    ],
+    "tags": [],
+    "source": "csv_09_01_26"
+  },
+  {
+    "code": "20100180",
+    "name": "KIT 3 PROTEZIONI PALETTA",
+    "applies_to": [
+      "smontagomme_auto",
+      "smontagomme_truck",
+      "smontagomme_moto"
+    ],
+    "tags": [],
+    "source": "csv_09_01_26"
+  },
+  {
+    "code": "20100181",
+    "name": "KIT PROTEZIONI TORR. CM 646",
+    "applies_to": [
+      "smontagomme_auto",
+      "smontagomme_truck",
+      "smontagomme_moto"
+    ],
+    "tags": [],
+    "source": "csv_09_01_26"
+  },
+  {
+    "code": "20100182",
+    "name": "KIT PROTEZIONI TORRETTA F 524S",
+    "applies_to": [
+      "smontagomme_auto",
+      "smontagomme_truck",
+      "smontagomme_moto"
+    ],
+    "tags": [],
+    "source": "csv_09_01_26"
+  },
+  {
+    "code": "20100184",
+    "name": "KIT 3 PROTEZIONI PALETTA F 24 BIKE",
+    "applies_to": [
+      "smontagomme_auto",
+      "smontagomme_truck",
+      "smontagomme_moto"
+    ],
+    "tags": [],
+    "source": "csv_09_01_26"
+  },
+  {
+    "code": "20100185",
+    "name": "KIT PROTEZIONI TORRETTA",
+    "applies_to": [
+      "smontagomme_auto",
+      "smontagomme_truck",
+      "smontagomme_moto"
+    ],
+    "tags": [],
+    "source": "csv_09_01_26"
+  },
+  {
+    "code": "20100186",
+    "name": "ATTACCHI MOTO 4 PZ.DA 5\" A 25\"",
+    "applies_to": [
+      "smontagomme_auto",
+      "smontagomme_truck",
+      "smontagomme_moto"
+    ],
+    "tags": [],
+    "source": "csv_09_01_26"
+  },
+  {
+    "code": "20100190",
+    "name": "TORRETTA IN PLASTI X CERCHI IN LEGA",
+    "applies_to": [
+      "smontagomme_auto",
+      "smontagomme_truck",
+      "smontagomme_moto"
+    ],
+    "tags": [],
+    "source": "csv_09_01_26"
+  },
+  {
+    "code": "20100192",
+    "name": "KIT 3 PROTEZ.PALETTA CM 330-601 GT",
+    "applies_to": [
+      "smontagomme_auto",
+      "smontagomme_truck",
+      "smontagomme_moto"
+    ],
+    "tags": [
+      "tubeless_gt"
+    ],
+    "source": "csv_09_01_26"
+  },
+  {
+    "code": "20100198",
+    "name": "PINZE CERCHI IN LEGA",
+    "applies_to": [
+      "smontagomme_auto",
+      "smontagomme_truck",
+      "smontagomme_moto"
+    ],
+    "tags": [],
+    "source": "csv_09_01_26"
+  },
+  {
+    "code": "20100200",
+    "name": "PROTEZIONI CERCHI LEGA LIGRO (4PCS)",
+    "applies_to": [
+      "smontagomme_auto",
+      "smontagomme_truck",
+      "smontagomme_moto"
+    ],
+    "tags": [],
+    "source": "csv_09_01_26"
+  },
+  {
+    "code": "20100202",
+    "name": "KIT PROTEZ.TORRETTA LIGRO-PUMA",
+    "applies_to": [
+      "smontagomme_auto",
+      "smontagomme_truck",
+      "smontagomme_moto"
+    ],
+    "tags": [],
+    "source": "csv_09_01_26"
+  },
+  {
+    "code": "20100205",
+    "name": "KIT 3 CUFFIE PROTEZIONI CONO D. 120",
+    "applies_to": [
+      "smontagomme_auto",
+      "smontagomme_truck",
+      "smontagomme_moto"
+    ],
+    "tags": [],
+    "source": "csv_09_01_26"
+  },
+  {
+    "code": "20100206",
+    "name": "SET DI 4 ADATTATORI RUOTE ALLUMINIO",
+    "applies_to": [
+      "smontagomme_auto",
+      "smontagomme_truck",
+      "smontagomme_moto"
+    ],
+    "tags": [],
+    "source": "csv_09_01_26"
+  },
+  {
+    "code": "20100208",
+    "name": "KIT PROTEZIONE LEVA CM (20 PZ.)",
+    "applies_to": [
+      "smontagomme_auto",
+      "smontagomme_truck",
+      "smontagomme_moto"
+    ],
+    "tags": [],
+    "source": "csv_09_01_26"
+  },
+  {
+    "code": "20100210",
+    "name": "TORRETTA MOTO/SCOOTER F 24 BIKE",
+    "applies_to": [
+      "smontagomme_auto",
+      "smontagomme_truck",
+      "smontagomme_moto"
+    ],
+    "tags": [],
+    "source": "csv_09_01_26"
+  },
+  {
+    "code": "20100213",
+    "name": "SET ATTACCHI QUAD F 24 BIKE",
+    "applies_to": [
+      "smontagomme_auto",
+      "smontagomme_truck",
+      "smontagomme_moto"
+    ],
+    "tags": [],
+    "source": "csv_09_01_26"
+  },
+  {
+    "code": "20100216",
+    "name": "KIT 3 PROTEZIONI PALETTA F 26A BIKE",
+    "applies_to": [
+      "smontagomme_auto",
+      "smontagomme_truck",
+      "smontagomme_moto"
+    ],
+    "tags": [],
+    "source": "csv_09_01_26"
+  },
+  {
+    "code": "20100225",
+    "name": "MULTI SYSTEM CM 646-LIGRO",
+    "applies_to": [
+      "smontagomme_auto",
+      "smontagomme_truck",
+      "smontagomme_moto"
+    ],
+    "tags": [],
+    "source": "csv_09_01_26"
+  },
+  {
+    "code": "20100226",
+    "name": "RF SYSTEM F 536S GT RACING",
+    "applies_to": [
+      "smontagomme_auto",
+      "smontagomme_truck",
+      "smontagomme_moto"
+    ],
+    "tags": [
+      "tubeless_gt"
+    ],
+    "source": "csv_09_01_26"
+  },
+  {
+    "code": "20100227",
+    "name": "MULTI SYSTEM F 536S GT RACING",
+    "applies_to": [
+      "smontagomme_auto",
+      "smontagomme_truck",
+      "smontagomme_moto"
+    ],
+    "tags": [
+      "tubeless_gt"
+    ],
+    "source": "csv_09_01_26"
+  },
+  {
+    "code": "20100229",
+    "name": "KIT PROTEZ. LEVA F 21-24BIKE F23AS",
+    "applies_to": [
+      "smontagomme_auto",
+      "smontagomme_truck",
+      "smontagomme_moto"
+    ],
+    "tags": [],
+    "source": "csv_09_01_26"
+  },
+  {
+    "code": "20100231",
+    "name": "RF SYSTEM CM 646-LIGRO",
+    "applies_to": [
+      "smontagomme_auto",
+      "smontagomme_truck",
+      "smontagomme_moto"
+    ],
+    "tags": [],
+    "source": "csv_09_01_26"
+  },
+  {
+    "code": "20100234",
+    "name": "ATTACCO RAPIDO TORRETTA",
+    "applies_to": [
+      "smontagomme_auto",
+      "smontagomme_truck",
+      "smontagomme_moto"
+    ],
+    "tags": [],
+    "source": "csv_09_01_26"
+  },
+  {
+    "code": "20100235",
+    "name": "LEVA PREMITALLONE",
     "applies_to": [
       "smontagomme_auto",
       "smontagomme_truck",
@@ -119,9 +533,480 @@
     ],
     "tags": [
       "helper",
-      "ribassati",
       "runflat"
-    ]
+    ],
+    "source": "csv_09_01_26"
+  },
+  {
+    "code": "20100237",
+    "name": "RULLO TUBELESS SUPER VIGOR 2450",
+    "applies_to": [
+      "smontagomme_auto",
+      "smontagomme_truck",
+      "smontagomme_moto"
+    ],
+    "tags": [],
+    "source": "csv_09_01_26"
+  },
+  {
+    "code": "20100238",
+    "name": "SET DI 4 ADATT.  RUOTE IN ALLUMINIO",
+    "applies_to": [
+      "smontagomme_auto",
+      "smontagomme_truck",
+      "smontagomme_moto"
+    ],
+    "tags": [],
+    "source": "csv_09_01_26"
+  },
+  {
+    "code": "20100253",
+    "name": "PORTA OGGETTI LATERALE",
+    "applies_to": [
+      "smontagomme_auto",
+      "smontagomme_truck",
+      "smontagomme_moto"
+    ],
+    "tags": [],
+    "source": "csv_09_01_26"
+  },
+  {
+    "code": "20100265",
+    "name": "SET 4 ATTACCHI 56\" SUPER VIGOR 2450",
+    "applies_to": [
+      "smontagomme_auto",
+      "smontagomme_truck",
+      "smontagomme_moto"
+    ],
+    "tags": [],
+    "source": "csv_09_01_26"
+  },
+  {
+    "code": "20100267",
+    "name": "GRUPPO LUBRIFICATORE PUMA",
+    "applies_to": [
+      "smontagomme_auto",
+      "smontagomme_truck",
+      "smontagomme_moto"
+    ],
+    "tags": [],
+    "source": "csv_09_01_26"
+  },
+  {
+    "code": "20100284",
+    "name": "PEDANA PNEUM SOLLEVAMENTO CM 601 GT",
+    "applies_to": [
+      "smontagomme_auto",
+      "smontagomme_truck",
+      "smontagomme_moto"
+    ],
+    "tags": [
+      "tubeless_gt"
+    ],
+    "source": "csv_09_01_26"
+  },
+  {
+    "code": "20100288",
+    "name": "PEDANA PNEUM SOLLEV",
+    "applies_to": [
+      "smontagomme_auto",
+      "smontagomme_truck",
+      "smontagomme_moto"
+    ],
+    "tags": [],
+    "source": "csv_09_01_26"
+  },
+  {
+    "code": "20100290",
+    "name": "REG.PRESS.FR 1/4+MANOMETRO",
+    "applies_to": [
+      "smontagomme_auto",
+      "smontagomme_truck",
+      "smontagomme_moto"
+    ],
+    "tags": [],
+    "source": "csv_09_01_26"
+  },
+  {
+    "code": "20100292",
+    "name": "GR. RULLIERA SMONTAGOMME AUTO",
+    "applies_to": [
+      "smontagomme_auto",
+      "smontagomme_truck",
+      "smontagomme_moto"
+    ],
+    "tags": [],
+    "source": "csv_09_01_26"
+  },
+  {
+    "code": "20100295",
+    "name": "SET 4 PROLUNGHE 56\" FT 1456A-560S",
+    "applies_to": [
+      "smontagomme_auto",
+      "smontagomme_truck",
+      "smontagomme_moto"
+    ],
+    "tags": [],
+    "source": "csv_09_01_26"
+  },
+  {
+    "code": "20100296",
+    "name": "PROTEZ.CERCHI LEGA 4PZ. CM 601GT",
+    "applies_to": [
+      "smontagomme_auto",
+      "smontagomme_truck",
+      "smontagomme_moto"
+    ],
+    "tags": [
+      "tubeless_gt"
+    ],
+    "source": "csv_09_01_26"
+  },
+  {
+    "code": "20100297",
+    "name": "PEDANA PNEUM SOLLEVAM LIGRO-CM 646",
+    "applies_to": [
+      "smontagomme_auto",
+      "smontagomme_truck",
+      "smontagomme_moto"
+    ],
+    "tags": [],
+    "source": "csv_09_01_26"
+  },
+  {
+    "code": "20100301",
+    "name": "KIT 3 PROT. PALETTA LIGRO - CM 646",
+    "applies_to": [
+      "smontagomme_auto",
+      "smontagomme_truck",
+      "smontagomme_moto"
+    ],
+    "tags": [],
+    "source": "csv_09_01_26"
+  },
+  {
+    "code": "20100302",
+    "name": "RULLO TUBELESS FT 26S",
+    "applies_to": [
+      "smontagomme_auto",
+      "smontagomme_truck",
+      "smontagomme_moto"
+    ],
+    "tags": [],
+    "source": "csv_09_01_26"
+  },
+  {
+    "code": "20100304",
+    "name": "SET 4 ADATTATORI RUOTE ALLUM FT 26S",
+    "applies_to": [
+      "smontagomme_auto",
+      "smontagomme_truck",
+      "smontagomme_moto"
+    ],
+    "tags": [],
+    "source": "csv_09_01_26"
+  },
+  {
+    "code": "20100306",
+    "name": "KIT 30 PROT. GRIFFE F24-26A BIKE",
+    "applies_to": [
+      "smontagomme_auto",
+      "smontagomme_truck",
+      "smontagomme_moto"
+    ],
+    "tags": [],
+    "source": "csv_09_01_26"
+  },
+  {
+    "code": "20100311",
+    "name": "SET ATTACCHI QUAD F 26A BIKE",
+    "applies_to": [
+      "smontagomme_auto",
+      "smontagomme_truck",
+      "smontagomme_moto"
+    ],
+    "tags": [],
+    "source": "csv_09_01_26"
+  },
+  {
+    "code": "20100318",
+    "name": "SET 4 ADATTATORI RUOTE IN ALLUMINIO",
+    "applies_to": [
+      "smontagomme_auto",
+      "smontagomme_truck",
+      "smontagomme_moto"
+    ],
+    "tags": [],
+    "source": "csv_09_01_26"
+  },
+  {
+    "code": "20100319",
+    "name": "PISTOLETTA GONF. STANDARD",
+    "applies_to": [
+      "smontagomme_auto",
+      "smontagomme_truck",
+      "smontagomme_moto"
+    ],
+    "tags": [],
+    "source": "csv_09_01_26"
+  },
+  {
+    "code": "20100326",
+    "name": "KIT PROTEZ.TORRETTA LIGRO-PUMA NEW",
+    "applies_to": [
+      "smontagomme_auto",
+      "smontagomme_truck",
+      "smontagomme_moto"
+    ],
+    "tags": [],
+    "source": "csv_09_01_26"
+  },
+  {
+    "code": "20100327",
+    "name": "KIT DISTANZIALI GRIFFE CM SUPER 56N",
+    "applies_to": [
+      "smontagomme_auto",
+      "smontagomme_truck",
+      "smontagomme_moto"
+    ],
+    "tags": [],
+    "source": "csv_09_01_26"
+  },
+  {
+    "code": "20100329",
+    "name": "GRUPPO GONFIAGGIO GT CM 1200BB",
+    "applies_to": [
+      "smontagomme_auto",
+      "smontagomme_truck",
+      "smontagomme_moto"
+    ],
+    "tags": [
+      "tubeless_gt"
+    ],
+    "source": "csv_09_01_26"
+  },
+  {
+    "code": "20100333",
+    "name": "BEAD SX ARM",
+    "applies_to": [
+      "smontagomme_auto",
+      "smontagomme_truck",
+      "smontagomme_moto"
+    ],
+    "tags": [
+      "helper",
+      "runflat"
+    ],
+    "source": "csv_09_01_26"
+  },
+  {
+    "code": "20100334",
+    "name": "KIT LIGHT NOW",
+    "applies_to": [
+      "smontagomme_auto",
+      "smontagomme_truck",
+      "smontagomme_moto"
+    ],
+    "tags": [],
+    "source": "csv_09_01_26"
+  },
+  {
+    "code": "20100335",
+    "name": "KIT OFF-ROAD F 24 BIKE",
+    "applies_to": [
+      "smontagomme_auto",
+      "smontagomme_truck",
+      "smontagomme_moto"
+    ],
+    "tags": [],
+    "source": "csv_09_01_26"
+  },
+  {
+    "code": "20100336",
+    "name": "KIT OFF-ROAD F 26A BIKE",
+    "applies_to": [
+      "smontagomme_auto",
+      "smontagomme_truck",
+      "smontagomme_moto"
+    ],
+    "tags": [],
+    "source": "csv_09_01_26"
+  },
+  {
+    "code": "20100338",
+    "name": "KIT PROTEZ.PLAST.CERCHI LEGA FT 26S",
+    "applies_to": [
+      "smontagomme_auto",
+      "smontagomme_truck",
+      "smontagomme_moto"
+    ],
+    "tags": [],
+    "source": "csv_09_01_26"
+  },
+  {
+    "code": "20100339",
+    "name": "PROLUNGHE 4 PUNTE SUPER VIGOR",
+    "applies_to": [
+      "smontagomme_auto",
+      "smontagomme_truck",
+      "smontagomme_moto"
+    ],
+    "tags": [],
+    "source": "csv_09_01_26"
+  },
+  {
+    "code": "20100340",
+    "name": "KIT 4 GRIFFE FORI D.78 SUPER VIGOR",
+    "applies_to": [
+      "smontagomme_auto",
+      "smontagomme_truck",
+      "smontagomme_moto"
+    ],
+    "tags": [],
+    "source": "csv_09_01_26"
+  },
+  {
+    "code": "20100341",
+    "name": "RF SYSTEM",
+    "applies_to": [
+      "smontagomme_auto",
+      "smontagomme_truck",
+      "smontagomme_moto"
+    ],
+    "tags": [],
+    "source": "csv_09_01_26"
+  },
+  {
+    "code": "20100342",
+    "name": "MULTI SYSTEM",
+    "applies_to": [
+      "smontagomme_auto",
+      "smontagomme_truck",
+      "smontagomme_moto"
+    ],
+    "tags": [],
+    "source": "csv_09_01_26"
+  },
+  {
+    "code": "20100345",
+    "name": "GRUPPO LUBR.+FILTRO REGOLATORE",
+    "applies_to": [
+      "smontagomme_auto",
+      "smontagomme_truck",
+      "smontagomme_moto"
+    ],
+    "tags": [],
+    "source": "csv_09_01_26"
+  },
+  {
+    "code": "20100346",
+    "name": "KIT PROTEZIONI TORRETTA 20100210",
+    "applies_to": [
+      "smontagomme_auto",
+      "smontagomme_truck",
+      "smontagomme_moto"
+    ],
+    "tags": [],
+    "source": "csv_09_01_26"
+  },
+  {
+    "code": "20100350",
+    "name": "KIT 4 GRIFFE BIKE-21",
+    "applies_to": [
+      "smontagomme_auto",
+      "smontagomme_truck",
+      "smontagomme_moto"
+    ],
+    "tags": [],
+    "source": "csv_09_01_26"
+  },
+  {
+    "code": "20100351",
+    "name": "KIT 4 GRIFFE BIKE-35",
+    "applies_to": [
+      "smontagomme_auto",
+      "smontagomme_truck",
+      "smontagomme_moto"
+    ],
+    "tags": [],
+    "source": "csv_09_01_26"
+  },
+  {
+    "code": "20100354",
+    "name": "KIT 3 CUFFIE PROTEZIONI CONO D. 145",
+    "applies_to": [
+      "smontagomme_auto",
+      "smontagomme_truck",
+      "smontagomme_moto"
+    ],
+    "tags": [],
+    "source": "csv_09_01_26"
+  },
+  {
+    "code": "20100360",
+    "name": "SET 4 PROLUNGHE 56\" FT 560SN",
+    "applies_to": [
+      "smontagomme_auto",
+      "smontagomme_truck",
+      "smontagomme_moto"
+    ],
+    "tags": [],
+    "source": "csv_09_01_26"
+  },
+  {
+    "code": "20100361",
+    "name": "SET 4 ADATTATORI RUOTE ALU FT 560SN",
+    "applies_to": [
+      "smontagomme_auto",
+      "smontagomme_truck",
+      "smontagomme_moto"
+    ],
+    "tags": [],
+    "source": "csv_09_01_26"
+  },
+  {
+    "code": "20100362",
+    "name": "KIT RADIOCOMANDO SUPER VIGOR 60",
+    "applies_to": [
+      "smontagomme_auto",
+      "smontagomme_truck",
+      "smontagomme_moto"
+    ],
+    "tags": [],
+    "source": "csv_09_01_26"
+  },
+  {
+    "code": "20100363",
+    "name": "SET 4 PROLUNGHE SUPER VIGOR 60",
+    "applies_to": [
+      "smontagomme_auto",
+      "smontagomme_truck",
+      "smontagomme_moto"
+    ],
+    "tags": [],
+    "source": "csv_09_01_26"
+  },
+  {
+    "code": "20100364",
+    "name": "SET 5 INSERTI PLAST. SUPER VIGOR 60",
+    "applies_to": [
+      "smontagomme_auto",
+      "smontagomme_truck",
+      "smontagomme_moto"
+    ],
+    "tags": [],
+    "source": "csv_09_01_26"
+  },
+  {
+    "code": "20100365",
+    "name": "SET 4 GRIFFE FT 560S NEW",
+    "applies_to": [
+      "smontagomme_auto",
+      "smontagomme_truck",
+      "smontagomme_moto"
+    ],
+    "tags": [],
+    "source": "csv_09_01_26"
   },
   {
     "code": "20100367",
@@ -133,9 +1018,9 @@
     ],
     "tags": [
       "helper",
-      "ribassati",
       "runflat"
-    ]
+    ],
+    "source": "csv_09_01_26"
   },
   {
     "code": "20100368",
@@ -147,9 +1032,9 @@
     ],
     "tags": [
       "helper",
-      "ribassati",
       "runflat"
-    ]
+    ],
+    "source": "csv_09_01_26"
   },
   {
     "code": "20100369",
@@ -161,8 +1046,570 @@
     ],
     "tags": [
       "helper",
-      "ribassati",
       "runflat"
-    ]
+    ],
+    "source": "csv_09_01_26"
+  },
+  {
+    "code": "20100376",
+    "name": "DISPOSITIVO INDUSTRIA 4.0 PUMA",
+    "applies_to": [
+      "smontagomme_auto",
+      "smontagomme_truck",
+      "smontagomme_moto"
+    ],
+    "tags": [],
+    "source": "csv_09_01_26"
+  },
+  {
+    "code": "20100377",
+    "name": "DISPOSITIVO INDUSTRIA 4.0 CM 1200BB",
+    "applies_to": [
+      "smontagomme_auto",
+      "smontagomme_truck",
+      "smontagomme_moto"
+    ],
+    "tags": [],
+    "source": "csv_09_01_26"
+  },
+  {
+    "code": "20100378",
+    "name": "DISPOSITIVO INDUSTRIA 4.0 SUPER",
+    "applies_to": [
+      "smontagomme_auto",
+      "smontagomme_truck",
+      "smontagomme_moto"
+    ],
+    "tags": [],
+    "source": "csv_09_01_26"
+  },
+  {
+    "code": "20100380",
+    "name": "KIT VETTURA TMS 26",
+    "applies_to": [
+      "smontagomme_auto",
+      "smontagomme_truck",
+      "smontagomme_moto"
+    ],
+    "tags": [],
+    "source": "csv_09_01_26"
+  },
+  {
+    "code": "20100383",
+    "name": "SET 4 ADATTATORI RUOTE ALU",
+    "applies_to": [
+      "smontagomme_auto",
+      "smontagomme_truck",
+      "smontagomme_moto"
+    ],
+    "tags": [],
+    "source": "csv_09_01_26"
+  },
+  {
+    "code": "20100384",
+    "name": "SET 4 PROLUNGHE 60\"",
+    "applies_to": [
+      "smontagomme_auto",
+      "smontagomme_truck",
+      "smontagomme_moto"
+    ],
+    "tags": [],
+    "source": "csv_09_01_26"
+  },
+  {
+    "code": "20100385",
+    "name": "RULLO TUBELESS 60\"",
+    "applies_to": [
+      "smontagomme_auto",
+      "smontagomme_truck",
+      "smontagomme_moto"
+    ],
+    "tags": [],
+    "source": "csv_09_01_26"
+  },
+  {
+    "code": "20100388",
+    "name": "SLITTA DI MOVIMENTAZIONE",
+    "applies_to": [
+      "smontagomme_auto",
+      "smontagomme_truck",
+      "smontagomme_moto"
+    ],
+    "tags": [],
+    "source": "csv_09_01_26"
+  },
+  {
+    "code": "20100389",
+    "name": "ATTACCO RAPIDO TORRETTA MOTO",
+    "applies_to": [
+      "smontagomme_auto",
+      "smontagomme_truck",
+      "smontagomme_moto"
+    ],
+    "tags": [],
+    "source": "csv_09_01_26"
+  },
+  {
+    "code": "21100014",
+    "name": "CONO 85-140 mm. D. 40 MEC",
+    "applies_to": [
+      "equilibratrici_auto",
+      "equilibratrici_truck"
+    ],
+    "tags": [
+      "centraggio",
+      "furgoni"
+    ],
+    "source": "csv_09_01_26"
+  },
+  {
+    "code": "21100015",
+    "name": "CONO 50-78 mm. D. 40 MEC",
+    "applies_to": [
+      "equilibratrici_auto",
+      "equilibratrici_truck"
+    ],
+    "tags": [
+      "centraggio",
+      "furgoni"
+    ],
+    "source": "csv_09_01_26"
+  },
+  {
+    "code": "21100016",
+    "name": "CONO 70-108 mm. D. 40 MEC",
+    "applies_to": [
+      "equilibratrici_auto",
+      "equilibratrici_truck"
+    ],
+    "tags": [
+      "centraggio",
+      "furgoni"
+    ],
+    "source": "csv_09_01_26"
+  },
+  {
+    "code": "21100033",
+    "name": "CAPPELLOTTO SPECIALE (220MM.) MEC",
+    "applies_to": [
+      "equilibratrici_auto",
+      "equilibratrici_truck"
+    ],
+    "tags": [],
+    "source": "csv_09_01_26"
+  },
+  {
+    "code": "21100034",
+    "name": "FLANGIA DI CENTRAGGIO MEC",
+    "applies_to": [
+      "equilibratrici_auto",
+      "equilibratrici_truck"
+    ],
+    "tags": [],
+    "source": "csv_09_01_26"
+  },
+  {
+    "code": "21100043",
+    "name": "KIT ANELLI CENTRAGGIO MEC",
+    "applies_to": [
+      "equilibratrici_auto",
+      "equilibratrici_truck"
+    ],
+    "tags": [],
+    "source": "csv_09_01_26"
+  },
+  {
+    "code": "21100044",
+    "name": "SET CONI PER VEICOLI COMM D.40 MEC",
+    "applies_to": [
+      "equilibratrici_auto",
+      "equilibratrici_truck"
+    ],
+    "tags": [],
+    "source": "csv_09_01_26"
+  },
+  {
+    "code": "21100049",
+    "name": "SOLLEVATORE PNEUMATICO RUOTA MEC",
+    "applies_to": [
+      "equilibratrici_auto",
+      "equilibratrici_truck"
+    ],
+    "tags": [
+      "ergonomia",
+      "sollevatore_ruota"
+    ],
+    "source": "csv_09_01_26"
+  },
+  {
+    "code": "21100057",
+    "name": "FLANGIA 4 CONI MEC",
+    "applies_to": [
+      "equilibratrici_auto",
+      "equilibratrici_truck"
+    ],
+    "tags": [],
+    "source": "csv_09_01_26"
+  },
+  {
+    "code": "21100060",
+    "name": "ILLUMINAZIONE LED MEC",
+    "applies_to": [
+      "equilibratrici_auto",
+      "equilibratrici_truck"
+    ],
+    "tags": [],
+    "source": "csv_09_01_26"
+  },
+  {
+    "code": "21100066",
+    "name": "KIT 5 PERNI BMW MEC",
+    "applies_to": [
+      "equilibratrici_auto",
+      "equilibratrici_truck"
+    ],
+    "tags": [],
+    "source": "csv_09_01_26"
+  },
+  {
+    "code": "21100067",
+    "name": "BOCCOLA A 3 GRADINI BMW D.40 MEC",
+    "applies_to": [
+      "equilibratrici_auto",
+      "equilibratrici_truck"
+    ],
+    "tags": [],
+    "source": "csv_09_01_26"
+  },
+  {
+    "code": "21100068",
+    "name": "KIT 8 BOCCOLE CENTRAGGIO D.40 MEC",
+    "applies_to": [
+      "equilibratrici_auto",
+      "equilibratrici_truck"
+    ],
+    "tags": [],
+    "source": "csv_09_01_26"
+  },
+  {
+    "code": "21100069",
+    "name": "CAPPELLOTTO E DISTANZIALE MEC",
+    "applies_to": [
+      "equilibratrici_auto",
+      "equilibratrici_truck"
+    ],
+    "tags": [
+      "centraggio"
+    ],
+    "source": "csv_09_01_26"
+  },
+  {
+    "code": "21100070",
+    "name": "CONO 42-65 mm. D. 40 MEC",
+    "applies_to": [
+      "equilibratrici_auto",
+      "equilibratrici_truck"
+    ],
+    "tags": [
+      "centraggio",
+      "furgoni"
+    ],
+    "source": "csv_09_01_26"
+  },
+  {
+    "code": "21100074",
+    "name": "FLANGIA MEC 200 TRUCK",
+    "applies_to": [
+      "equilibratrici_auto",
+      "equilibratrici_truck"
+    ],
+    "tags": [],
+    "source": "csv_09_01_26"
+  },
+  {
+    "code": "21100079",
+    "name": "KIT CARTER MINI MEC 1",
+    "applies_to": [
+      "equilibratrici_auto",
+      "equilibratrici_truck"
+    ],
+    "tags": [],
+    "source": "csv_09_01_26"
+  },
+  {
+    "code": "21100240",
+    "name": "PINZA PER CONTRAPPESI MEC",
+    "applies_to": [
+      "equilibratrici_auto",
+      "equilibratrici_truck"
+    ],
+    "tags": [],
+    "source": "csv_09_01_26"
+  },
+  {
+    "code": "21100285",
+    "name": "CALIBRO EQUILIBRATRICE MEC",
+    "applies_to": [
+      "equilibratrici_auto",
+      "equilibratrici_truck"
+    ],
+    "tags": [],
+    "source": "csv_09_01_26"
+  },
+  {
+    "code": "21100301",
+    "name": "FLANGIA UNIVERSALE A 3/4/5 FORI MEC",
+    "applies_to": [
+      "equilibratrici_auto",
+      "equilibratrici_truck"
+    ],
+    "tags": [],
+    "source": "csv_09_01_26"
+  },
+  {
+    "code": "21100303",
+    "name": "CONO+DISTANZIALE D.40 MEC",
+    "applies_to": [
+      "equilibratrici_auto",
+      "equilibratrici_truck"
+    ],
+    "tags": [
+      "centraggio",
+      "furgoni"
+    ],
+    "source": "csv_09_01_26"
+  },
+  {
+    "code": "21100304",
+    "name": "CONO+DISTANZ.190-223 MEC",
+    "applies_to": [
+      "equilibratrici_auto",
+      "equilibratrici_truck"
+    ],
+    "tags": [
+      "centraggio"
+    ],
+    "source": "csv_09_01_26"
+  },
+  {
+    "code": "21100329",
+    "name": "FLANGIA CONI SPECIALE B 92N",
+    "applies_to": [
+      "equilibratrici_auto",
+      "equilibratrici_truck"
+    ],
+    "tags": [],
+    "source": "csv_09_01_26"
+  },
+  {
+    "code": "21100345",
+    "name": "GHIERA D. 40X4 LINEA MEC",
+    "applies_to": [
+      "equilibratrici_auto",
+      "equilibratrici_truck"
+    ],
+    "tags": [
+      "bloccaggio_rapido"
+    ],
+    "source": "csv_09_01_26"
+  },
+  {
+    "code": "21100349",
+    "name": "GHIERA D.40x4 CON POMOLO",
+    "applies_to": [
+      "equilibratrici_auto",
+      "equilibratrici_truck"
+    ],
+    "tags": [
+      "bloccaggio_rapido"
+    ],
+    "source": "csv_09_01_26"
+  },
+  {
+    "code": "21100353",
+    "name": "FLANGIA MOTO D.40 MEC",
+    "applies_to": [
+      "equilibratrici_auto",
+      "equilibratrici_truck"
+    ],
+    "tags": [],
+    "source": "csv_09_01_26"
+  },
+  {
+    "code": "21100357",
+    "name": "KIT 3 PROTEZIONI CALOTTA MEC",
+    "applies_to": [
+      "equilibratrici_auto",
+      "equilibratrici_truck"
+    ],
+    "tags": [],
+    "source": "csv_09_01_26"
+  },
+  {
+    "code": "21100369",
+    "name": "ALBERO PER FLANGIA MOTO",
+    "applies_to": [
+      "equilibratrici_auto",
+      "equilibratrici_truck"
+    ],
+    "tags": [],
+    "source": "csv_09_01_26"
+  },
+  {
+    "code": "21100370",
+    "name": "CONO 42-74 D. 40 CON ANELLO",
+    "applies_to": [
+      "equilibratrici_auto",
+      "equilibratrici_truck"
+    ],
+    "tags": [
+      "centraggio",
+      "furgoni"
+    ],
+    "source": "csv_09_01_26"
+  },
+  {
+    "code": "21100371",
+    "name": "CONO 73-94 D. 40 CON ANELLO",
+    "applies_to": [
+      "equilibratrici_auto",
+      "equilibratrici_truck"
+    ],
+    "tags": [
+      "centraggio",
+      "furgoni"
+    ],
+    "source": "csv_09_01_26"
+  },
+  {
+    "code": "21100372",
+    "name": "CONO 94-125 D. 40 CON ANELLO",
+    "applies_to": [
+      "equilibratrici_auto",
+      "equilibratrici_truck"
+    ],
+    "tags": [
+      "centraggio",
+      "furgoni"
+    ],
+    "source": "csv_09_01_26"
+  },
+  {
+    "code": "21100373",
+    "name": "KIT GHIERA 40x4 CON MOZZO FIL - CAL",
+    "applies_to": [
+      "equilibratrici_auto",
+      "equilibratrici_truck"
+    ],
+    "tags": [
+      "bloccaggio_rapido"
+    ],
+    "source": "csv_09_01_26"
+  },
+  {
+    "code": "21100375",
+    "name": "KIT SMART APP",
+    "applies_to": [
+      "equilibratrici_auto",
+      "equilibratrici_truck"
+    ],
+    "tags": [],
+    "source": "csv_09_01_26"
+  },
+  {
+    "code": "21100379",
+    "name": "KIT GHIERA 40x4 CON CALOTTA",
+    "applies_to": [
+      "equilibratrici_auto",
+      "equilibratrici_truck"
+    ],
+    "tags": [
+      "bloccaggio_rapido"
+    ],
+    "source": "csv_09_01_26"
+  },
+  {
+    "code": "21100397",
+    "name": "SOLLEVATORE RUOTA",
+    "applies_to": [
+      "equilibratrici_auto",
+      "equilibratrici_truck"
+    ],
+    "tags": [
+      "ergonomia",
+      "sollevatore_ruota"
+    ],
+    "source": "csv_09_01_26"
+  },
+  {
+    "code": "21100398",
+    "name": "GRUPPO ALBERO D 3/4",
+    "applies_to": [
+      "equilibratrici_auto",
+      "equilibratrici_truck"
+    ],
+    "tags": [],
+    "source": "csv_09_01_26"
+  },
+  {
+    "code": "21100399",
+    "name": "SOLLEVATORE PNEUMATICO AUTOM.MEC",
+    "applies_to": [
+      "equilibratrici_auto",
+      "equilibratrici_truck"
+    ],
+    "tags": [
+      "ergonomia",
+      "sollevatore_ruota"
+    ],
+    "source": "csv_09_01_26"
+  },
+  {
+    "code": "21100405",
+    "name": "KIT ACCESSORI AUTO MTB",
+    "applies_to": [
+      "equilibratrici_auto",
+      "equilibratrici_truck"
+    ],
+    "tags": [],
+    "source": "csv_09_01_26"
+  },
+  {
+    "code": "21100406",
+    "name": "CAPPELLOTTO E DISTANZIALE NLS",
+    "applies_to": [
+      "equilibratrici_auto",
+      "equilibratrici_truck"
+    ],
+    "tags": [
+      "centraggio",
+      "nls"
+    ],
+    "source": "csv_09_01_26"
+  },
+  {
+    "code": "20100387",
+    "name": "BASIC HELPER ARM",
+    "applies_to": [
+      "smontagomme_auto",
+      "smontagomme_truck",
+      "smontagomme_moto"
+    ],
+    "tags": [
+      "helper",
+      "runflat"
+    ],
+    "source": "csv_09_01_26"
+  },
+  {
+    "code": "20100372",
+    "name": "Torretta in Plastica Corta completa di attacco fisso",
+    "applies_to": [
+      "smontagomme_auto",
+      "smontagomme_truck",
+      "smontagomme_moto"
+    ],
+    "tags": [],
+    "source": "csv_09_01_26"
   }
 ]
