@@ -1,1615 +1,4314 @@
 [
   {
-    "code": "20100101",
-    "name": "PISTOLA GONF.EURODAINU CE",
-    "applies_to": [
-      "smontagomme_auto",
-      "smontagomme_truck",
-      "smontagomme_moto"
-    ],
-    "tags": [],
-    "source": "csv_09_01_26"
-  },
-  {
-    "code": "20100112",
-    "name": "KIT RADIOCOMANDO SUPER VIGOR 2450",
-    "applies_to": [
-      "smontagomme_auto",
-      "smontagomme_truck",
-      "smontagomme_moto"
-    ],
-    "tags": [],
-    "source": "csv_09_01_26"
-  },
-  {
-    "code": "20100118",
-    "name": "PROTEZ.GRIFFA 4 PCS. F 21-F 23AS",
-    "applies_to": [
-      "smontagomme_auto",
-      "smontagomme_truck",
-      "smontagomme_moto"
-    ],
-    "tags": [],
-    "source": "csv_09_01_26"
-  },
-  {
-    "code": "20100123",
-    "name": "SET 4 ADATT RUOTE MOTO F23 AS-F 21",
-    "applies_to": [
-      "smontagomme_auto",
-      "smontagomme_truck",
-      "smontagomme_moto"
-    ],
-    "tags": [],
-    "source": "csv_09_01_26"
-  },
-  {
-    "code": "20100128",
-    "name": "LEVA ALZA TALLONE",
-    "applies_to": [
-      "smontagomme_auto",
-      "smontagomme_truck",
-      "smontagomme_moto"
-    ],
-    "tags": [],
-    "source": "csv_09_01_26"
-  },
-  {
-    "code": "20100129",
-    "name": "PINZA PER CERCHIONI",
-    "applies_to": [
-      "smontagomme_auto",
-      "smontagomme_truck",
-      "smontagomme_moto"
-    ],
-    "tags": [],
-    "source": "csv_09_01_26"
-  },
-  {
-    "code": "20100134",
-    "name": "LEVA PER CERCHIETTI",
-    "applies_to": [
-      "smontagomme_auto",
-      "smontagomme_truck",
-      "smontagomme_moto"
-    ],
-    "tags": [],
-    "source": "csv_09_01_26"
-  },
-  {
-    "code": "20100138",
-    "name": "RULLO TUBELESS CM SUPER 56N\"",
-    "applies_to": [
-      "smontagomme_auto",
-      "smontagomme_truck",
-      "smontagomme_moto"
-    ],
-    "tags": [],
-    "source": "csv_09_01_26"
-  },
-  {
-    "code": "20100141",
-    "name": "SET 2 MORSETTI FISSAGGIO CERCHIETTI",
-    "applies_to": [
-      "smontagomme_auto",
-      "smontagomme_truck",
-      "smontagomme_moto"
-    ],
-    "tags": [],
-    "source": "csv_09_01_26"
-  },
-  {
-    "code": "20100144",
-    "name": "SET DI 4 ADATTATORI RUOTE ALLUMINIO",
-    "applies_to": [
-      "smontagomme_auto",
-      "smontagomme_truck",
-      "smontagomme_moto"
-    ],
-    "tags": [],
-    "source": "csv_09_01_26"
-  },
-  {
-    "code": "20100153",
-    "name": "RULLO TUBELESS CM SUPER 27",
-    "applies_to": [
-      "smontagomme_auto",
-      "smontagomme_truck",
-      "smontagomme_moto"
-    ],
-    "tags": [],
-    "source": "csv_09_01_26"
-  },
-  {
-    "code": "20100154",
-    "name": "DISPOSITIVO GONFIAGGIO PEDALE",
-    "applies_to": [
-      "smontagomme_auto",
-      "smontagomme_truck",
-      "smontagomme_moto"
-    ],
-    "tags": [],
-    "source": "csv_09_01_26"
-  },
-  {
-    "code": "20100155",
-    "name": "TORRETTA SCOOTER F24BIKE-F21-F23AS",
-    "applies_to": [
-      "smontagomme_auto",
-      "smontagomme_truck",
-      "smontagomme_moto"
-    ],
-    "tags": [],
-    "source": "csv_09_01_26"
-  },
-  {
-    "code": "20100159",
-    "name": "PINZA PREMITALLONE X CERCHI IN LEGA",
-    "applies_to": [
-      "smontagomme_auto",
-      "smontagomme_truck",
-      "smontagomme_moto"
-    ],
-    "tags": [
-      "helper",
-      "runflat"
-    ],
-    "source": "csv_09_01_26"
-  },
-  {
-    "code": "20100161",
-    "name": "PREMITALLONE PNEUMATICO PUMA",
-    "applies_to": [
-      "smontagomme_auto",
-      "smontagomme_truck",
-      "smontagomme_moto"
-    ],
-    "tags": [
-      "helper",
-      "runflat"
-    ],
-    "source": "csv_09_01_26"
-  },
-  {
-    "code": "20100162",
-    "name": "PINZA PREMITAL.RUN FLAT LIGRO-PUMA",
-    "applies_to": [
-      "smontagomme_auto",
-      "smontagomme_truck",
-      "smontagomme_moto"
-    ],
-    "tags": [
-      "runflat"
-    ],
-    "source": "csv_09_01_26"
-  },
-  {
-    "code": "20100163",
-    "name": "KIT BLOCC CERCHI SENZA FORO PUMA",
-    "applies_to": [
-      "smontagomme_auto",
-      "smontagomme_truck",
-      "smontagomme_moto"
-    ],
-    "tags": [],
-    "source": "csv_09_01_26"
-  },
-  {
-    "code": "20100164",
-    "name": "GRUPPO GONFIAGGIO GT PUMA",
-    "applies_to": [
-      "smontagomme_auto",
-      "smontagomme_truck",
-      "smontagomme_moto"
-    ],
-    "tags": [
-      "tubeless_gt"
-    ],
-    "source": "csv_09_01_26"
-  },
-  {
-    "code": "20100165",
-    "name": "KIT PER CERCHI FURGONE PUMA",
-    "applies_to": [
-      "smontagomme_auto",
-      "smontagomme_truck",
-      "smontagomme_moto"
-    ],
-    "tags": [
-      "furgoni"
-    ],
-    "source": "csv_09_01_26"
-  },
-  {
-    "code": "20100166",
-    "name": "MORSETTO BASCULANTE PUMA",
-    "applies_to": [
-      "smontagomme_auto",
-      "smontagomme_truck",
-      "smontagomme_moto"
-    ],
-    "tags": [],
-    "source": "csv_09_01_26"
-  },
-  {
-    "code": "20100171",
-    "name": "PROTEZ. CERCHI IN LEGA 4 PCS.",
-    "applies_to": [
-      "smontagomme_auto",
-      "smontagomme_truck",
-      "smontagomme_moto"
-    ],
-    "tags": [],
-    "source": "csv_09_01_26"
-  },
-  {
-    "code": "20100178",
-    "name": "FLANGIA BLOC X PER CERCHI PUMA",
-    "applies_to": [
-      "smontagomme_auto",
-      "smontagomme_truck",
-      "smontagomme_moto"
-    ],
-    "tags": [],
-    "source": "csv_09_01_26"
-  },
-  {
-    "code": "20100179",
-    "name": "GRUPPO LUBRIFICATORE LIGRO-CM 646",
-    "applies_to": [
-      "smontagomme_auto",
-      "smontagomme_truck",
-      "smontagomme_moto"
-    ],
-    "tags": [],
-    "source": "csv_09_01_26"
-  },
-  {
-    "code": "20100180",
-    "name": "KIT 3 PROTEZIONI PALETTA",
-    "applies_to": [
-      "smontagomme_auto",
-      "smontagomme_truck",
-      "smontagomme_moto"
-    ],
-    "tags": [],
-    "source": "csv_09_01_26"
-  },
-  {
-    "code": "20100181",
-    "name": "KIT PROTEZIONI TORR. CM 646",
-    "applies_to": [
-      "smontagomme_auto",
-      "smontagomme_truck",
-      "smontagomme_moto"
-    ],
-    "tags": [],
-    "source": "csv_09_01_26"
-  },
-  {
-    "code": "20100182",
-    "name": "KIT PROTEZIONI TORRETTA F 524S",
-    "applies_to": [
-      "smontagomme_auto",
-      "smontagomme_truck",
-      "smontagomme_moto"
-    ],
-    "tags": [],
-    "source": "csv_09_01_26"
-  },
-  {
-    "code": "20100184",
-    "name": "KIT 3 PROTEZIONI PALETTA F 24 BIKE",
-    "applies_to": [
-      "smontagomme_auto",
-      "smontagomme_truck",
-      "smontagomme_moto"
-    ],
-    "tags": [],
-    "source": "csv_09_01_26"
-  },
-  {
-    "code": "20100185",
-    "name": "KIT PROTEZIONI TORRETTA",
-    "applies_to": [
-      "smontagomme_auto",
-      "smontagomme_truck",
-      "smontagomme_moto"
-    ],
-    "tags": [],
-    "source": "csv_09_01_26"
-  },
-  {
-    "code": "20100186",
-    "name": "ATTACCHI MOTO 4 PZ.DA 5\" A 25\"",
-    "applies_to": [
-      "smontagomme_auto",
-      "smontagomme_truck",
-      "smontagomme_moto"
-    ],
-    "tags": [],
-    "source": "csv_09_01_26"
-  },
-  {
-    "code": "20100190",
-    "name": "TORRETTA IN PLASTI X CERCHI IN LEGA",
-    "applies_to": [
-      "smontagomme_auto",
-      "smontagomme_truck",
-      "smontagomme_moto"
-    ],
-    "tags": [],
-    "source": "csv_09_01_26"
-  },
-  {
-    "code": "20100192",
-    "name": "KIT 3 PROTEZ.PALETTA CM 330-601 GT",
-    "applies_to": [
-      "smontagomme_auto",
-      "smontagomme_truck",
-      "smontagomme_moto"
-    ],
-    "tags": [
-      "tubeless_gt"
-    ],
-    "source": "csv_09_01_26"
-  },
-  {
-    "code": "20100198",
-    "name": "PINZE CERCHI IN LEGA",
-    "applies_to": [
-      "smontagomme_auto",
-      "smontagomme_truck",
-      "smontagomme_moto"
-    ],
-    "tags": [],
-    "source": "csv_09_01_26"
-  },
-  {
-    "code": "20100200",
-    "name": "PROTEZIONI CERCHI LEGA LIGRO (4PCS)",
-    "applies_to": [
-      "smontagomme_auto",
-      "smontagomme_truck",
-      "smontagomme_moto"
-    ],
-    "tags": [],
-    "source": "csv_09_01_26"
-  },
-  {
-    "code": "20100202",
-    "name": "KIT PROTEZ.TORRETTA LIGRO-PUMA",
-    "applies_to": [
-      "smontagomme_auto",
-      "smontagomme_truck",
-      "smontagomme_moto"
-    ],
-    "tags": [],
-    "source": "csv_09_01_26"
-  },
-  {
-    "code": "20100205",
-    "name": "KIT 3 CUFFIE PROTEZIONI CONO D. 120",
-    "applies_to": [
-      "smontagomme_auto",
-      "smontagomme_truck",
-      "smontagomme_moto"
-    ],
-    "tags": [],
-    "source": "csv_09_01_26"
-  },
-  {
-    "code": "20100206",
-    "name": "SET DI 4 ADATTATORI RUOTE ALLUMINIO",
-    "applies_to": [
-      "smontagomme_auto",
-      "smontagomme_truck",
-      "smontagomme_moto"
-    ],
-    "tags": [],
-    "source": "csv_09_01_26"
-  },
-  {
-    "code": "20100208",
-    "name": "KIT PROTEZIONE LEVA CM (20 PZ.)",
-    "applies_to": [
-      "smontagomme_auto",
-      "smontagomme_truck",
-      "smontagomme_moto"
-    ],
-    "tags": [],
-    "source": "csv_09_01_26"
-  },
-  {
-    "code": "20100210",
-    "name": "TORRETTA MOTO/SCOOTER F 24 BIKE",
-    "applies_to": [
-      "smontagomme_auto",
-      "smontagomme_truck",
-      "smontagomme_moto"
-    ],
-    "tags": [],
-    "source": "csv_09_01_26"
-  },
-  {
-    "code": "20100213",
-    "name": "SET ATTACCHI QUAD F 24 BIKE",
-    "applies_to": [
-      "smontagomme_auto",
-      "smontagomme_truck",
-      "smontagomme_moto"
-    ],
-    "tags": [],
-    "source": "csv_09_01_26"
-  },
-  {
-    "code": "20100216",
-    "name": "KIT 3 PROTEZIONI PALETTA F 26A BIKE",
-    "applies_to": [
-      "smontagomme_auto",
-      "smontagomme_truck",
-      "smontagomme_moto"
-    ],
-    "tags": [],
-    "source": "csv_09_01_26"
-  },
-  {
-    "code": "20100225",
-    "name": "MULTI SYSTEM CM 646-LIGRO",
-    "applies_to": [
-      "smontagomme_auto",
-      "smontagomme_truck",
-      "smontagomme_moto"
-    ],
-    "tags": [],
-    "source": "csv_09_01_26"
-  },
-  {
-    "code": "20100226",
-    "name": "RF SYSTEM F 536S GT RACING",
-    "applies_to": [
-      "smontagomme_auto",
-      "smontagomme_truck",
-      "smontagomme_moto"
-    ],
-    "tags": [
-      "tubeless_gt"
-    ],
-    "source": "csv_09_01_26"
-  },
-  {
-    "code": "20100227",
-    "name": "MULTI SYSTEM F 536S GT RACING",
-    "applies_to": [
-      "smontagomme_auto",
-      "smontagomme_truck",
-      "smontagomme_moto"
-    ],
-    "tags": [
-      "tubeless_gt"
-    ],
-    "source": "csv_09_01_26"
-  },
-  {
-    "code": "20100229",
-    "name": "KIT PROTEZ. LEVA F 21-24BIKE F23AS",
-    "applies_to": [
-      "smontagomme_auto",
-      "smontagomme_truck",
-      "smontagomme_moto"
-    ],
-    "tags": [],
-    "source": "csv_09_01_26"
-  },
-  {
-    "code": "20100231",
-    "name": "RF SYSTEM CM 646-LIGRO",
-    "applies_to": [
-      "smontagomme_auto",
-      "smontagomme_truck",
-      "smontagomme_moto"
-    ],
-    "tags": [],
-    "source": "csv_09_01_26"
-  },
-  {
-    "code": "20100234",
-    "name": "ATTACCO RAPIDO TORRETTA",
-    "applies_to": [
-      "smontagomme_auto",
-      "smontagomme_truck",
-      "smontagomme_moto"
-    ],
-    "tags": [],
-    "source": "csv_09_01_26"
-  },
-  {
-    "code": "20100235",
-    "name": "LEVA PREMITALLONE",
-    "applies_to": [
-      "smontagomme_auto",
-      "smontagomme_truck",
-      "smontagomme_moto"
-    ],
-    "tags": [
-      "helper",
-      "runflat"
-    ],
-    "source": "csv_09_01_26"
-  },
-  {
-    "code": "20100237",
-    "name": "RULLO TUBELESS SUPER VIGOR 2450",
-    "applies_to": [
-      "smontagomme_auto",
-      "smontagomme_truck",
-      "smontagomme_moto"
-    ],
-    "tags": [],
-    "source": "csv_09_01_26"
-  },
-  {
-    "code": "20100238",
-    "name": "SET DI 4 ADATT.  RUOTE IN ALLUMINIO",
-    "applies_to": [
-      "smontagomme_auto",
-      "smontagomme_truck",
-      "smontagomme_moto"
-    ],
-    "tags": [],
-    "source": "csv_09_01_26"
-  },
-  {
-    "code": "20100253",
-    "name": "PORTA OGGETTI LATERALE",
-    "applies_to": [
-      "smontagomme_auto",
-      "smontagomme_truck",
-      "smontagomme_moto"
-    ],
-    "tags": [],
-    "source": "csv_09_01_26"
-  },
-  {
-    "code": "20100265",
-    "name": "SET 4 ATTACCHI 56\" SUPER VIGOR 2450",
-    "applies_to": [
-      "smontagomme_auto",
-      "smontagomme_truck",
-      "smontagomme_moto"
-    ],
-    "tags": [],
-    "source": "csv_09_01_26"
-  },
-  {
-    "code": "20100267",
-    "name": "GRUPPO LUBRIFICATORE PUMA",
-    "applies_to": [
-      "smontagomme_auto",
-      "smontagomme_truck",
-      "smontagomme_moto"
-    ],
-    "tags": [],
-    "source": "csv_09_01_26"
-  },
-  {
-    "code": "20100284",
-    "name": "PEDANA PNEUM SOLLEVAMENTO CM 601 GT",
-    "applies_to": [
-      "smontagomme_auto",
-      "smontagomme_truck",
-      "smontagomme_moto"
-    ],
-    "tags": [
-      "tubeless_gt"
-    ],
-    "source": "csv_09_01_26"
-  },
-  {
-    "code": "20100288",
-    "name": "PEDANA PNEUM SOLLEV",
-    "applies_to": [
-      "smontagomme_auto",
-      "smontagomme_truck",
-      "smontagomme_moto"
-    ],
-    "tags": [],
-    "source": "csv_09_01_26"
-  },
-  {
-    "code": "20100290",
-    "name": "REG.PRESS.FR 1/4+MANOMETRO",
-    "applies_to": [
-      "smontagomme_auto",
-      "smontagomme_truck",
-      "smontagomme_moto"
-    ],
-    "tags": [],
-    "source": "csv_09_01_26"
-  },
-  {
-    "code": "20100292",
-    "name": "GR. RULLIERA SMONTAGOMME AUTO",
-    "applies_to": [
-      "smontagomme_auto",
-      "smontagomme_truck",
-      "smontagomme_moto"
-    ],
-    "tags": [],
-    "source": "csv_09_01_26"
-  },
-  {
-    "code": "20100295",
-    "name": "SET 4 PROLUNGHE 56\" FT 1456A-560S",
-    "applies_to": [
-      "smontagomme_auto",
-      "smontagomme_truck",
-      "smontagomme_moto"
-    ],
-    "tags": [],
-    "source": "csv_09_01_26"
-  },
-  {
-    "code": "20100296",
-    "name": "PROTEZ.CERCHI LEGA 4PZ. CM 601GT",
-    "applies_to": [
-      "smontagomme_auto",
-      "smontagomme_truck",
-      "smontagomme_moto"
-    ],
-    "tags": [
-      "tubeless_gt"
-    ],
-    "source": "csv_09_01_26"
-  },
-  {
-    "code": "20100297",
-    "name": "PEDANA PNEUM SOLLEVAM LIGRO-CM 646",
-    "applies_to": [
-      "smontagomme_auto",
-      "smontagomme_truck",
-      "smontagomme_moto"
-    ],
-    "tags": [],
-    "source": "csv_09_01_26"
-  },
-  {
-    "code": "20100301",
-    "name": "KIT 3 PROT. PALETTA LIGRO - CM 646",
-    "applies_to": [
-      "smontagomme_auto",
-      "smontagomme_truck",
-      "smontagomme_moto"
-    ],
-    "tags": [],
-    "source": "csv_09_01_26"
-  },
-  {
-    "code": "20100302",
-    "name": "RULLO TUBELESS FT 26S",
-    "applies_to": [
-      "smontagomme_auto",
-      "smontagomme_truck",
-      "smontagomme_moto"
-    ],
-    "tags": [],
-    "source": "csv_09_01_26"
-  },
-  {
-    "code": "20100304",
-    "name": "SET 4 ADATTATORI RUOTE ALLUM FT 26S",
-    "applies_to": [
-      "smontagomme_auto",
-      "smontagomme_truck",
-      "smontagomme_moto"
-    ],
-    "tags": [],
-    "source": "csv_09_01_26"
-  },
-  {
-    "code": "20100306",
-    "name": "KIT 30 PROT. GRIFFE F24-26A BIKE",
-    "applies_to": [
-      "smontagomme_auto",
-      "smontagomme_truck",
-      "smontagomme_moto"
-    ],
-    "tags": [],
-    "source": "csv_09_01_26"
-  },
-  {
-    "code": "20100311",
-    "name": "SET ATTACCHI QUAD F 26A BIKE",
-    "applies_to": [
-      "smontagomme_auto",
-      "smontagomme_truck",
-      "smontagomme_moto"
-    ],
-    "tags": [],
-    "source": "csv_09_01_26"
-  },
-  {
-    "code": "20100318",
-    "name": "SET 4 ADATTATORI RUOTE IN ALLUMINIO",
-    "applies_to": [
-      "smontagomme_auto",
-      "smontagomme_truck",
-      "smontagomme_moto"
-    ],
-    "tags": [],
-    "source": "csv_09_01_26"
-  },
-  {
-    "code": "20100319",
-    "name": "PISTOLETTA GONF. STANDARD",
-    "applies_to": [
-      "smontagomme_auto",
-      "smontagomme_truck",
-      "smontagomme_moto"
-    ],
-    "tags": [],
-    "source": "csv_09_01_26"
-  },
-  {
-    "code": "20100326",
-    "name": "KIT PROTEZ.TORRETTA LIGRO-PUMA NEW",
-    "applies_to": [
-      "smontagomme_auto",
-      "smontagomme_truck",
-      "smontagomme_moto"
-    ],
-    "tags": [],
-    "source": "csv_09_01_26"
-  },
-  {
-    "code": "20100327",
-    "name": "KIT DISTANZIALI GRIFFE CM SUPER 56N",
-    "applies_to": [
-      "smontagomme_auto",
-      "smontagomme_truck",
-      "smontagomme_moto"
-    ],
-    "tags": [],
-    "source": "csv_09_01_26"
-  },
-  {
-    "code": "20100329",
-    "name": "GRUPPO GONFIAGGIO GT CM 1200BB",
-    "applies_to": [
-      "smontagomme_auto",
-      "smontagomme_truck",
-      "smontagomme_moto"
-    ],
-    "tags": [
-      "tubeless_gt"
-    ],
-    "source": "csv_09_01_26"
-  },
-  {
-    "code": "20100333",
-    "name": "BEAD SX ARM",
-    "applies_to": [
-      "smontagomme_auto",
-      "smontagomme_truck",
-      "smontagomme_moto"
-    ],
-    "tags": [
-      "helper",
-      "runflat"
-    ],
-    "source": "csv_09_01_26"
-  },
-  {
-    "code": "20100334",
-    "name": "KIT LIGHT NOW",
-    "applies_to": [
-      "smontagomme_auto",
-      "smontagomme_truck",
-      "smontagomme_moto"
-    ],
-    "tags": [],
-    "source": "csv_09_01_26"
-  },
-  {
-    "code": "20100335",
-    "name": "KIT OFF-ROAD F 24 BIKE",
-    "applies_to": [
-      "smontagomme_auto",
-      "smontagomme_truck",
-      "smontagomme_moto"
-    ],
-    "tags": [],
-    "source": "csv_09_01_26"
-  },
-  {
-    "code": "20100336",
-    "name": "KIT OFF-ROAD F 26A BIKE",
-    "applies_to": [
-      "smontagomme_auto",
-      "smontagomme_truck",
-      "smontagomme_moto"
-    ],
-    "tags": [],
-    "source": "csv_09_01_26"
-  },
-  {
-    "code": "20100338",
-    "name": "KIT PROTEZ.PLAST.CERCHI LEGA FT 26S",
-    "applies_to": [
-      "smontagomme_auto",
-      "smontagomme_truck",
-      "smontagomme_moto"
-    ],
-    "tags": [],
-    "source": "csv_09_01_26"
-  },
-  {
-    "code": "20100339",
-    "name": "PROLUNGHE 4 PUNTE SUPER VIGOR",
-    "applies_to": [
-      "smontagomme_auto",
-      "smontagomme_truck",
-      "smontagomme_moto"
-    ],
-    "tags": [],
-    "source": "csv_09_01_26"
-  },
-  {
-    "code": "20100340",
-    "name": "KIT 4 GRIFFE FORI D.78 SUPER VIGOR",
-    "applies_to": [
-      "smontagomme_auto",
-      "smontagomme_truck",
-      "smontagomme_moto"
-    ],
-    "tags": [],
-    "source": "csv_09_01_26"
-  },
-  {
-    "code": "20100341",
-    "name": "RF SYSTEM",
-    "applies_to": [
-      "smontagomme_auto",
-      "smontagomme_truck",
-      "smontagomme_moto"
-    ],
-    "tags": [],
-    "source": "csv_09_01_26"
-  },
-  {
-    "code": "20100342",
-    "name": "MULTI SYSTEM",
-    "applies_to": [
-      "smontagomme_auto",
-      "smontagomme_truck",
-      "smontagomme_moto"
-    ],
-    "tags": [],
-    "source": "csv_09_01_26"
-  },
-  {
-    "code": "20100345",
-    "name": "GRUPPO LUBR.+FILTRO REGOLATORE",
-    "applies_to": [
-      "smontagomme_auto",
-      "smontagomme_truck",
-      "smontagomme_moto"
-    ],
-    "tags": [],
-    "source": "csv_09_01_26"
-  },
-  {
-    "code": "20100346",
-    "name": "KIT PROTEZIONI TORRETTA 20100210",
-    "applies_to": [
-      "smontagomme_auto",
-      "smontagomme_truck",
-      "smontagomme_moto"
-    ],
-    "tags": [],
-    "source": "csv_09_01_26"
-  },
-  {
-    "code": "20100350",
-    "name": "KIT 4 GRIFFE BIKE-21",
-    "applies_to": [
-      "smontagomme_auto",
-      "smontagomme_truck",
-      "smontagomme_moto"
-    ],
-    "tags": [],
-    "source": "csv_09_01_26"
-  },
-  {
-    "code": "20100351",
-    "name": "KIT 4 GRIFFE BIKE-35",
-    "applies_to": [
-      "smontagomme_auto",
-      "smontagomme_truck",
-      "smontagomme_moto"
-    ],
-    "tags": [],
-    "source": "csv_09_01_26"
-  },
-  {
-    "code": "20100354",
-    "name": "KIT 3 CUFFIE PROTEZIONI CONO D. 145",
-    "applies_to": [
-      "smontagomme_auto",
-      "smontagomme_truck",
-      "smontagomme_moto"
-    ],
-    "tags": [],
-    "source": "csv_09_01_26"
-  },
-  {
-    "code": "20100360",
-    "name": "SET 4 PROLUNGHE 56\" FT 560SN",
-    "applies_to": [
-      "smontagomme_auto",
-      "smontagomme_truck",
-      "smontagomme_moto"
-    ],
-    "tags": [],
-    "source": "csv_09_01_26"
-  },
-  {
-    "code": "20100361",
-    "name": "SET 4 ADATTATORI RUOTE ALU FT 560SN",
-    "applies_to": [
-      "smontagomme_auto",
-      "smontagomme_truck",
-      "smontagomme_moto"
-    ],
-    "tags": [],
-    "source": "csv_09_01_26"
-  },
-  {
-    "code": "20100362",
-    "name": "KIT RADIOCOMANDO SUPER VIGOR 60",
-    "applies_to": [
-      "smontagomme_auto",
-      "smontagomme_truck",
-      "smontagomme_moto"
-    ],
-    "tags": [],
-    "source": "csv_09_01_26"
-  },
-  {
-    "code": "20100363",
-    "name": "SET 4 PROLUNGHE SUPER VIGOR 60",
-    "applies_to": [
-      "smontagomme_auto",
-      "smontagomme_truck",
-      "smontagomme_moto"
-    ],
-    "tags": [],
-    "source": "csv_09_01_26"
-  },
-  {
-    "code": "20100364",
-    "name": "SET 5 INSERTI PLAST. SUPER VIGOR 60",
-    "applies_to": [
-      "smontagomme_auto",
-      "smontagomme_truck",
-      "smontagomme_moto"
-    ],
-    "tags": [],
-    "source": "csv_09_01_26"
-  },
-  {
-    "code": "20100365",
-    "name": "SET 4 GRIFFE FT 560S NEW",
-    "applies_to": [
-      "smontagomme_auto",
-      "smontagomme_truck",
-      "smontagomme_moto"
-    ],
-    "tags": [],
-    "source": "csv_09_01_26"
-  },
-  {
-    "code": "20100367",
-    "name": "SX PLUS SYSTEM PRO",
-    "applies_to": [
-      "smontagomme_auto",
-      "smontagomme_truck",
-      "smontagomme_moto"
-    ],
-    "tags": [
-      "helper",
-      "runflat"
-    ],
-    "source": "csv_09_01_26"
-  },
-  {
-    "code": "20100368",
-    "name": "ELHA BRACCIO SX",
-    "applies_to": [
-      "smontagomme_auto",
-      "smontagomme_truck",
-      "smontagomme_moto"
-    ],
-    "tags": [
-      "helper",
-      "runflat"
-    ],
-    "source": "csv_09_01_26"
-  },
-  {
-    "code": "20100369",
-    "name": "ERHA BRACCIO DX",
-    "applies_to": [
-      "smontagomme_auto",
-      "smontagomme_truck",
-      "smontagomme_moto"
-    ],
-    "tags": [
-      "helper",
-      "runflat"
-    ],
-    "source": "csv_09_01_26"
-  },
-  {
-    "code": "20100376",
-    "name": "DISPOSITIVO INDUSTRIA 4.0 PUMA",
-    "applies_to": [
-      "smontagomme_auto",
-      "smontagomme_truck",
-      "smontagomme_moto"
-    ],
-    "tags": [],
-    "source": "csv_09_01_26"
-  },
-  {
-    "code": "20100377",
-    "name": "DISPOSITIVO INDUSTRIA 4.0 CM 1200BB",
-    "applies_to": [
-      "smontagomme_auto",
-      "smontagomme_truck",
-      "smontagomme_moto"
-    ],
-    "tags": [],
-    "source": "csv_09_01_26"
-  },
-  {
-    "code": "20100378",
-    "name": "DISPOSITIVO INDUSTRIA 4.0 SUPER",
-    "applies_to": [
-      "smontagomme_auto",
-      "smontagomme_truck",
-      "smontagomme_moto"
-    ],
-    "tags": [],
-    "source": "csv_09_01_26"
-  },
-  {
-    "code": "20100380",
-    "name": "KIT VETTURA TMS 26",
-    "applies_to": [
-      "smontagomme_auto",
-      "smontagomme_truck",
-      "smontagomme_moto"
-    ],
-    "tags": [],
-    "source": "csv_09_01_26"
-  },
-  {
-    "code": "20100383",
-    "name": "SET 4 ADATTATORI RUOTE ALU",
-    "applies_to": [
-      "smontagomme_auto",
-      "smontagomme_truck",
-      "smontagomme_moto"
-    ],
-    "tags": [],
-    "source": "csv_09_01_26"
-  },
-  {
-    "code": "20100384",
-    "name": "SET 4 PROLUNGHE 60\"",
-    "applies_to": [
-      "smontagomme_auto",
-      "smontagomme_truck",
-      "smontagomme_moto"
-    ],
-    "tags": [],
-    "source": "csv_09_01_26"
-  },
-  {
-    "code": "20100385",
-    "name": "RULLO TUBELESS 60\"",
-    "applies_to": [
-      "smontagomme_auto",
-      "smontagomme_truck",
-      "smontagomme_moto"
-    ],
-    "tags": [],
-    "source": "csv_09_01_26"
-  },
-  {
-    "code": "20100388",
-    "name": "SLITTA DI MOVIMENTAZIONE",
-    "applies_to": [
-      "smontagomme_auto",
-      "smontagomme_truck",
-      "smontagomme_moto"
-    ],
-    "tags": [],
-    "source": "csv_09_01_26"
-  },
-  {
-    "code": "20100389",
-    "name": "ATTACCO RAPIDO TORRETTA MOTO",
-    "applies_to": [
-      "smontagomme_auto",
-      "smontagomme_truck",
-      "smontagomme_moto"
-    ],
-    "tags": [],
-    "source": "csv_09_01_26"
-  },
-  {
     "code": "21100014",
-    "name": "CONO 85-140 mm. D. 40 MEC",
+    "name": "Cono 85-140 mm Ø 40",
     "applies_to": [
-      "equilibratrici_auto",
-      "equilibratrici_truck"
+      "equilibratrici_auto"
     ],
-    "tags": [
-      "centraggio",
-      "furgoni"
-    ],
-    "source": "csv_09_01_26"
+    "compat": [
+      {
+        "product_code": "01100208",
+        "type": "S"
+      },
+      {
+        "product_code": "01100213",
+        "type": "S"
+      },
+      {
+        "product_code": "01100216",
+        "type": "S"
+      },
+      {
+        "product_code": "01100218",
+        "type": "S"
+      },
+      {
+        "product_code": "01100223",
+        "type": "S"
+      },
+      {
+        "product_code": "01100224",
+        "type": "S"
+      },
+      {
+        "product_code": "01100230",
+        "type": "S"
+      },
+      {
+        "product_code": "01100232",
+        "type": "S"
+      },
+      {
+        "product_code": "01100233",
+        "type": "S"
+      },
+      {
+        "product_code": "01100235",
+        "type": "S"
+      },
+      {
+        "product_code": "01100240",
+        "type": "S"
+      },
+      {
+        "product_code": "01100245",
+        "type": "S"
+      },
+      {
+        "product_code": "01100246",
+        "type": "S"
+      },
+      {
+        "product_code": "01100257",
+        "type": "X"
+      },
+      {
+        "product_code": "01100260",
+        "type": "X"
+      },
+      {
+        "product_code": "01100261",
+        "type": "X"
+      },
+      {
+        "product_code": "01100350",
+        "type": "S"
+      },
+      {
+        "product_code": "01100351",
+        "type": "S"
+      }
+    ]
   },
   {
     "code": "21100015",
-    "name": "CONO 50-78 mm. D. 40 MEC",
+    "name": "Cono 50-78 mm Ø40",
     "applies_to": [
-      "equilibratrici_auto",
-      "equilibratrici_truck"
+      "equilibratrici_auto"
     ],
-    "tags": [
-      "centraggio",
-      "furgoni"
-    ],
-    "source": "csv_09_01_26"
+    "compat": [
+      {
+        "product_code": "01100208",
+        "type": "S"
+      },
+      {
+        "product_code": "01100213",
+        "type": "S"
+      },
+      {
+        "product_code": "01100216",
+        "type": "S"
+      },
+      {
+        "product_code": "01100218",
+        "type": "S"
+      },
+      {
+        "product_code": "01100223",
+        "type": "S"
+      },
+      {
+        "product_code": "01100224",
+        "type": "S"
+      },
+      {
+        "product_code": "01100230",
+        "type": "S"
+      },
+      {
+        "product_code": "01100232",
+        "type": "S"
+      },
+      {
+        "product_code": "01100233",
+        "type": "S"
+      },
+      {
+        "product_code": "01100235",
+        "type": "S"
+      },
+      {
+        "product_code": "01100240",
+        "type": "S"
+      },
+      {
+        "product_code": "01100245",
+        "type": "S"
+      },
+      {
+        "product_code": "01100246",
+        "type": "S"
+      },
+      {
+        "product_code": "01100257",
+        "type": "S"
+      },
+      {
+        "product_code": "01100260",
+        "type": "S"
+      },
+      {
+        "product_code": "01100261",
+        "type": "S"
+      },
+      {
+        "product_code": "01100350",
+        "type": "S"
+      },
+      {
+        "product_code": "01100351",
+        "type": "S"
+      }
+    ]
   },
   {
     "code": "21100016",
-    "name": "CONO 70-108 mm. D. 40 MEC",
+    "name": "Cono 70-108 mm Ø 40",
     "applies_to": [
-      "equilibratrici_auto",
-      "equilibratrici_truck"
+      "equilibratrici_auto"
     ],
-    "tags": [
-      "centraggio",
-      "furgoni"
-    ],
-    "source": "csv_09_01_26"
+    "compat": [
+      {
+        "product_code": "01100208",
+        "type": "S"
+      },
+      {
+        "product_code": "01100213",
+        "type": "S"
+      },
+      {
+        "product_code": "01100216",
+        "type": "S"
+      },
+      {
+        "product_code": "01100218",
+        "type": "S"
+      },
+      {
+        "product_code": "01100223",
+        "type": "S"
+      },
+      {
+        "product_code": "01100224",
+        "type": "S"
+      },
+      {
+        "product_code": "01100230",
+        "type": "S"
+      },
+      {
+        "product_code": "01100232",
+        "type": "S"
+      },
+      {
+        "product_code": "01100233",
+        "type": "S"
+      },
+      {
+        "product_code": "01100235",
+        "type": "S"
+      },
+      {
+        "product_code": "01100240",
+        "type": "S"
+      },
+      {
+        "product_code": "01100245",
+        "type": "S"
+      },
+      {
+        "product_code": "01100246",
+        "type": "S"
+      },
+      {
+        "product_code": "01100257",
+        "type": "S"
+      },
+      {
+        "product_code": "01100260",
+        "type": "S"
+      },
+      {
+        "product_code": "01100261",
+        "type": "S"
+      },
+      {
+        "product_code": "01100350",
+        "type": "S"
+      },
+      {
+        "product_code": "01100351",
+        "type": "S"
+      }
+    ]
   },
   {
     "code": "21100033",
-    "name": "CAPPELLOTTO SPECIALE (220MM.) MEC",
+    "name": "Cappellotto speciale",
     "applies_to": [
-      "equilibratrici_auto",
-      "equilibratrici_truck"
+      "equilibratrici_auto"
     ],
-    "tags": [],
-    "source": "csv_09_01_26"
+    "compat": [
+      {
+        "product_code": "01100208",
+        "type": "X"
+      },
+      {
+        "product_code": "01100213",
+        "type": "X"
+      },
+      {
+        "product_code": "01100216",
+        "type": "X"
+      },
+      {
+        "product_code": "01100218",
+        "type": "X"
+      },
+      {
+        "product_code": "01100223",
+        "type": "X"
+      },
+      {
+        "product_code": "01100224",
+        "type": "X"
+      },
+      {
+        "product_code": "01100230",
+        "type": "X"
+      },
+      {
+        "product_code": "01100232",
+        "type": "X"
+      },
+      {
+        "product_code": "01100233",
+        "type": "X"
+      },
+      {
+        "product_code": "01100235",
+        "type": "X"
+      },
+      {
+        "product_code": "01100240",
+        "type": "X"
+      },
+      {
+        "product_code": "01100245",
+        "type": "X"
+      },
+      {
+        "product_code": "01100246",
+        "type": "X"
+      },
+      {
+        "product_code": "01100257",
+        "type": "X"
+      },
+      {
+        "product_code": "01100260",
+        "type": "X"
+      },
+      {
+        "product_code": "01100261",
+        "type": "X"
+      },
+      {
+        "product_code": "01100350",
+        "type": "X"
+      },
+      {
+        "product_code": "01100351",
+        "type": "X"
+      }
+    ]
   },
   {
     "code": "21100034",
-    "name": "FLANGIA DI CENTRAGGIO MEC",
+    "name": "Flangia di centraggio da 98 a 140 mm Ø 40 con 5 perni Ø 24x82,5 mm",
     "applies_to": [
-      "equilibratrici_auto",
-      "equilibratrici_truck"
+      "equilibratrici_auto"
     ],
-    "tags": [],
-    "source": "csv_09_01_26"
+    "compat": [
+      {
+        "product_code": "01100208",
+        "type": "X"
+      },
+      {
+        "product_code": "01100213",
+        "type": "X"
+      },
+      {
+        "product_code": "01100216",
+        "type": "X"
+      },
+      {
+        "product_code": "01100218",
+        "type": "X"
+      },
+      {
+        "product_code": "01100223",
+        "type": "X"
+      },
+      {
+        "product_code": "01100224",
+        "type": "X"
+      },
+      {
+        "product_code": "01100230",
+        "type": "X"
+      },
+      {
+        "product_code": "01100232",
+        "type": "X"
+      },
+      {
+        "product_code": "01100233",
+        "type": "X"
+      },
+      {
+        "product_code": "01100235",
+        "type": "X"
+      },
+      {
+        "product_code": "01100240",
+        "type": "X"
+      },
+      {
+        "product_code": "01100245",
+        "type": "X"
+      },
+      {
+        "product_code": "01100246",
+        "type": "X"
+      },
+      {
+        "product_code": "01100257",
+        "type": "X"
+      },
+      {
+        "product_code": "01100260",
+        "type": "X"
+      },
+      {
+        "product_code": "01100261",
+        "type": "X"
+      },
+      {
+        "product_code": "01100350",
+        "type": "X"
+      },
+      {
+        "product_code": "01100351",
+        "type": "X"
+      }
+    ]
   },
   {
     "code": "21100043",
-    "name": "KIT ANELLI CENTRAGGIO MEC",
+    "name": "Anelli di centraggio per 21100301: Ø 58 CITROEN Ø 60 RENAULT Ø 65 PEUGEOT Set di 3 pcs",
     "applies_to": [
-      "equilibratrici_auto",
-      "equilibratrici_truck"
+      "equilibratrici_auto"
     ],
-    "tags": [],
-    "source": "csv_09_01_26"
+    "compat": [
+      {
+        "product_code": "01100208",
+        "type": "X"
+      },
+      {
+        "product_code": "01100213",
+        "type": "X"
+      },
+      {
+        "product_code": "01100216",
+        "type": "X"
+      },
+      {
+        "product_code": "01100218",
+        "type": "X"
+      },
+      {
+        "product_code": "01100223",
+        "type": "X"
+      },
+      {
+        "product_code": "01100224",
+        "type": "X"
+      },
+      {
+        "product_code": "01100230",
+        "type": "X"
+      },
+      {
+        "product_code": "01100232",
+        "type": "X"
+      },
+      {
+        "product_code": "01100233",
+        "type": "X"
+      },
+      {
+        "product_code": "01100235",
+        "type": "X"
+      },
+      {
+        "product_code": "01100240",
+        "type": "X"
+      },
+      {
+        "product_code": "01100245",
+        "type": "X"
+      },
+      {
+        "product_code": "01100246",
+        "type": "X"
+      },
+      {
+        "product_code": "01100257",
+        "type": "X"
+      },
+      {
+        "product_code": "01100260",
+        "type": "X"
+      },
+      {
+        "product_code": "01100261",
+        "type": "X"
+      },
+      {
+        "product_code": "01100350",
+        "type": "X"
+      },
+      {
+        "product_code": "01100351",
+        "type": "X"
+      }
+    ]
   },
   {
     "code": "21100044",
-    "name": "SET CONI PER VEICOLI COMM D.40 MEC",
+    "name": "Set di coni per veicoli commerciali da 88 a 174 mm Ø 40",
     "applies_to": [
-      "equilibratrici_auto",
-      "equilibratrici_truck"
+      "equilibratrici_auto"
     ],
-    "tags": [],
-    "source": "csv_09_01_26"
-  },
-  {
-    "code": "21100049",
-    "name": "SOLLEVATORE PNEUMATICO RUOTA MEC",
-    "applies_to": [
-      "equilibratrici_auto",
-      "equilibratrici_truck"
-    ],
-    "tags": [
-      "ergonomia",
-      "sollevatore_ruota"
-    ],
-    "source": "csv_09_01_26"
-  },
-  {
-    "code": "21100057",
-    "name": "FLANGIA 4 CONI MEC",
-    "applies_to": [
-      "equilibratrici_auto",
-      "equilibratrici_truck"
-    ],
-    "tags": [],
-    "source": "csv_09_01_26"
-  },
-  {
-    "code": "21100060",
-    "name": "ILLUMINAZIONE LED MEC",
-    "applies_to": [
-      "equilibratrici_auto",
-      "equilibratrici_truck"
-    ],
-    "tags": [],
-    "source": "csv_09_01_26"
+    "compat": [
+      {
+        "product_code": "01100208",
+        "type": "X"
+      },
+      {
+        "product_code": "01100213",
+        "type": "X"
+      },
+      {
+        "product_code": "01100216",
+        "type": "X"
+      },
+      {
+        "product_code": "01100218",
+        "type": "X"
+      },
+      {
+        "product_code": "01100223",
+        "type": "X"
+      },
+      {
+        "product_code": "01100224",
+        "type": "X"
+      },
+      {
+        "product_code": "01100230",
+        "type": "X"
+      },
+      {
+        "product_code": "01100232",
+        "type": "X"
+      },
+      {
+        "product_code": "01100233",
+        "type": "X"
+      },
+      {
+        "product_code": "01100235",
+        "type": "X"
+      },
+      {
+        "product_code": "01100240",
+        "type": "X"
+      },
+      {
+        "product_code": "01100245",
+        "type": "X"
+      },
+      {
+        "product_code": "01100246",
+        "type": "X"
+      },
+      {
+        "product_code": "01100257",
+        "type": "X"
+      },
+      {
+        "product_code": "01100260",
+        "type": "X"
+      },
+      {
+        "product_code": "01100261",
+        "type": "X"
+      },
+      {
+        "product_code": "01100350",
+        "type": "X"
+      },
+      {
+        "product_code": "01100351",
+        "type": "X"
+      }
+    ]
   },
   {
     "code": "21100066",
-    "name": "KIT 5 PERNI BMW MEC",
+    "name": "Kit 5 perni speciali per BMW",
     "applies_to": [
-      "equilibratrici_auto",
-      "equilibratrici_truck"
+      "equilibratrici_auto"
     ],
-    "tags": [],
-    "source": "csv_09_01_26"
+    "compat": [
+      {
+        "product_code": "01100208",
+        "type": "X"
+      },
+      {
+        "product_code": "01100213",
+        "type": "X"
+      },
+      {
+        "product_code": "01100216",
+        "type": "X"
+      },
+      {
+        "product_code": "01100218",
+        "type": "X"
+      },
+      {
+        "product_code": "01100223",
+        "type": "X"
+      },
+      {
+        "product_code": "01100224",
+        "type": "X"
+      },
+      {
+        "product_code": "01100230",
+        "type": "X"
+      },
+      {
+        "product_code": "01100232",
+        "type": "X"
+      },
+      {
+        "product_code": "01100233",
+        "type": "X"
+      },
+      {
+        "product_code": "01100235",
+        "type": "X"
+      },
+      {
+        "product_code": "01100240",
+        "type": "X"
+      },
+      {
+        "product_code": "01100245",
+        "type": "X"
+      },
+      {
+        "product_code": "01100246",
+        "type": "X"
+      },
+      {
+        "product_code": "01100257",
+        "type": "X"
+      },
+      {
+        "product_code": "01100260",
+        "type": "X"
+      },
+      {
+        "product_code": "01100261",
+        "type": "X"
+      },
+      {
+        "product_code": "01100350",
+        "type": "X"
+      },
+      {
+        "product_code": "01100351",
+        "type": "X"
+      }
+    ]
   },
   {
     "code": "21100067",
-    "name": "BOCCOLA A 3 GRADINI BMW D.40 MEC",
+    "name": "Boccola a 3 gradini per BMW Ø 40",
     "applies_to": [
-      "equilibratrici_auto",
-      "equilibratrici_truck"
+      "equilibratrici_auto"
     ],
-    "tags": [],
-    "source": "csv_09_01_26"
+    "compat": [
+      {
+        "product_code": "01100208",
+        "type": "X"
+      },
+      {
+        "product_code": "01100213",
+        "type": "X"
+      },
+      {
+        "product_code": "01100216",
+        "type": "X"
+      },
+      {
+        "product_code": "01100218",
+        "type": "X"
+      },
+      {
+        "product_code": "01100223",
+        "type": "X"
+      },
+      {
+        "product_code": "01100224",
+        "type": "X"
+      },
+      {
+        "product_code": "01100230",
+        "type": "X"
+      },
+      {
+        "product_code": "01100232",
+        "type": "X"
+      },
+      {
+        "product_code": "01100233",
+        "type": "X"
+      },
+      {
+        "product_code": "01100235",
+        "type": "X"
+      },
+      {
+        "product_code": "01100240",
+        "type": "X"
+      },
+      {
+        "product_code": "01100245",
+        "type": "X"
+      },
+      {
+        "product_code": "01100246",
+        "type": "X"
+      },
+      {
+        "product_code": "01100257",
+        "type": "X"
+      },
+      {
+        "product_code": "01100260",
+        "type": "X"
+      },
+      {
+        "product_code": "01100261",
+        "type": "X"
+      },
+      {
+        "product_code": "01100350",
+        "type": "X"
+      },
+      {
+        "product_code": "01100351",
+        "type": "X"
+      }
+    ]
   },
   {
     "code": "21100068",
-    "name": "KIT 8 BOCCOLE CENTRAGGIO D.40 MEC",
+    "name": "Kit di 8 boccole di centraggio Ø 40",
     "applies_to": [
-      "equilibratrici_auto",
-      "equilibratrici_truck"
+      "equilibratrici_auto"
     ],
-    "tags": [],
-    "source": "csv_09_01_26"
+    "compat": [
+      {
+        "product_code": "01100208",
+        "type": "X"
+      },
+      {
+        "product_code": "01100213",
+        "type": "X"
+      },
+      {
+        "product_code": "01100216",
+        "type": "X"
+      },
+      {
+        "product_code": "01100218",
+        "type": "X"
+      },
+      {
+        "product_code": "01100223",
+        "type": "X"
+      },
+      {
+        "product_code": "01100224",
+        "type": "X"
+      },
+      {
+        "product_code": "01100230",
+        "type": "X"
+      },
+      {
+        "product_code": "01100232",
+        "type": "X"
+      },
+      {
+        "product_code": "01100233",
+        "type": "X"
+      },
+      {
+        "product_code": "01100235",
+        "type": "X"
+      },
+      {
+        "product_code": "01100240",
+        "type": "X"
+      },
+      {
+        "product_code": "01100245",
+        "type": "X"
+      },
+      {
+        "product_code": "01100246",
+        "type": "X"
+      },
+      {
+        "product_code": "01100257",
+        "type": "X"
+      },
+      {
+        "product_code": "01100260",
+        "type": "X"
+      },
+      {
+        "product_code": "01100261",
+        "type": "X"
+      },
+      {
+        "product_code": "01100350",
+        "type": "X"
+      },
+      {
+        "product_code": "01100351",
+        "type": "X"
+      }
+    ]
   },
   {
     "code": "21100069",
-    "name": "CAPPELLOTTO E DISTANZIALE MEC",
+    "name": "Cappellotto e distanziale",
     "applies_to": [
-      "equilibratrici_auto",
-      "equilibratrici_truck"
+      "equilibratrici_auto"
     ],
-    "tags": [
-      "centraggio"
-    ],
-    "source": "csv_09_01_26"
+    "compat": [
+      {
+        "product_code": "01100208",
+        "type": "X"
+      },
+      {
+        "product_code": "01100213",
+        "type": "X"
+      },
+      {
+        "product_code": "01100216",
+        "type": "X"
+      },
+      {
+        "product_code": "01100218",
+        "type": "X"
+      },
+      {
+        "product_code": "01100223",
+        "type": "X"
+      },
+      {
+        "product_code": "01100224",
+        "type": "X"
+      },
+      {
+        "product_code": "01100230",
+        "type": "X"
+      },
+      {
+        "product_code": "01100232",
+        "type": "X"
+      },
+      {
+        "product_code": "01100233",
+        "type": "X"
+      },
+      {
+        "product_code": "01100235",
+        "type": "X"
+      },
+      {
+        "product_code": "01100240",
+        "type": "X"
+      },
+      {
+        "product_code": "01100245",
+        "type": "X"
+      },
+      {
+        "product_code": "01100246",
+        "type": "X"
+      },
+      {
+        "product_code": "01100257",
+        "type": "X"
+      },
+      {
+        "product_code": "01100260",
+        "type": "X"
+      },
+      {
+        "product_code": "01100261",
+        "type": "X"
+      },
+      {
+        "product_code": "01100350",
+        "type": "X"
+      },
+      {
+        "product_code": "01100351",
+        "type": "X"
+      }
+    ]
   },
   {
     "code": "21100070",
-    "name": "CONO 42-65 mm. D. 40 MEC",
+    "name": "Cono 42-65 mm Ø40",
     "applies_to": [
-      "equilibratrici_auto",
-      "equilibratrici_truck"
+      "equilibratrici_auto"
     ],
-    "tags": [
-      "centraggio",
-      "furgoni"
-    ],
-    "source": "csv_09_01_26"
-  },
-  {
-    "code": "21100074",
-    "name": "FLANGIA MEC 200 TRUCK",
-    "applies_to": [
-      "equilibratrici_auto",
-      "equilibratrici_truck"
-    ],
-    "tags": [],
-    "source": "csv_09_01_26"
-  },
-  {
-    "code": "21100079",
-    "name": "KIT CARTER MINI MEC 1",
-    "applies_to": [
-      "equilibratrici_auto",
-      "equilibratrici_truck"
-    ],
-    "tags": [],
-    "source": "csv_09_01_26"
+    "compat": [
+      {
+        "product_code": "01100208",
+        "type": "S"
+      },
+      {
+        "product_code": "01100213",
+        "type": "S"
+      },
+      {
+        "product_code": "01100216",
+        "type": "S"
+      },
+      {
+        "product_code": "01100218",
+        "type": "S"
+      },
+      {
+        "product_code": "01100223",
+        "type": "S"
+      },
+      {
+        "product_code": "01100224",
+        "type": "S"
+      },
+      {
+        "product_code": "01100230",
+        "type": "S"
+      },
+      {
+        "product_code": "01100232",
+        "type": "S"
+      },
+      {
+        "product_code": "01100233",
+        "type": "S"
+      },
+      {
+        "product_code": "01100235",
+        "type": "S"
+      },
+      {
+        "product_code": "01100240",
+        "type": "S"
+      },
+      {
+        "product_code": "01100245",
+        "type": "S"
+      },
+      {
+        "product_code": "01100246",
+        "type": "S"
+      },
+      {
+        "product_code": "01100257",
+        "type": "S"
+      },
+      {
+        "product_code": "01100260",
+        "type": "S"
+      },
+      {
+        "product_code": "01100261",
+        "type": "S"
+      },
+      {
+        "product_code": "01100350",
+        "type": "S"
+      },
+      {
+        "product_code": "01100351",
+        "type": "S"
+      }
+    ]
   },
   {
     "code": "21100240",
-    "name": "PINZA PER CONTRAPPESI MEC",
+    "name": "Pinza per contrappesi",
     "applies_to": [
-      "equilibratrici_auto",
-      "equilibratrici_truck"
+      "equilibratrici_auto"
     ],
-    "tags": [],
-    "source": "csv_09_01_26"
+    "compat": [
+      {
+        "product_code": "01100208",
+        "type": "S"
+      },
+      {
+        "product_code": "01100213",
+        "type": "S"
+      },
+      {
+        "product_code": "01100216",
+        "type": "S"
+      },
+      {
+        "product_code": "01100218",
+        "type": "S"
+      },
+      {
+        "product_code": "01100223",
+        "type": "S"
+      },
+      {
+        "product_code": "01100224",
+        "type": "S"
+      },
+      {
+        "product_code": "01100230",
+        "type": "S"
+      },
+      {
+        "product_code": "01100232",
+        "type": "S"
+      },
+      {
+        "product_code": "01100233",
+        "type": "S"
+      },
+      {
+        "product_code": "01100235",
+        "type": "S"
+      },
+      {
+        "product_code": "01100240",
+        "type": "S"
+      },
+      {
+        "product_code": "01100245",
+        "type": "S"
+      },
+      {
+        "product_code": "01100246",
+        "type": "S"
+      },
+      {
+        "product_code": "01100257",
+        "type": "S"
+      },
+      {
+        "product_code": "01100260",
+        "type": "S"
+      },
+      {
+        "product_code": "01100261",
+        "type": "S"
+      },
+      {
+        "product_code": "01100350",
+        "type": "S"
+      },
+      {
+        "product_code": "01100351",
+        "type": "S"
+      }
+    ]
   },
   {
     "code": "21100285",
-    "name": "CALIBRO EQUILIBRATRICE MEC",
+    "name": "Calibro",
     "applies_to": [
-      "equilibratrici_auto",
-      "equilibratrici_truck"
+      "equilibratrici_auto"
     ],
-    "tags": [],
-    "source": "csv_09_01_26"
+    "compat": [
+      {
+        "product_code": "01100208",
+        "type": "X"
+      },
+      {
+        "product_code": "01100213",
+        "type": "S"
+      },
+      {
+        "product_code": "01100216",
+        "type": "S"
+      },
+      {
+        "product_code": "01100218",
+        "type": "S"
+      },
+      {
+        "product_code": "01100223",
+        "type": "X"
+      },
+      {
+        "product_code": "01100224",
+        "type": "X"
+      },
+      {
+        "product_code": "01100230",
+        "type": "X"
+      },
+      {
+        "product_code": "01100232",
+        "type": "S"
+      },
+      {
+        "product_code": "01100233",
+        "type": "S"
+      },
+      {
+        "product_code": "01100235",
+        "type": "S"
+      },
+      {
+        "product_code": "01100240",
+        "type": "X"
+      },
+      {
+        "product_code": "01100245",
+        "type": "X"
+      },
+      {
+        "product_code": "01100246",
+        "type": "X"
+      },
+      {
+        "product_code": "01100257",
+        "type": "S"
+      },
+      {
+        "product_code": "01100260",
+        "type": "S"
+      },
+      {
+        "product_code": "01100261",
+        "type": "S"
+      },
+      {
+        "product_code": "01100350",
+        "type": "S"
+      },
+      {
+        "product_code": "01100351",
+        "type": "S"
+      }
+    ]
   },
   {
     "code": "21100301",
-    "name": "FLANGIA UNIVERSALE A 3/4/5 FORI MEC",
+    "name": "Flangia universale a 3/4/5 foriØ 40",
     "applies_to": [
-      "equilibratrici_auto",
-      "equilibratrici_truck"
+      "equilibratrici_auto"
     ],
-    "tags": [],
-    "source": "csv_09_01_26"
+    "compat": [
+      {
+        "product_code": "01100208",
+        "type": "X"
+      },
+      {
+        "product_code": "01100213",
+        "type": "X"
+      },
+      {
+        "product_code": "01100216",
+        "type": "X"
+      },
+      {
+        "product_code": "01100218",
+        "type": "X"
+      },
+      {
+        "product_code": "01100223",
+        "type": "X"
+      },
+      {
+        "product_code": "01100224",
+        "type": "X"
+      },
+      {
+        "product_code": "01100230",
+        "type": "X"
+      },
+      {
+        "product_code": "01100232",
+        "type": "X"
+      },
+      {
+        "product_code": "01100233",
+        "type": "X"
+      },
+      {
+        "product_code": "01100235",
+        "type": "X"
+      },
+      {
+        "product_code": "01100240",
+        "type": "X"
+      },
+      {
+        "product_code": "01100245",
+        "type": "X"
+      },
+      {
+        "product_code": "01100246",
+        "type": "X"
+      },
+      {
+        "product_code": "01100257",
+        "type": "X"
+      },
+      {
+        "product_code": "01100260",
+        "type": "X"
+      },
+      {
+        "product_code": "01100261",
+        "type": "X"
+      },
+      {
+        "product_code": "01100350",
+        "type": "X"
+      },
+      {
+        "product_code": "01100351",
+        "type": "X"
+      }
+    ]
   },
   {
     "code": "21100303",
-    "name": "CONO+DISTANZIALE D.40 MEC",
+    "name": "Distanziale e cono bifronte: Da 120 a 170 mm Ø 40",
     "applies_to": [
-      "equilibratrici_auto",
-      "equilibratrici_truck"
+      "equilibratrici_auto"
     ],
-    "tags": [
-      "centraggio",
-      "furgoni"
-    ],
-    "source": "csv_09_01_26"
+    "compat": [
+      {
+        "product_code": "01100208",
+        "type": "X"
+      },
+      {
+        "product_code": "01100213",
+        "type": "X"
+      },
+      {
+        "product_code": "01100216",
+        "type": "X"
+      },
+      {
+        "product_code": "01100218",
+        "type": "X"
+      },
+      {
+        "product_code": "01100223",
+        "type": "X"
+      },
+      {
+        "product_code": "01100224",
+        "type": "X"
+      },
+      {
+        "product_code": "01100230",
+        "type": "X"
+      },
+      {
+        "product_code": "01100232",
+        "type": "X"
+      },
+      {
+        "product_code": "01100233",
+        "type": "X"
+      },
+      {
+        "product_code": "01100235",
+        "type": "X"
+      },
+      {
+        "product_code": "01100240",
+        "type": "X"
+      },
+      {
+        "product_code": "01100245",
+        "type": "X"
+      },
+      {
+        "product_code": "01100246",
+        "type": "X"
+      },
+      {
+        "product_code": "01100257",
+        "type": "X"
+      },
+      {
+        "product_code": "01100260",
+        "type": "X"
+      },
+      {
+        "product_code": "01100261",
+        "type": "X"
+      },
+      {
+        "product_code": "01100350",
+        "type": "X"
+      },
+      {
+        "product_code": "01100351",
+        "type": "X"
+      }
+    ]
   },
   {
     "code": "21100304",
-    "name": "CONO+DISTANZ.190-223 MEC",
+    "name": "Distanziale e cono per furgoni da 190 a 223 mm, Ø 40",
     "applies_to": [
-      "equilibratrici_auto",
-      "equilibratrici_truck"
+      "equilibratrici_auto"
     ],
-    "tags": [
-      "centraggio"
-    ],
-    "source": "csv_09_01_26"
-  },
-  {
-    "code": "21100329",
-    "name": "FLANGIA CONI SPECIALE B 92N",
-    "applies_to": [
-      "equilibratrici_auto",
-      "equilibratrici_truck"
-    ],
-    "tags": [],
-    "source": "csv_09_01_26"
+    "compat": [
+      {
+        "product_code": "01100208",
+        "type": "X"
+      },
+      {
+        "product_code": "01100213",
+        "type": "X"
+      },
+      {
+        "product_code": "01100216",
+        "type": "X"
+      },
+      {
+        "product_code": "01100218",
+        "type": "X"
+      },
+      {
+        "product_code": "01100223",
+        "type": "X"
+      },
+      {
+        "product_code": "01100224",
+        "type": "X"
+      },
+      {
+        "product_code": "01100230",
+        "type": "X"
+      },
+      {
+        "product_code": "01100232",
+        "type": "X"
+      },
+      {
+        "product_code": "01100233",
+        "type": "X"
+      },
+      {
+        "product_code": "01100235",
+        "type": "X"
+      },
+      {
+        "product_code": "01100240",
+        "type": "X"
+      },
+      {
+        "product_code": "01100245",
+        "type": "X"
+      },
+      {
+        "product_code": "01100246",
+        "type": "X"
+      },
+      {
+        "product_code": "01100257",
+        "type": "X"
+      },
+      {
+        "product_code": "01100260",
+        "type": "X"
+      },
+      {
+        "product_code": "01100261",
+        "type": "X"
+      },
+      {
+        "product_code": "01100350",
+        "type": "X"
+      },
+      {
+        "product_code": "01100351",
+        "type": "X"
+      }
+    ]
   },
   {
     "code": "21100345",
-    "name": "GHIERA D. 40X4 LINEA MEC",
+    "name": "Ghiera rapida 40x4",
     "applies_to": [
-      "equilibratrici_auto",
-      "equilibratrici_truck"
+      "equilibratrici_auto"
     ],
-    "tags": [
-      "bloccaggio_rapido"
-    ],
-    "source": "csv_09_01_26"
+    "compat": [
+      {
+        "product_code": "01100208",
+        "type": "S"
+      },
+      {
+        "product_code": "01100213",
+        "type": "S"
+      },
+      {
+        "product_code": "01100216",
+        "type": "S"
+      },
+      {
+        "product_code": "01100218",
+        "type": "S"
+      },
+      {
+        "product_code": "01100223",
+        "type": "S"
+      },
+      {
+        "product_code": "01100224",
+        "type": "S"
+      },
+      {
+        "product_code": "01100230",
+        "type": "S"
+      },
+      {
+        "product_code": "01100232",
+        "type": "S"
+      },
+      {
+        "product_code": "01100233",
+        "type": "S"
+      },
+      {
+        "product_code": "01100235",
+        "type": "S"
+      },
+      {
+        "product_code": "01100240",
+        "type": "S"
+      },
+      {
+        "product_code": "01100245",
+        "type": "S"
+      },
+      {
+        "product_code": "01100246",
+        "type": "S"
+      },
+      {
+        "product_code": "01100257",
+        "type": "S"
+      },
+      {
+        "product_code": "01100350",
+        "type": "S"
+      },
+      {
+        "product_code": "01100351",
+        "type": "S"
+      }
+    ]
   },
   {
     "code": "21100349",
-    "name": "GHIERA D.40x4 CON POMOLO",
+    "name": "Ghiera a volantino 40x4",
     "applies_to": [
-      "equilibratrici_auto",
-      "equilibratrici_truck"
+      "equilibratrici_auto"
     ],
-    "tags": [
-      "bloccaggio_rapido"
-    ],
-    "source": "csv_09_01_26"
+    "compat": [
+      {
+        "product_code": "01100213",
+        "type": "S"
+      },
+      {
+        "product_code": "01100216",
+        "type": "S"
+      },
+      {
+        "product_code": "01100218",
+        "type": "S"
+      },
+      {
+        "product_code": "01100260",
+        "type": "S"
+      },
+      {
+        "product_code": "01100261",
+        "type": "S"
+      },
+      {
+        "product_code": "01100350",
+        "type": "S"
+      },
+      {
+        "product_code": "01100351",
+        "type": "S"
+      }
+    ]
   },
   {
     "code": "21100353",
-    "name": "FLANGIA MOTO D.40 MEC",
+    "name": "Adattatore ruote moto con foro centrale Ø14ÿ18 mm Set di coni : mm 157-350 Standard con MotoMec",
     "applies_to": [
-      "equilibratrici_auto",
-      "equilibratrici_truck"
+      "equilibratrici_auto"
     ],
-    "tags": [],
-    "source": "csv_09_01_26"
+    "compat": [
+      {
+        "product_code": "01100208",
+        "type": "X"
+      },
+      {
+        "product_code": "01100213",
+        "type": "X"
+      },
+      {
+        "product_code": "01100216",
+        "type": "X"
+      },
+      {
+        "product_code": "01100218",
+        "type": "X"
+      },
+      {
+        "product_code": "01100223",
+        "type": "X"
+      },
+      {
+        "product_code": "01100224",
+        "type": "X"
+      },
+      {
+        "product_code": "01100230",
+        "type": "X"
+      },
+      {
+        "product_code": "01100232",
+        "type": "X"
+      },
+      {
+        "product_code": "01100233",
+        "type": "X"
+      },
+      {
+        "product_code": "01100235",
+        "type": "X"
+      },
+      {
+        "product_code": "01100240",
+        "type": "X"
+      },
+      {
+        "product_code": "01100245",
+        "type": "X"
+      },
+      {
+        "product_code": "01100246",
+        "type": "X"
+      },
+      {
+        "product_code": "01100257",
+        "type": "X"
+      },
+      {
+        "product_code": "01100350",
+        "type": "X"
+      },
+      {
+        "product_code": "01100351",
+        "type": "X"
+      }
+    ]
   },
   {
     "code": "21100357",
-    "name": "KIT 3 PROTEZIONI CALOTTA MEC",
+    "name": "Kit di 3 protezioni in plastica per cappellotto",
     "applies_to": [
-      "equilibratrici_auto",
-      "equilibratrici_truck"
+      "equilibratrici_auto"
     ],
-    "tags": [],
-    "source": "csv_09_01_26"
-  },
-  {
-    "code": "21100369",
-    "name": "ALBERO PER FLANGIA MOTO",
-    "applies_to": [
-      "equilibratrici_auto",
-      "equilibratrici_truck"
-    ],
-    "tags": [],
-    "source": "csv_09_01_26"
+    "compat": [
+      {
+        "product_code": "01100208",
+        "type": "X"
+      },
+      {
+        "product_code": "01100213",
+        "type": "X"
+      },
+      {
+        "product_code": "01100216",
+        "type": "X"
+      },
+      {
+        "product_code": "01100218",
+        "type": "X"
+      },
+      {
+        "product_code": "01100223",
+        "type": "X"
+      },
+      {
+        "product_code": "01100224",
+        "type": "X"
+      },
+      {
+        "product_code": "01100230",
+        "type": "X"
+      },
+      {
+        "product_code": "01100232",
+        "type": "X"
+      },
+      {
+        "product_code": "01100233",
+        "type": "X"
+      },
+      {
+        "product_code": "01100235",
+        "type": "X"
+      },
+      {
+        "product_code": "01100240",
+        "type": "X"
+      },
+      {
+        "product_code": "01100245",
+        "type": "X"
+      },
+      {
+        "product_code": "01100246",
+        "type": "X"
+      },
+      {
+        "product_code": "01100257",
+        "type": "X"
+      },
+      {
+        "product_code": "01100260",
+        "type": "X"
+      },
+      {
+        "product_code": "01100261",
+        "type": "X"
+      },
+      {
+        "product_code": "01100350",
+        "type": "X"
+      },
+      {
+        "product_code": "01100351",
+        "type": "X"
+      }
+    ]
   },
   {
     "code": "21100370",
-    "name": "CONO 42-74 D. 40 CON ANELLO",
+    "name": "Cono di bloccaggio rapido Ø40 mm 42-74",
     "applies_to": [
-      "equilibratrici_auto",
-      "equilibratrici_truck"
+      "equilibratrici_auto"
     ],
-    "tags": [
-      "centraggio",
-      "furgoni"
-    ],
-    "source": "csv_09_01_26"
+    "compat": [
+      {
+        "product_code": "01100208",
+        "type": "X"
+      },
+      {
+        "product_code": "01100213",
+        "type": "X"
+      },
+      {
+        "product_code": "01100216",
+        "type": "X"
+      },
+      {
+        "product_code": "01100218",
+        "type": "X"
+      },
+      {
+        "product_code": "01100223",
+        "type": "X"
+      },
+      {
+        "product_code": "01100224",
+        "type": "X"
+      },
+      {
+        "product_code": "01100230",
+        "type": "X"
+      },
+      {
+        "product_code": "01100240",
+        "type": "X"
+      },
+      {
+        "product_code": "01100245",
+        "type": "X"
+      },
+      {
+        "product_code": "01100246",
+        "type": "X"
+      }
+    ]
   },
   {
     "code": "21100371",
-    "name": "CONO 73-94 D. 40 CON ANELLO",
+    "name": "Cono di bloccaggio rapido Ø40 mm 73-94",
     "applies_to": [
-      "equilibratrici_auto",
-      "equilibratrici_truck"
+      "equilibratrici_auto"
     ],
-    "tags": [
-      "centraggio",
-      "furgoni"
-    ],
-    "source": "csv_09_01_26"
+    "compat": [
+      {
+        "product_code": "01100208",
+        "type": "X"
+      },
+      {
+        "product_code": "01100213",
+        "type": "X"
+      },
+      {
+        "product_code": "01100216",
+        "type": "X"
+      },
+      {
+        "product_code": "01100218",
+        "type": "X"
+      },
+      {
+        "product_code": "01100223",
+        "type": "X"
+      },
+      {
+        "product_code": "01100224",
+        "type": "X"
+      },
+      {
+        "product_code": "01100230",
+        "type": "X"
+      },
+      {
+        "product_code": "01100240",
+        "type": "X"
+      },
+      {
+        "product_code": "01100245",
+        "type": "X"
+      },
+      {
+        "product_code": "01100246",
+        "type": "X"
+      }
+    ]
   },
   {
     "code": "21100372",
-    "name": "CONO 94-125 D. 40 CON ANELLO",
+    "name": "Cono di bloccaggio rapido Ø40 mm 94-125",
     "applies_to": [
-      "equilibratrici_auto",
-      "equilibratrici_truck"
+      "equilibratrici_auto"
     ],
-    "tags": [
-      "centraggio",
-      "furgoni"
-    ],
-    "source": "csv_09_01_26"
+    "compat": [
+      {
+        "product_code": "01100208",
+        "type": "X"
+      },
+      {
+        "product_code": "01100213",
+        "type": "X"
+      },
+      {
+        "product_code": "01100216",
+        "type": "X"
+      },
+      {
+        "product_code": "01100218",
+        "type": "X"
+      },
+      {
+        "product_code": "01100223",
+        "type": "X"
+      },
+      {
+        "product_code": "01100224",
+        "type": "X"
+      },
+      {
+        "product_code": "01100230",
+        "type": "X"
+      },
+      {
+        "product_code": "01100240",
+        "type": "X"
+      },
+      {
+        "product_code": "01100245",
+        "type": "X"
+      },
+      {
+        "product_code": "01100246",
+        "type": "X"
+      }
+    ]
   },
   {
     "code": "21100373",
-    "name": "KIT GHIERA 40x4 CON MOZZO FIL - CAL",
+    "name": "Kit di bloccaggio standard per machine con",
     "applies_to": [
-      "equilibratrici_auto",
-      "equilibratrici_truck"
+      "equilibratrici_auto"
     ],
-    "tags": [
-      "bloccaggio_rapido"
-    ],
-    "source": "csv_09_01_26"
+    "compat": [
+      {
+        "product_code": "01100208",
+        "type": "X"
+      },
+      {
+        "product_code": "01100213",
+        "type": "X"
+      },
+      {
+        "product_code": "01100216",
+        "type": "X"
+      },
+      {
+        "product_code": "01100218",
+        "type": "X"
+      },
+      {
+        "product_code": "01100223",
+        "type": "X"
+      },
+      {
+        "product_code": "01100224",
+        "type": "X"
+      },
+      {
+        "product_code": "01100230",
+        "type": "X"
+      },
+      {
+        "product_code": "01100240",
+        "type": "X"
+      },
+      {
+        "product_code": "01100245",
+        "type": "X"
+      },
+      {
+        "product_code": "01100246",
+        "type": "X"
+      }
+    ]
   },
   {
-    "code": "21100375",
-    "name": "KIT SMART APP",
+    "code": "21100400",
+    "name": "Kit 3 protezione calotta",
     "applies_to": [
-      "equilibratrici_auto",
-      "equilibratrici_truck"
+      "equilibratrici_auto"
     ],
-    "tags": [],
-    "source": "csv_09_01_26"
-  },
-  {
-    "code": "21100379",
-    "name": "KIT GHIERA 40x4 CON CALOTTA",
-    "applies_to": [
-      "equilibratrici_auto",
-      "equilibratrici_truck"
-    ],
-    "tags": [
-      "bloccaggio_rapido"
-    ],
-    "source": "csv_09_01_26"
-  },
-  {
-    "code": "21100397",
-    "name": "SOLLEVATORE RUOTA",
-    "applies_to": [
-      "equilibratrici_auto",
-      "equilibratrici_truck"
-    ],
-    "tags": [
-      "ergonomia",
-      "sollevatore_ruota"
-    ],
-    "source": "csv_09_01_26"
-  },
-  {
-    "code": "21100398",
-    "name": "GRUPPO ALBERO D 3/4",
-    "applies_to": [
-      "equilibratrici_auto",
-      "equilibratrici_truck"
-    ],
-    "tags": [],
-    "source": "csv_09_01_26"
-  },
-  {
-    "code": "21100399",
-    "name": "SOLLEVATORE PNEUMATICO AUTOM.MEC",
-    "applies_to": [
-      "equilibratrici_auto",
-      "equilibratrici_truck"
-    ],
-    "tags": [
-      "ergonomia",
-      "sollevatore_ruota"
-    ],
-    "source": "csv_09_01_26"
-  },
-  {
-    "code": "21100405",
-    "name": "KIT ACCESSORI AUTO MTB",
-    "applies_to": [
-      "equilibratrici_auto",
-      "equilibratrici_truck"
-    ],
-    "tags": [],
-    "source": "csv_09_01_26"
+    "compat": [
+      {
+        "product_code": "01100208",
+        "type": "X"
+      },
+      {
+        "product_code": "01100213",
+        "type": "X"
+      },
+      {
+        "product_code": "01100216",
+        "type": "X"
+      },
+      {
+        "product_code": "01100218",
+        "type": "X"
+      },
+      {
+        "product_code": "01100223",
+        "type": "X"
+      },
+      {
+        "product_code": "01100224",
+        "type": "X"
+      },
+      {
+        "product_code": "01100230",
+        "type": "X"
+      },
+      {
+        "product_code": "01100240",
+        "type": "X"
+      },
+      {
+        "product_code": "01100245",
+        "type": "X"
+      },
+      {
+        "product_code": "01100246",
+        "type": "X"
+      }
+    ]
   },
   {
     "code": "21100406",
-    "name": "CAPPELLOTTO E DISTANZIALE NLS",
+    "name": "Cappellotto e distanziale",
     "applies_to": [
-      "equilibratrici_auto",
-      "equilibratrici_truck"
+      "equilibratrici_auto"
     ],
-    "tags": [
-      "centraggio",
-      "nls"
-    ],
-    "source": "csv_09_01_26"
+    "compat": [
+      {
+        "product_code": "01100208",
+        "type": "X"
+      },
+      {
+        "product_code": "01100213",
+        "type": "X"
+      },
+      {
+        "product_code": "01100216",
+        "type": "X"
+      },
+      {
+        "product_code": "01100218",
+        "type": "X"
+      },
+      {
+        "product_code": "01100223",
+        "type": "X"
+      },
+      {
+        "product_code": "01100224",
+        "type": "X"
+      },
+      {
+        "product_code": "01100230",
+        "type": "X"
+      },
+      {
+        "product_code": "01100240",
+        "type": "X"
+      },
+      {
+        "product_code": "01100245",
+        "type": "X"
+      },
+      {
+        "product_code": "01100246",
+        "type": "X"
+      }
+    ]
   },
   {
-    "code": "20100387",
-    "name": "BASIC HELPER ARM",
+    "code": "21100407",
+    "name": "Flangia Moto",
+    "applies_to": [
+      "equilibratrici_auto"
+    ],
+    "compat": [
+      {
+        "product_code": "01100208",
+        "type": "X"
+      },
+      {
+        "product_code": "01100213",
+        "type": "X"
+      },
+      {
+        "product_code": "01100216",
+        "type": "X"
+      },
+      {
+        "product_code": "01100218",
+        "type": "X"
+      },
+      {
+        "product_code": "01100223",
+        "type": "X"
+      },
+      {
+        "product_code": "01100224",
+        "type": "X"
+      },
+      {
+        "product_code": "01100230",
+        "type": "X"
+      },
+      {
+        "product_code": "01100240",
+        "type": "X"
+      },
+      {
+        "product_code": "01100245",
+        "type": "X"
+      },
+      {
+        "product_code": "01100246",
+        "type": "X"
+      }
+    ]
+  },
+  {
+    "code": "21200040",
+    "name": "Calotta speciale con O-ring per",
+    "applies_to": [
+      "equilibratrici_auto"
+    ],
+    "compat": [
+      {
+        "product_code": "01100208",
+        "type": "X"
+      },
+      {
+        "product_code": "01100213",
+        "type": "X"
+      },
+      {
+        "product_code": "01100216",
+        "type": "X"
+      },
+      {
+        "product_code": "01100218",
+        "type": "X"
+      },
+      {
+        "product_code": "01100223",
+        "type": "X"
+      },
+      {
+        "product_code": "01100224",
+        "type": "X"
+      },
+      {
+        "product_code": "01100230",
+        "type": "X"
+      },
+      {
+        "product_code": "01100240",
+        "type": "X"
+      },
+      {
+        "product_code": "01100245",
+        "type": "X"
+      },
+      {
+        "product_code": "01100246",
+        "type": "X"
+      }
+    ]
+  },
+  {
+    "code": "21200418",
+    "name": "Protezione ruota",
+    "applies_to": [
+      "equilibratrici_auto"
+    ],
+    "compat": [
+      {
+        "product_code": "01100208",
+        "type": "S"
+      },
+      {
+        "product_code": "01100213",
+        "type": "S"
+      },
+      {
+        "product_code": "01100216",
+        "type": "S"
+      },
+      {
+        "product_code": "01100218",
+        "type": "S"
+      },
+      {
+        "product_code": "01100223",
+        "type": "S"
+      },
+      {
+        "product_code": "01100224",
+        "type": "S"
+      },
+      {
+        "product_code": "01100230",
+        "type": "S"
+      },
+      {
+        "product_code": "01100232",
+        "type": "S"
+      },
+      {
+        "product_code": "01100233",
+        "type": "S"
+      },
+      {
+        "product_code": "01100235",
+        "type": "S"
+      },
+      {
+        "product_code": "01100240",
+        "type": "S"
+      },
+      {
+        "product_code": "01100245",
+        "type": "S"
+      },
+      {
+        "product_code": "01100246",
+        "type": "S"
+      },
+      {
+        "product_code": "01100257",
+        "type": "S"
+      },
+      {
+        "product_code": "01100350",
+        "type": "S"
+      },
+      {
+        "product_code": "01100351",
+        "type": "S"
+      }
+    ]
+  },
+  {
+    "code": "20100101",
+    "name": "Pistoletta di gonfiaggio EURODAINU CE",
     "applies_to": [
       "smontagomme_auto",
-      "smontagomme_truck",
       "smontagomme_moto"
     ],
-    "tags": [
-      "helper",
-      "runflat"
+    "compat": [
+      {
+        "product_code": "00100208",
+        "type": "X"
+      },
+      {
+        "product_code": "00100210",
+        "type": "X"
+      },
+      {
+        "product_code": "00100299",
+        "type": "X"
+      },
+      {
+        "product_code": "00100302",
+        "type": "X"
+      },
+      {
+        "product_code": "00100318",
+        "type": "X"
+      },
+      {
+        "product_code": "00100319",
+        "type": "X"
+      },
+      {
+        "product_code": "00100321",
+        "type": "X"
+      },
+      {
+        "product_code": "00100322",
+        "type": "X"
+      },
+      {
+        "product_code": "00100323",
+        "type": "X"
+      },
+      {
+        "product_code": "00100324",
+        "type": "X"
+      },
+      {
+        "product_code": "00100330",
+        "type": "X"
+      },
+      {
+        "product_code": "00100331",
+        "type": "X"
+      },
+      {
+        "product_code": "00100336",
+        "type": "X"
+      },
+      {
+        "product_code": "00100337",
+        "type": "X"
+      },
+      {
+        "product_code": "00100347",
+        "type": "X"
+      },
+      {
+        "product_code": "00100348",
+        "type": "X"
+      },
+      {
+        "product_code": "00101056",
+        "type": "X"
+      },
+      {
+        "product_code": "00101064",
+        "type": "X"
+      }
+    ]
+  },
+  {
+    "code": "20100154",
+    "name": "Dispositivo gonfiaggio a pedale (no versioni GT)",
+    "applies_to": [
+      "smontagomme_auto",
+      "smontagomme_moto"
     ],
-    "source": "csv_09_01_26"
+    "compat": [
+      {
+        "product_code": "00100299",
+        "type": "X"
+      },
+      {
+        "product_code": "00100302",
+        "type": "X"
+      },
+      {
+        "product_code": "00100318",
+        "type": "X"
+      },
+      {
+        "product_code": "00100319",
+        "type": "X"
+      },
+      {
+        "product_code": "00100321",
+        "type": "X"
+      },
+      {
+        "product_code": "00100322",
+        "type": "X"
+      },
+      {
+        "product_code": "00100323",
+        "type": "X"
+      },
+      {
+        "product_code": "00100324",
+        "type": "X"
+      },
+      {
+        "product_code": "00100330",
+        "type": "X"
+      },
+      {
+        "product_code": "00100331",
+        "type": "X"
+      },
+      {
+        "product_code": "00100336",
+        "type": "X"
+      },
+      {
+        "product_code": "00100337",
+        "type": "X"
+      }
+    ]
+  },
+  {
+    "code": "20100159",
+    "name": "Pinza premitallone per cerchi in lega",
+    "applies_to": [
+      "smontagomme_auto",
+      "smontagomme_moto"
+    ],
+    "compat": [
+      {
+        "product_code": "00100208",
+        "type": "X"
+      },
+      {
+        "product_code": "00100210",
+        "type": "X"
+      },
+      {
+        "product_code": "00100299",
+        "type": "X"
+      },
+      {
+        "product_code": "00100302",
+        "type": "X"
+      },
+      {
+        "product_code": "00100318",
+        "type": "X"
+      },
+      {
+        "product_code": "00100319",
+        "type": "X"
+      },
+      {
+        "product_code": "00100321",
+        "type": "X"
+      },
+      {
+        "product_code": "00100322",
+        "type": "X"
+      },
+      {
+        "product_code": "00100323",
+        "type": "X"
+      },
+      {
+        "product_code": "00100324",
+        "type": "X"
+      },
+      {
+        "product_code": "00100330",
+        "type": "X"
+      },
+      {
+        "product_code": "00100331",
+        "type": "X"
+      },
+      {
+        "product_code": "00100336",
+        "type": "X"
+      },
+      {
+        "product_code": "00100337",
+        "type": "X"
+      },
+      {
+        "product_code": "00100347",
+        "type": "X"
+      },
+      {
+        "product_code": "00100348",
+        "type": "X"
+      },
+      {
+        "product_code": "00101056",
+        "type": "X"
+      },
+      {
+        "product_code": "00101064",
+        "type": "X"
+      }
+    ]
+  },
+  {
+    "code": "20100161",
+    "name": "Premitallone pneumatico per Ribassati e RunFlat",
+    "applies_to": [
+      "smontagomme_auto",
+      "smontagomme_moto"
+    ],
+    "compat": [
+      {
+        "product_code": "00100208",
+        "type": "X"
+      }
+    ]
+  },
+  {
+    "code": "20100162",
+    "name": "Morsetto premitallone RunFlat",
+    "applies_to": [
+      "smontagomme_auto",
+      "smontagomme_moto"
+    ],
+    "compat": [
+      {
+        "product_code": "00100208",
+        "type": "S"
+      },
+      {
+        "product_code": "00100210",
+        "type": "S"
+      },
+      {
+        "product_code": "00100299",
+        "type": "X"
+      },
+      {
+        "product_code": "00100302",
+        "type": "X"
+      },
+      {
+        "product_code": "00100318",
+        "type": "X"
+      },
+      {
+        "product_code": "00100319",
+        "type": "X"
+      },
+      {
+        "product_code": "00100321",
+        "type": "X"
+      },
+      {
+        "product_code": "00100322",
+        "type": "X"
+      },
+      {
+        "product_code": "00100323",
+        "type": "X"
+      },
+      {
+        "product_code": "00100324",
+        "type": "X"
+      },
+      {
+        "product_code": "00100330",
+        "type": "X"
+      },
+      {
+        "product_code": "00100331",
+        "type": "X"
+      },
+      {
+        "product_code": "00100336",
+        "type": "X"
+      },
+      {
+        "product_code": "00100337",
+        "type": "X"
+      },
+      {
+        "product_code": "00100347",
+        "type": "X"
+      },
+      {
+        "product_code": "00100348",
+        "type": "X"
+      },
+      {
+        "product_code": "00101056",
+        "type": "X"
+      },
+      {
+        "product_code": "00101064",
+        "type": "X"
+      }
+    ]
+  },
+  {
+    "code": "20100163",
+    "name": "Kit di bloccaggio cerchi senza foro centrale",
+    "applies_to": [
+      "smontagomme_auto",
+      "smontagomme_moto"
+    ],
+    "compat": [
+      {
+        "product_code": "00100208",
+        "type": "X"
+      },
+      {
+        "product_code": "00100210",
+        "type": "X"
+      }
+    ]
+  },
+  {
+    "code": "20100164",
+    "name": "GT Gruppo Gonfiaggio per ruote tubeless",
+    "applies_to": [
+      "smontagomme_auto",
+      "smontagomme_moto"
+    ],
+    "compat": [
+      {
+        "product_code": "00100208",
+        "type": "X"
+      }
+    ]
+  },
+  {
+    "code": "20100165",
+    "name": "Kit di bloccaggio per cerchi furgone",
+    "applies_to": [
+      "smontagomme_auto",
+      "smontagomme_moto"
+    ],
+    "compat": [
+      {
+        "product_code": "00100208",
+        "type": "X"
+      },
+      {
+        "product_code": "00100210",
+        "type": "X"
+      }
+    ]
+  },
+  {
+    "code": "20100171",
+    "name": "Accessorio 20100171",
+    "applies_to": [
+      "smontagomme_auto",
+      "smontagomme_moto"
+    ],
+    "compat": []
+  },
+  {
+    "code": "20100178",
+    "name": "Flangia bloccaggio per cerchi rovesci",
+    "applies_to": [
+      "smontagomme_auto",
+      "smontagomme_moto"
+    ],
+    "compat": [
+      {
+        "product_code": "00100208",
+        "type": "X"
+      },
+      {
+        "product_code": "00100210",
+        "type": "X"
+      }
+    ]
+  },
+  {
+    "code": "20100179",
+    "name": "Accessorio 20100179",
+    "applies_to": [
+      "smontagomme_auto",
+      "smontagomme_moto"
+    ],
+    "compat": [
+      {
+        "product_code": "00100208",
+        "type": "S"
+      },
+      {
+        "product_code": "00100210",
+        "type": "S"
+      },
+      {
+        "product_code": "00100347",
+        "type": "S"
+      },
+      {
+        "product_code": "00100348",
+        "type": "S"
+      }
+    ]
+  },
+  {
+    "code": "20100180",
+    "name": "Accessorio 20100180",
+    "applies_to": [
+      "smontagomme_auto",
+      "smontagomme_moto"
+    ],
+    "compat": [
+      {
+        "product_code": "00100302",
+        "type": "X"
+      },
+      {
+        "product_code": "00100318",
+        "type": "X"
+      },
+      {
+        "product_code": "00100319",
+        "type": "X"
+      },
+      {
+        "product_code": "00100321",
+        "type": "X"
+      },
+      {
+        "product_code": "00100323",
+        "type": "X"
+      },
+      {
+        "product_code": "00100324",
+        "type": "X"
+      },
+      {
+        "product_code": "00100330",
+        "type": "X"
+      },
+      {
+        "product_code": "00100331",
+        "type": "X"
+      },
+      {
+        "product_code": "00100336",
+        "type": "X"
+      },
+      {
+        "product_code": "00100337",
+        "type": "X"
+      }
+    ]
+  },
+  {
+    "code": "20100181",
+    "name": "Protezione torretta (set di 24 protezione rullino +12 inserti piatti)",
+    "applies_to": [
+      "smontagomme_auto",
+      "smontagomme_moto"
+    ],
+    "compat": []
+  },
+  {
+    "code": "20100182",
+    "name": "Accessorio 20100182",
+    "applies_to": [
+      "smontagomme_auto",
+      "smontagomme_moto"
+    ],
+    "compat": [
+      {
+        "product_code": "00100299",
+        "type": "X"
+      },
+      {
+        "product_code": "00100302",
+        "type": "X"
+      },
+      {
+        "product_code": "00100318",
+        "type": "X"
+      },
+      {
+        "product_code": "00100319",
+        "type": "X"
+      },
+      {
+        "product_code": "00100321",
+        "type": "X"
+      },
+      {
+        "product_code": "00100322",
+        "type": "X"
+      },
+      {
+        "product_code": "00100323",
+        "type": "X"
+      },
+      {
+        "product_code": "00100324",
+        "type": "X"
+      },
+      {
+        "product_code": "00100330",
+        "type": "X"
+      },
+      {
+        "product_code": "00100331",
+        "type": "X"
+      },
+      {
+        "product_code": "00100336",
+        "type": "X"
+      },
+      {
+        "product_code": "00100337",
+        "type": "X"
+      }
+    ]
+  },
+  {
+    "code": "20100184",
+    "name": "Accessorio 20100184",
+    "applies_to": [
+      "smontagomme_auto",
+      "smontagomme_moto"
+    ],
+    "compat": [
+      {
+        "product_code": "00101056",
+        "type": "X"
+      },
+      {
+        "product_code": "00101064",
+        "type": "X"
+      }
+    ]
+  },
+  {
+    "code": "20100185",
+    "name": "Accessorio 20100185",
+    "applies_to": [
+      "smontagomme_auto",
+      "smontagomme_moto"
+    ],
+    "compat": [
+      {
+        "product_code": "00101056",
+        "type": "X"
+      },
+      {
+        "product_code": "00101064",
+        "type": "X"
+      }
+    ]
+  },
+  {
+    "code": "20100186",
+    "name": "Set di 4 adattatori ruote moto da 5” a 25”",
+    "applies_to": [
+      "smontagomme_auto",
+      "smontagomme_moto"
+    ],
+    "compat": [
+      {
+        "product_code": "00100302",
+        "type": "X"
+      },
+      {
+        "product_code": "00100318",
+        "type": "X"
+      },
+      {
+        "product_code": "00100319",
+        "type": "X"
+      },
+      {
+        "product_code": "00100321",
+        "type": "X"
+      },
+      {
+        "product_code": "00100323",
+        "type": "X"
+      },
+      {
+        "product_code": "00100324",
+        "type": "X"
+      },
+      {
+        "product_code": "00100330",
+        "type": "X"
+      },
+      {
+        "product_code": "00100331",
+        "type": "X"
+      },
+      {
+        "product_code": "00100336",
+        "type": "X"
+      },
+      {
+        "product_code": "00100337",
+        "type": "X"
+      }
+    ]
+  },
+  {
+    "code": "20100190",
+    "name": "Torretta in plastica per cerchi in lega",
+    "applies_to": [
+      "smontagomme_auto",
+      "smontagomme_moto"
+    ],
+    "compat": [
+      {
+        "product_code": "00100302",
+        "type": "X"
+      },
+      {
+        "product_code": "00100318",
+        "type": "X"
+      },
+      {
+        "product_code": "00100319",
+        "type": "X"
+      },
+      {
+        "product_code": "00100321",
+        "type": "X"
+      },
+      {
+        "product_code": "00100323",
+        "type": "X"
+      },
+      {
+        "product_code": "00100324",
+        "type": "X"
+      },
+      {
+        "product_code": "00100330",
+        "type": "X"
+      },
+      {
+        "product_code": "00100331",
+        "type": "X"
+      },
+      {
+        "product_code": "00100336",
+        "type": "X"
+      },
+      {
+        "product_code": "00100337",
+        "type": "X"
+      }
+    ]
+  },
+  {
+    "code": "20100200",
+    "name": "Set di 4 protezioni griffa per cerchi in lega",
+    "applies_to": [
+      "smontagomme_auto",
+      "smontagomme_moto"
+    ],
+    "compat": [
+      {
+        "product_code": "00100302",
+        "type": "S"
+      },
+      {
+        "product_code": "00100318",
+        "type": "S"
+      },
+      {
+        "product_code": "00100319",
+        "type": "S"
+      },
+      {
+        "product_code": "00100321",
+        "type": "S"
+      },
+      {
+        "product_code": "00100323",
+        "type": "S"
+      },
+      {
+        "product_code": "00100324",
+        "type": "S"
+      },
+      {
+        "product_code": "00100330",
+        "type": "S"
+      },
+      {
+        "product_code": "00100331",
+        "type": "S"
+      },
+      {
+        "product_code": "00100336",
+        "type": "S"
+      },
+      {
+        "product_code": "00100337",
+        "type": "S"
+      },
+      {
+        "product_code": "00100347",
+        "type": "S"
+      },
+      {
+        "product_code": "00100348",
+        "type": "S"
+      }
+    ]
+  },
+  {
+    "code": "20100202",
+    "name": "Set di 15 pz",
+    "applies_to": [
+      "smontagomme_auto",
+      "smontagomme_moto"
+    ],
+    "compat": [
+      {
+        "product_code": "00100208",
+        "type": "S"
+      },
+      {
+        "product_code": "00100210",
+        "type": "S"
+      },
+      {
+        "product_code": "00100347",
+        "type": "S"
+      },
+      {
+        "product_code": "00100348",
+        "type": "S"
+      }
+    ]
+  },
+  {
+    "code": "20100205",
+    "name": "Set di 3 pz protezione coni Ø120",
+    "applies_to": [
+      "smontagomme_auto",
+      "smontagomme_moto"
+    ],
+    "compat": [
+      {
+        "product_code": "00100210",
+        "type": "S"
+      }
+    ]
+  },
+  {
+    "code": "20100208",
+    "name": "Set di 20 protezione leva",
+    "applies_to": [
+      "smontagomme_auto",
+      "smontagomme_moto"
+    ],
+    "compat": [
+      {
+        "product_code": "00100299",
+        "type": "X"
+      },
+      {
+        "product_code": "00100302",
+        "type": "X"
+      },
+      {
+        "product_code": "00100318",
+        "type": "X"
+      },
+      {
+        "product_code": "00100319",
+        "type": "X"
+      },
+      {
+        "product_code": "00100321",
+        "type": "X"
+      },
+      {
+        "product_code": "00100322",
+        "type": "X"
+      },
+      {
+        "product_code": "00100323",
+        "type": "X"
+      },
+      {
+        "product_code": "00100324",
+        "type": "X"
+      },
+      {
+        "product_code": "00100330",
+        "type": "X"
+      },
+      {
+        "product_code": "00100331",
+        "type": "X"
+      },
+      {
+        "product_code": "00100336",
+        "type": "X"
+      },
+      {
+        "product_code": "00100337",
+        "type": "X"
+      }
+    ]
+  },
+  {
+    "code": "20100210",
+    "name": "Torretta per cerchi scooter",
+    "applies_to": [
+      "smontagomme_auto",
+      "smontagomme_moto"
+    ],
+    "compat": [
+      {
+        "product_code": "00100302",
+        "type": "X"
+      },
+      {
+        "product_code": "00100318",
+        "type": "X"
+      },
+      {
+        "product_code": "00100319",
+        "type": "X"
+      },
+      {
+        "product_code": "00100321",
+        "type": "X"
+      },
+      {
+        "product_code": "00100323",
+        "type": "X"
+      },
+      {
+        "product_code": "00100324",
+        "type": "X"
+      },
+      {
+        "product_code": "00100330",
+        "type": "X"
+      },
+      {
+        "product_code": "00100331",
+        "type": "X"
+      },
+      {
+        "product_code": "00100336",
+        "type": "X"
+      },
+      {
+        "product_code": "00100337",
+        "type": "X"
+      }
+    ]
+  },
+  {
+    "code": "20100213",
+    "name": "Set di 4 adattatori ruote QUAD",
+    "applies_to": [
+      "smontagomme_auto",
+      "smontagomme_moto"
+    ],
+    "compat": [
+      {
+        "product_code": "00101056",
+        "type": "X"
+      },
+      {
+        "product_code": "00101064",
+        "type": "X"
+      }
+    ]
+  },
+  {
+    "code": "20100216",
+    "name": "Accessorio 20100216",
+    "applies_to": [
+      "smontagomme_auto",
+      "smontagomme_moto"
+    ],
+    "compat": [
+      {
+        "product_code": "00100299",
+        "type": "X"
+      },
+      {
+        "product_code": "00100322",
+        "type": "X"
+      }
+    ]
+  },
+  {
+    "code": "20100225",
+    "name": "Accessorio 20100225",
+    "applies_to": [
+      "smontagomme_auto",
+      "smontagomme_moto"
+    ],
+    "compat": [
+      {
+        "product_code": "00100347",
+        "type": "X"
+      },
+      {
+        "product_code": "00100348",
+        "type": "X"
+      }
+    ]
+  },
+  {
+    "code": "20100227",
+    "name": "Accessorio 20100227",
+    "applies_to": [
+      "smontagomme_auto",
+      "smontagomme_moto"
+    ],
+    "compat": []
+  },
+  {
+    "code": "20100229",
+    "name": "Set di 10 protezione leva",
+    "applies_to": [
+      "smontagomme_auto",
+      "smontagomme_moto"
+    ],
+    "compat": [
+      {
+        "product_code": "00101056",
+        "type": "X"
+      },
+      {
+        "product_code": "00101064",
+        "type": "X"
+      }
+    ]
+  },
+  {
+    "code": "20100231",
+    "name": "Accessorio 20100231",
+    "applies_to": [
+      "smontagomme_auto",
+      "smontagomme_moto"
+    ],
+    "compat": [
+      {
+        "product_code": "00100347",
+        "type": "X"
+      },
+      {
+        "product_code": "00100348",
+        "type": "X"
+      }
+    ]
+  },
+  {
+    "code": "20100235",
+    "name": "Leva premi- tallone",
+    "applies_to": [
+      "smontagomme_auto",
+      "smontagomme_moto"
+    ],
+    "compat": [
+      {
+        "product_code": "00100302",
+        "type": "X"
+      },
+      {
+        "product_code": "00100318",
+        "type": "X"
+      },
+      {
+        "product_code": "00100319",
+        "type": "X"
+      },
+      {
+        "product_code": "00100321",
+        "type": "X"
+      },
+      {
+        "product_code": "00100323",
+        "type": "X"
+      },
+      {
+        "product_code": "00100324",
+        "type": "X"
+      },
+      {
+        "product_code": "00100330",
+        "type": "X"
+      },
+      {
+        "product_code": "00100331",
+        "type": "X"
+      },
+      {
+        "product_code": "00100336",
+        "type": "X"
+      },
+      {
+        "product_code": "00100337",
+        "type": "X"
+      }
+    ]
+  },
+  {
+    "code": "20100253",
+    "name": "Portaoggetti (*) in alcune configurazioni è incluso",
+    "applies_to": [
+      "smontagomme_auto",
+      "smontagomme_moto"
+    ],
+    "compat": [
+      {
+        "product_code": "00100302",
+        "type": "X"
+      },
+      {
+        "product_code": "00100321",
+        "type": "X"
+      },
+      {
+        "product_code": "00100323",
+        "type": "X"
+      },
+      {
+        "product_code": "00100324",
+        "type": "X"
+      },
+      {
+        "product_code": "00100336",
+        "type": "X"
+      },
+      {
+        "product_code": "00100337",
+        "type": "X"
+      },
+      {
+        "product_code": "00100347",
+        "type": "X"
+      },
+      {
+        "product_code": "00100348",
+        "type": "X"
+      },
+      {
+        "product_code": "00101056",
+        "type": "X"
+      },
+      {
+        "product_code": "00101064",
+        "type": "X"
+      }
+    ]
+  },
+  {
+    "code": "20100267",
+    "name": "Accessorio 20100267",
+    "applies_to": [
+      "smontagomme_auto",
+      "smontagomme_moto"
+    ],
+    "compat": []
+  },
+  {
+    "code": "20100288",
+    "name": "Pedana pneumatica di sollevamento",
+    "applies_to": [
+      "smontagomme_auto",
+      "smontagomme_moto"
+    ],
+    "compat": [
+      {
+        "product_code": "00100302",
+        "type": "X"
+      },
+      {
+        "product_code": "00100318",
+        "type": "X"
+      },
+      {
+        "product_code": "00100319",
+        "type": "X"
+      },
+      {
+        "product_code": "00100321",
+        "type": "X"
+      },
+      {
+        "product_code": "00100323",
+        "type": "X"
+      },
+      {
+        "product_code": "00100324",
+        "type": "X"
+      },
+      {
+        "product_code": "00100330",
+        "type": "X"
+      },
+      {
+        "product_code": "00100331",
+        "type": "X"
+      },
+      {
+        "product_code": "00100336",
+        "type": "X"
+      },
+      {
+        "product_code": "00100337",
+        "type": "X"
+      }
+    ]
+  },
+  {
+    "code": "20100290",
+    "name": "Regolatore di pressione con manometro",
+    "applies_to": [
+      "smontagomme_auto",
+      "smontagomme_moto"
+    ],
+    "compat": [
+      {
+        "product_code": "00100299",
+        "type": "X"
+      },
+      {
+        "product_code": "00100302",
+        "type": "X"
+      },
+      {
+        "product_code": "00100318",
+        "type": "X"
+      },
+      {
+        "product_code": "00100319",
+        "type": "X"
+      },
+      {
+        "product_code": "00100321",
+        "type": "X"
+      },
+      {
+        "product_code": "00100322",
+        "type": "X"
+      },
+      {
+        "product_code": "00100323",
+        "type": "X"
+      },
+      {
+        "product_code": "00100324",
+        "type": "X"
+      },
+      {
+        "product_code": "00100330",
+        "type": "X"
+      },
+      {
+        "product_code": "00100331",
+        "type": "X"
+      },
+      {
+        "product_code": "00100336",
+        "type": "X"
+      },
+      {
+        "product_code": "00100337",
+        "type": "X"
+      },
+      {
+        "product_code": "00101056",
+        "type": "X"
+      },
+      {
+        "product_code": "00101064",
+        "type": "X"
+      }
+    ]
+  },
+  {
+    "code": "20100292",
+    "name": "Rulliera",
+    "applies_to": [
+      "smontagomme_auto",
+      "smontagomme_moto"
+    ],
+    "compat": [
+      {
+        "product_code": "00100299",
+        "type": "X"
+      },
+      {
+        "product_code": "00100302",
+        "type": "X"
+      },
+      {
+        "product_code": "00100318",
+        "type": "X"
+      },
+      {
+        "product_code": "00100319",
+        "type": "X"
+      },
+      {
+        "product_code": "00100321",
+        "type": "X"
+      },
+      {
+        "product_code": "00100322",
+        "type": "X"
+      },
+      {
+        "product_code": "00100323",
+        "type": "X"
+      },
+      {
+        "product_code": "00100324",
+        "type": "X"
+      },
+      {
+        "product_code": "00100330",
+        "type": "X"
+      },
+      {
+        "product_code": "00100331",
+        "type": "X"
+      },
+      {
+        "product_code": "00100336",
+        "type": "X"
+      },
+      {
+        "product_code": "00100337",
+        "type": "X"
+      },
+      {
+        "product_code": "00100347",
+        "type": "X"
+      },
+      {
+        "product_code": "00100348",
+        "type": "X"
+      },
+      {
+        "product_code": "00101056",
+        "type": "X"
+      },
+      {
+        "product_code": "00101064",
+        "type": "X"
+      }
+    ]
+  },
+  {
+    "code": "20100297",
+    "name": "Pedana pneumatica di sollevamento",
+    "applies_to": [
+      "smontagomme_auto",
+      "smontagomme_moto"
+    ],
+    "compat": [
+      {
+        "product_code": "00100347",
+        "type": "X"
+      },
+      {
+        "product_code": "00100348",
+        "type": "X"
+      }
+    ]
+  },
+  {
+    "code": "20100301",
+    "name": "Set di 3 protezioni paletta stallonatore",
+    "applies_to": [
+      "smontagomme_auto",
+      "smontagomme_moto"
+    ],
+    "compat": [
+      {
+        "product_code": "00100347",
+        "type": "X"
+      },
+      {
+        "product_code": "00100348",
+        "type": "X"
+      }
+    ]
+  },
+  {
+    "code": "20100306",
+    "name": "Set di 30 protezione griffa",
+    "applies_to": [
+      "smontagomme_auto",
+      "smontagomme_moto"
+    ],
+    "compat": [
+      {
+        "product_code": "00100299",
+        "type": "X"
+      },
+      {
+        "product_code": "00100322",
+        "type": "X"
+      },
+      {
+        "product_code": "00101056",
+        "type": "X"
+      },
+      {
+        "product_code": "00101064",
+        "type": "X"
+      }
+    ]
+  },
+  {
+    "code": "20100311",
+    "name": "Accessorio 20100311",
+    "applies_to": [
+      "smontagomme_auto",
+      "smontagomme_moto"
+    ],
+    "compat": [
+      {
+        "product_code": "00100299",
+        "type": "X"
+      },
+      {
+        "product_code": "00100322",
+        "type": "X"
+      }
+    ]
+  },
+  {
+    "code": "20100319",
+    "name": "Pistoletta di gonfiaggio STANDARD",
+    "applies_to": [
+      "smontagomme_auto",
+      "smontagomme_moto"
+    ],
+    "compat": [
+      {
+        "product_code": "00100208",
+        "type": "X"
+      },
+      {
+        "product_code": "00100210",
+        "type": "X"
+      },
+      {
+        "product_code": "00100299",
+        "type": "S"
+      },
+      {
+        "product_code": "00100302",
+        "type": "S"
+      },
+      {
+        "product_code": "00100318",
+        "type": "S"
+      },
+      {
+        "product_code": "00100319",
+        "type": "S"
+      },
+      {
+        "product_code": "00100321",
+        "type": "S"
+      },
+      {
+        "product_code": "00100322",
+        "type": "S"
+      },
+      {
+        "product_code": "00100323",
+        "type": "S"
+      },
+      {
+        "product_code": "00100324",
+        "type": "S"
+      },
+      {
+        "product_code": "00100330",
+        "type": "S"
+      },
+      {
+        "product_code": "00100331",
+        "type": "S"
+      },
+      {
+        "product_code": "00100336",
+        "type": "S"
+      },
+      {
+        "product_code": "00100337",
+        "type": "S"
+      },
+      {
+        "product_code": "00100347",
+        "type": "X"
+      },
+      {
+        "product_code": "00100348",
+        "type": "X"
+      },
+      {
+        "product_code": "00101056",
+        "type": "S"
+      },
+      {
+        "product_code": "00101064",
+        "type": "S"
+      }
+    ]
+  },
+  {
+    "code": "20100329",
+    "name": "Accessorio 20100329",
+    "applies_to": [
+      "smontagomme_auto",
+      "smontagomme_moto"
+    ],
+    "compat": [
+      {
+        "product_code": "00100210",
+        "type": "X"
+      }
+    ]
+  },
+  {
+    "code": "20100333",
+    "name": "Premitallone sinistro",
+    "applies_to": [
+      "smontagomme_auto",
+      "smontagomme_moto"
+    ],
+    "compat": []
+  },
+  {
+    "code": "20100342",
+    "name": "MULTI SYSTEM Dispositivo combinato per il montaggio/ smontaggio dei pneumatici Ribassati e RunFlat",
+    "applies_to": [
+      "smontagomme_auto",
+      "smontagomme_moto"
+    ],
+    "compat": [
+      {
+        "product_code": "00100299",
+        "type": "X"
+      },
+      {
+        "product_code": "00100302",
+        "type": "X"
+      },
+      {
+        "product_code": "00100318",
+        "type": "X"
+      },
+      {
+        "product_code": "00100319",
+        "type": "X"
+      },
+      {
+        "product_code": "00100321",
+        "type": "X"
+      },
+      {
+        "product_code": "00100322",
+        "type": "X"
+      },
+      {
+        "product_code": "00100323",
+        "type": "X"
+      },
+      {
+        "product_code": "00100324",
+        "type": "X"
+      },
+      {
+        "product_code": "00100330",
+        "type": "X"
+      },
+      {
+        "product_code": "00100331",
+        "type": "X"
+      },
+      {
+        "product_code": "00100336",
+        "type": "X"
+      },
+      {
+        "product_code": "00100337",
+        "type": "X"
+      }
+    ]
+  },
+  {
+    "code": "20100345",
+    "name": "Gruppo filtro e lubrificatore con manometro",
+    "applies_to": [
+      "smontagomme_auto",
+      "smontagomme_moto"
+    ],
+    "compat": [
+      {
+        "product_code": "00100299",
+        "type": "X"
+      },
+      {
+        "product_code": "00100302",
+        "type": "X"
+      },
+      {
+        "product_code": "00100318",
+        "type": "X"
+      },
+      {
+        "product_code": "00100319",
+        "type": "X"
+      },
+      {
+        "product_code": "00100321",
+        "type": "X"
+      },
+      {
+        "product_code": "00100322",
+        "type": "X"
+      },
+      {
+        "product_code": "00100323",
+        "type": "X"
+      },
+      {
+        "product_code": "00100324",
+        "type": "X"
+      },
+      {
+        "product_code": "00100330",
+        "type": "X"
+      },
+      {
+        "product_code": "00100331",
+        "type": "X"
+      },
+      {
+        "product_code": "00100336",
+        "type": "X"
+      },
+      {
+        "product_code": "00100337",
+        "type": "X"
+      },
+      {
+        "product_code": "00101056",
+        "type": "X"
+      },
+      {
+        "product_code": "00101064",
+        "type": "X"
+      }
+    ]
+  },
+  {
+    "code": "20100354",
+    "name": "Set di 3 pz protezione coni Ø145",
+    "applies_to": [
+      "smontagomme_auto",
+      "smontagomme_moto"
+    ],
+    "compat": []
+  },
+  {
+    "code": "20100367",
+    "name": "SX PLUS SYSTEM Dispositivo premitalloni per pneumatici Ribassati e RunFlat",
+    "applies_to": [
+      "smontagomme_auto",
+      "smontagomme_moto"
+    ],
+    "compat": []
+  },
+  {
+    "code": "20100368",
+    "name": "ELHA SX Premitallone sinistro",
+    "applies_to": [
+      "smontagomme_auto",
+      "smontagomme_moto"
+    ],
+    "compat": [
+      {
+        "product_code": "00101056",
+        "type": "X"
+      },
+      {
+        "product_code": "00101064",
+        "type": "X"
+      }
+    ]
+  },
+  {
+    "code": "20100369",
+    "name": "ERHA DX Premitallone destro",
+    "applies_to": [
+      "smontagomme_auto",
+      "smontagomme_moto"
+    ],
+    "compat": [
+      {
+        "product_code": "00101056",
+        "type": "X"
+      },
+      {
+        "product_code": "00101064",
+        "type": "X"
+      }
+    ]
   },
   {
     "code": "20100372",
-    "name": "Torretta in Plastica Corta completa di attacco fisso",
+    "name": "Torretta in plastica corta completa di attacco fisso",
     "applies_to": [
       "smontagomme_auto",
-      "smontagomme_truck",
       "smontagomme_moto"
     ],
-    "tags": [],
-    "source": "csv_09_01_26"
+    "compat": [
+      {
+        "product_code": "00100299",
+        "type": "X"
+      },
+      {
+        "product_code": "00100322",
+        "type": "X"
+      },
+      {
+        "product_code": "00101056",
+        "type": "X"
+      },
+      {
+        "product_code": "00101064",
+        "type": "X"
+      }
+    ]
+  },
+  {
+    "code": "41100001",
+    "name": "Lubrificatore",
+    "applies_to": [
+      "smontagomme_auto",
+      "smontagomme_moto"
+    ],
+    "compat": [
+      {
+        "product_code": "00100299",
+        "type": "S"
+      },
+      {
+        "product_code": "00100302",
+        "type": "S"
+      },
+      {
+        "product_code": "00100321",
+        "type": "S"
+      },
+      {
+        "product_code": "00100322",
+        "type": "S"
+      },
+      {
+        "product_code": "00100323",
+        "type": "S"
+      },
+      {
+        "product_code": "00100324",
+        "type": "S"
+      },
+      {
+        "product_code": "00100336",
+        "type": "S"
+      },
+      {
+        "product_code": "00100337",
+        "type": "S"
+      },
+      {
+        "product_code": "00101056",
+        "type": "S"
+      },
+      {
+        "product_code": "00101064",
+        "type": "S"
+      }
+    ]
+  },
+  {
+    "code": "41100030",
+    "name": "Filtro aria",
+    "applies_to": [
+      "smontagomme_auto",
+      "smontagomme_moto"
+    ],
+    "compat": [
+      {
+        "product_code": "00100299",
+        "type": "X"
+      },
+      {
+        "product_code": "00100302",
+        "type": "X"
+      },
+      {
+        "product_code": "00100318",
+        "type": "X"
+      },
+      {
+        "product_code": "00100319",
+        "type": "X"
+      },
+      {
+        "product_code": "00100321",
+        "type": "X"
+      },
+      {
+        "product_code": "00100322",
+        "type": "X"
+      },
+      {
+        "product_code": "00100323",
+        "type": "X"
+      },
+      {
+        "product_code": "00100324",
+        "type": "X"
+      },
+      {
+        "product_code": "00100330",
+        "type": "X"
+      },
+      {
+        "product_code": "00100331",
+        "type": "X"
+      },
+      {
+        "product_code": "00100336",
+        "type": "X"
+      },
+      {
+        "product_code": "00100337",
+        "type": "X"
+      },
+      {
+        "product_code": "00101056",
+        "type": "X"
+      },
+      {
+        "product_code": "00101064",
+        "type": "X"
+      }
+    ]
+  },
+  {
+    "code": "20100339",
+    "name": "Set di 4 prolunghe per ruote con cerchietti",
+    "applies_to": [
+      "smontagomme_auto",
+      "smontagomme_truck"
+    ],
+    "compat": [
+      {
+        "product_code": "00200034",
+        "type": "X"
+      }
+    ]
+  },
+  {
+    "code": "20100340",
+    "name": "Set di griffe per cerchi con fori Ø78",
+    "applies_to": [
+      "smontagomme_auto",
+      "smontagomme_truck"
+    ],
+    "compat": [
+      {
+        "product_code": "00200034",
+        "type": "X"
+      }
+    ]
+  },
+  {
+    "code": "20100112",
+    "name": "Accessorio 20100112",
+    "applies_to": [
+      "smontagomme_truck"
+    ],
+    "compat": []
+  },
+  {
+    "code": "20100128",
+    "name": "Leva alza tallone",
+    "applies_to": [
+      "smontagomme_truck"
+    ],
+    "compat": [
+      {
+        "product_code": "00200025",
+        "type": "S"
+      },
+      {
+        "product_code": "00200034",
+        "type": "S"
+      },
+      {
+        "product_code": "00201022",
+        "type": "S"
+      },
+      {
+        "product_code": "00201023",
+        "type": "S"
+      },
+      {
+        "product_code": "00201024",
+        "type": "S"
+      },
+      {
+        "product_code": "00201025",
+        "type": "S"
+      }
+    ]
+  },
+  {
+    "code": "20100129",
+    "name": "Pinza per cerchi",
+    "applies_to": [
+      "smontagomme_truck"
+    ],
+    "compat": [
+      {
+        "product_code": "00200025",
+        "type": "S"
+      },
+      {
+        "product_code": "00200034",
+        "type": "S"
+      },
+      {
+        "product_code": "00201022",
+        "type": "S"
+      },
+      {
+        "product_code": "00201023",
+        "type": "S"
+      },
+      {
+        "product_code": "00201024",
+        "type": "S"
+      },
+      {
+        "product_code": "00201025",
+        "type": "S"
+      }
+    ]
+  },
+  {
+    "code": "20100134",
+    "name": "Leva per cerchietti",
+    "applies_to": [
+      "smontagomme_truck"
+    ],
+    "compat": [
+      {
+        "product_code": "00200025",
+        "type": "S"
+      },
+      {
+        "product_code": "00200034",
+        "type": "S"
+      },
+      {
+        "product_code": "00201022",
+        "type": "S"
+      },
+      {
+        "product_code": "00201023",
+        "type": "S"
+      },
+      {
+        "product_code": "00201024",
+        "type": "S"
+      },
+      {
+        "product_code": "00201025",
+        "type": "S"
+      }
+    ]
+  },
+  {
+    "code": "20100138",
+    "name": "Accessorio 20100138",
+    "applies_to": [
+      "smontagomme_truck"
+    ],
+    "compat": [
+      {
+        "product_code": "00200025",
+        "type": "X"
+      },
+      {
+        "product_code": "00201023",
+        "type": "X"
+      }
+    ]
+  },
+  {
+    "code": "20100139",
+    "name": "Leva talloni sagomata",
+    "applies_to": [
+      "smontagomme_truck"
+    ],
+    "compat": [
+      {
+        "product_code": "00200025",
+        "type": "X"
+      },
+      {
+        "product_code": "00200034",
+        "type": "X"
+      },
+      {
+        "product_code": "00201022",
+        "type": "X"
+      },
+      {
+        "product_code": "00201023",
+        "type": "X"
+      },
+      {
+        "product_code": "00201024",
+        "type": "X"
+      },
+      {
+        "product_code": "00201025",
+        "type": "X"
+      }
+    ]
+  },
+  {
+    "code": "20100141",
+    "name": "Set di 2 morsetti fissaggio cerchietti",
+    "applies_to": [
+      "smontagomme_truck"
+    ],
+    "compat": [
+      {
+        "product_code": "00200025",
+        "type": "X"
+      },
+      {
+        "product_code": "00200034",
+        "type": "X"
+      },
+      {
+        "product_code": "00201022",
+        "type": "X"
+      },
+      {
+        "product_code": "00201023",
+        "type": "X"
+      },
+      {
+        "product_code": "00201024",
+        "type": "X"
+      },
+      {
+        "product_code": "00201025",
+        "type": "X"
+      }
+    ]
+  },
+  {
+    "code": "20100144",
+    "name": "Accessorio 20100144",
+    "applies_to": [
+      "smontagomme_truck"
+    ],
+    "compat": [
+      {
+        "product_code": "00200025",
+        "type": "X"
+      }
+    ]
+  },
+  {
+    "code": "20100153",
+    "name": "Accessorio 20100153",
+    "applies_to": [
+      "smontagomme_truck"
+    ],
+    "compat": []
+  },
+  {
+    "code": "20100198",
+    "name": "Pinza per cerchi in lega",
+    "applies_to": [
+      "smontagomme_truck"
+    ],
+    "compat": [
+      {
+        "product_code": "00200025",
+        "type": "X"
+      },
+      {
+        "product_code": "00200034",
+        "type": "X"
+      },
+      {
+        "product_code": "00201023",
+        "type": "X"
+      },
+      {
+        "product_code": "00201025",
+        "type": "X"
+      }
+    ]
+  },
+  {
+    "code": "20100206",
+    "name": "Set di 4 adattatori per ruote in alluminio (*) a partire dalla matricola MII218823",
+    "applies_to": [
+      "smontagomme_truck"
+    ],
+    "compat": [
+      {
+        "product_code": "00201022",
+        "type": "X"
+      },
+      {
+        "product_code": "00201024",
+        "type": "X"
+      }
+    ]
+  },
+  {
+    "code": "20100237",
+    "name": "Rullo Tubeless",
+    "applies_to": [
+      "smontagomme_truck"
+    ],
+    "compat": [
+      {
+        "product_code": "00200034",
+        "type": "X"
+      }
+    ]
+  },
+  {
+    "code": "20100238",
+    "name": "Super Vigor 2450 fino alla matricola MII228822",
+    "applies_to": [
+      "smontagomme_truck"
+    ],
+    "compat": []
+  },
+  {
+    "code": "20100302",
+    "name": "Accessorio 20100302",
+    "applies_to": [
+      "smontagomme_truck"
+    ],
+    "compat": [
+      {
+        "product_code": "00201025",
+        "type": "X"
+      }
+    ]
+  },
+  {
+    "code": "20100304",
+    "name": "Accessorio 20100304",
+    "applies_to": [
+      "smontagomme_truck"
+    ],
+    "compat": [
+      {
+        "product_code": "00201025",
+        "type": "X"
+      }
+    ]
+  },
+  {
+    "code": "20100327",
+    "name": "Kit di protezioni per adattatori in per cerchi in Alu (solo per 20100144)",
+    "applies_to": [
+      "smontagomme_truck"
+    ],
+    "compat": [
+      {
+        "product_code": "00200025",
+        "type": "X"
+      },
+      {
+        "product_code": "00201025",
+        "type": "X"
+      }
+    ]
+  },
+  {
+    "code": "20100360",
+    "name": "Set di 4 prolunghe fino a 56”",
+    "applies_to": [
+      "smontagomme_truck"
+    ],
+    "compat": [
+      {
+        "product_code": "00200025",
+        "type": "X"
+      },
+      {
+        "product_code": "00201023",
+        "type": "X"
+      }
+    ]
+  },
+  {
+    "code": "20100361",
+    "name": "Accessorio 20100361",
+    "applies_to": [
+      "smontagomme_truck"
+    ],
+    "compat": [
+      {
+        "product_code": "00201023",
+        "type": "X"
+      }
+    ]
+  },
+  {
+    "code": "20100362",
+    "name": "Accessorio 20100362",
+    "applies_to": [
+      "smontagomme_truck"
+    ],
+    "compat": []
+  },
+  {
+    "code": "20100364",
+    "name": "Protezioni per unghia utensile",
+    "applies_to": [
+      "smontagomme_truck"
+    ],
+    "compat": []
+  },
+  {
+    "code": "20100383",
+    "name": "Accessorio 20100383",
+    "applies_to": [
+      "smontagomme_truck"
+    ],
+    "compat": []
+  },
+  {
+    "code": "20100384",
+    "name": "Prolunghe fino a 60”",
+    "applies_to": [
+      "smontagomme_truck"
+    ],
+    "compat": []
+  },
+  {
+    "code": "20100385",
+    "name": "Accessorio 20100385",
+    "applies_to": [
+      "smontagomme_truck"
+    ],
+    "compat": []
+  },
+  {
+    "code": "20201507",
+    "name": "Kit di protezioni per adattatori in per cerchi in Alu (solo per 20100304)",
+    "applies_to": [
+      "smontagomme_truck"
+    ],
+    "compat": []
   }
 ]
