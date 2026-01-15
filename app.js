@@ -4,6 +4,7 @@
 */
 
 const state = {
+  limit: 20,
   family: "equilibratrici_auto",
   selected: new Set(),
   q: "",
@@ -64,23 +65,23 @@ function renderTabs(){
       btn.setAttribute("aria-selected","true");
       state.family = btn.dataset.family;
       state.selected.clear();
+      state.limit = 20;
       renderFlags();
       render();
     });
   });
 
-  $("#q").addEventListener("input", (e)=>{ state.q = e.target.value.trim(); render(); });
-  $("#uso").addEventListener("change", (e)=>{ state.uso = e.target.value; render(); });
+  $("#q").addEventListener("input", (e)=>{ state.q = e.target.value.trim(); state.limit = 20; render(); });
+  $("#uso").addEventListener("change", (e)=>{ state.uso = e.target.value; state.limit = 20; render(); });
 
   $("#clearBtn").addEventListener("click", ()=>{
     state.selected.clear();
     state.q = ""; $("#q").value = "";
     $("#uso").value = "auto"; state.uso = "auto";
-    renderFlags(); render();
-  });
+    renderFlags(); state.limit = 20; render(); });
 
   $("#applyPresetBtn").addEventListener("click", ()=>{
-    applyPreset(); renderFlags(); render();
+    applyPreset(); renderFlags(); state.limit = 20; render();
   });
 }
 
@@ -99,6 +100,7 @@ function applyPreset(){
     if(state.uso === "suv") ["motoinverter","tubeless_gt"].forEach(t=>state.selected.add(t));
     if(state.uso === "furgoni") ["motoinverter"].forEach(t=>state.selected.add(t));
     if(state.uso === "truck") ["motoinverter","runflat"].forEach(t=>state.selected.add(t));
+    if(state.uso === "moto") ["motoinverter"].forEach(t=>state.selected.add(t));
   }
 }
 
@@ -124,17 +126,24 @@ function renderFlags(){
 
 function familyProducts(){
   const fam = state.family;
-  let fams = [fam];
 
-  if(state.uso === "truck"){
-    if(fam === "equilibratrici_auto") fams = ["equilibratrici_truck","equilibratrici_auto"];
-    if(fam === "smontagomme_auto") fams = ["smontagomme_truck","smontagomme_auto"];
+  // Tab Equilibratrici: includi auto (+ truck se uso richiede)
+  if(fam === "equilibratrici_auto"){
+    let fams = ["equilibratrici_auto"];
+    if(state.uso === "truck" || state.uso === "furgoni") fams = ["equilibratrici_auto","equilibratrici_truck"];
+    return state.products.filter(p => fams.includes(p.family));
   }
-  if(state.uso === "furgoni"){
-    if(fam === "equilibratrici_auto") fams = ["equilibratrici_auto","equilibratrici_truck"];
-    if(fam === "smontagomme_auto") fams = ["smontagomme_auto","smontagomme_truck"];
+
+  // Tab Smontagomme: per default includi AUTO + MOTO (e TRUCK se uso richiede)
+  if(fam === "smontagomme_auto"){
+    let fams = ["smontagomme_auto","smontagomme_moto"];
+    if(state.uso === "truck" || state.uso === "furgoni") fams = ["smontagomme_auto","smontagomme_truck","smontagomme_moto"];
+    if(state.uso === "moto") fams = ["smontagomme_moto","smontagomme_auto"]; // moto in priorità
+    return state.products.filter(p => fams.includes(p.family));
   }
-  return state.products.filter(p => fams.includes(p.family));
+
+  // fallback
+  return state.products.filter(p => p.family === fam);
 }
 
 function matchScore(p){
@@ -215,7 +224,7 @@ function render(){
   const res = $("#results");
   res.innerHTML = "";
 
-  const top = ranked.slice(0, 7);
+  const top = ranked.slice(0, state.limit);
   if(!top.length){
     res.appendChild(el("div", { class:"note", html:"Nessun risultato. Prova a rimuovere qualche flag o cambia ricerca." }));
   } else {
@@ -232,6 +241,18 @@ function render(){
       box.appendChild(el("div", { html: tags }));
       res.appendChild(box);
     });
+  }
+
+
+  // Load more
+  if(ranked.length > state.limit){
+    const moreBtn = el("button", { class:"primary", style:"width:100%;margin-top:10px;padding:12px;border-radius:12px;" });
+    moreBtn.textContent = `Mostra altri (${Math.min(20, ranked.length - state.limit)} )`;
+    moreBtn.addEventListener("click", ()=>{
+      state.limit = Math.min(ranked.length, state.limit + 20);
+      render();
+    });
+    res.appendChild(moreBtn);
   }
 
   const accBox = $("#accessoriBox");

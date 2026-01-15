@@ -13,3 +13,9 @@ Generato da CSV (`09_01_26_con novita autopromotec 2025.csv`).
 
 ## Footer
 © 2026 pezzaliapp.com – Alessandro Pezzali. Configuratore tecnico per uso professionale.
+
+
+## v4
+- Risultati: aggiunto pulsante **Mostra altri** (paginazione 20 alla volta)
+- Smontagomme: inclusi anche i modelli **MOTO** (famiglia smontagomme_moto)
+- Uso: aggiunta opzione **Moto**
