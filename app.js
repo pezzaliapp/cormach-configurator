@@ -13,6 +13,13 @@ const state = {
   accessori: []
 };
 
+// Mutua esclusione tra alcuni flag (selezioni uno -> l'altro si disattiva)
+const EXCLUSIVE_FLAGS = {
+  smontagomme_auto: [
+    ["platorello", "piatto"]
+  ]
+};
+
 const FLAG_DEFS = {
   equilibratrici_auto: [
     { id:"monitor", label:"Monitor", hint:"Interfaccia evoluta (VD / VDL / VDBL…)" },
@@ -20,15 +27,23 @@ const FLAG_DEFS = {
     { id:"laser", label:"Laser", hint:"Guida applicazione pesi (VDL / VDLL…)" },
     { id:"sonar", label:"Sonar", hint:"Misurazione/diagnosi con sonar" },
 
-    // ✅ AGGIORNATO: NLS / Versioni P
+    // ✅ NLS / Versioni P
     { id:"nls", label:"Bloccaggio pneumatico (NLS – Versioni P)", hint:"Centraggio automatico pneumatico. Disponibile sulle versioni P" },
 
     { id:"sollevatore", label:"Sollevatore ruota", hint:"Ergonomia: sollevatore ruota (integrato o accessorio)" },
     { id:"rlc", label:"RLC", hint:"Analisi eccentricità (quando previsto)" },
     { id:"mobile_service", label:"Mobile service", hint:"Modelli portatili / alimentazione dedicata" }
   ],
+
   smontagomme_auto: [
-    { id:"motoinverter", label:"Motoinverter (MI)", hint:"Più controllo e coppia gestita" },
+    // ✅ NUOVI: tipo serraggio
+    { id:"platorello", label:"A platorello", hint:"Bloccaggio con platorelli (PUMA, CM 1200 BB…)" },
+    { id:"piatto", label:"A piatto", hint:"Bloccaggio a piatto / autocentrante" },
+
+    // ✅ MI e 2 Vel sono cose diverse
+    { id:"motoinverter", label:"Motoinverter (MI)", hint:"Controllo elettronico coppia e velocità" },
+    { id:"doppia_velocita", label:"Doppia velocità", hint:"Mandrino con 2 velocità di rotazione" },
+
     { id:"tubeless_gt", label:"Tubeless (GT)", hint:"Gruppo gonfiaggio / funzioni tubeless" },
     { id:"bb_doppio_disco", label:"BB doppio disco", hint:"Stallonatore evoluto (BB)" },
     { id:"runflat", label:"RunFlat", hint:"Lavoro su runflat (se presente)" },
@@ -75,13 +90,20 @@ function renderTabs(){
   });
 
   $("#q").addEventListener("input", (e)=>{ state.q = e.target.value.trim(); state.limit = 20; render(); });
-  $("#uso").addEventListener("change", (e)=>{ state.uso = e.target.value; state.limit = 20; render(); });
+
+  // ✅ fix: cambio "Uso" deve aggiornare davvero la lista a destra
+  $("#uso").addEventListener("change", (e)=>{
+    state.uso = e.target.value;
+    state.limit = 20;
+    render();
+  });
 
   $("#clearBtn").addEventListener("click", ()=>{
     state.selected.clear();
     state.q = ""; $("#q").value = "";
     $("#uso").value = "auto"; state.uso = "auto";
-    renderFlags(); state.limit = 20; render(); });
+    renderFlags(); state.limit = 20; render();
+  });
 
   $("#applyPresetBtn").addEventListener("click", ()=>{
     applyPreset(); renderFlags(); state.limit = 20; render();
@@ -96,14 +118,26 @@ function applyPreset(){
     if(state.uso === "suv") ["monitor","laser","sonar"].forEach(t=>state.selected.add(t));
     if(state.uso === "furgoni") ["monitor","laser","sonar","nls","sollevatore"].forEach(t=>state.selected.add(t));
     if(state.uso === "truck") ["monitor","laser","sonar","nls","sollevatore"].forEach(t=>state.selected.add(t));
+    if(state.uso === "moto") ["monitor"].forEach(t=>state.selected.add(t));
   }
 
   if(state.family === "smontagomme_auto"){
     if(state.uso === "auto") ["motoinverter"].forEach(t=>state.selected.add(t));
     if(state.uso === "suv") ["motoinverter","tubeless_gt"].forEach(t=>state.selected.add(t));
     if(state.uso === "furgoni") ["motoinverter"].forEach(t=>state.selected.add(t));
-    if(state.uso === "truck") ["motoinverter","runflat"].forEach(t=>state.selected.add(t));
-    if(state.uso === "moto") ["motoinverter"].forEach(t=>state.selected.add(t));
+    if(state.uso === "truck") ["runflat"].forEach(t=>state.selected.add(t));
+    if(state.uso === "moto") ["piatto"].forEach(t=>state.selected.add(t)); // moto: priorità piatto
+  }
+}
+
+function applyExclusives(defId){
+  const groups = (EXCLUSIVE_FLAGS[state.family] || []);
+  for(const g of groups){
+    if(g.includes(defId)){
+      for(const other of g){
+        if(other !== defId) state.selected.delete(other);
+      }
+    }
   }
 }
 
@@ -116,12 +150,20 @@ function renderFlags(){
     const id = `flag_${def.id}`;
     const wrap = el("label", { class:"chk", for:id });
     const cb = el("input", { type:"checkbox", id });
+
     cb.checked = state.selected.has(def.id);
+
     cb.addEventListener("change", ()=>{
-      if(cb.checked) state.selected.add(def.id);
-      else state.selected.delete(def.id);
+      if(cb.checked){
+        state.selected.add(def.id);
+        applyExclusives(def.id);
+        renderFlags(); // refresh per aggiornare i check esclusivi
+      }else{
+        state.selected.delete(def.id);
+      }
       render();
     });
+
     const txt = el("div", { html:`<b>${def.label}</b><span>${def.hint}</span>` });
     wrap.appendChild(cb); wrap.appendChild(txt); box.appendChild(wrap);
   });
@@ -137,7 +179,7 @@ function familyProducts(){
     return state.products.filter(p => fams.includes(p.family));
   }
 
-  // Tab Smontagomme: per default includi AUTO + MOTO (e TRUCK se uso richiede)
+  // Tab Smontagomme: includi AUTO + MOTO, TRUCK se richiesto
   if(fam === "smontagomme_auto"){
     let fams = ["smontagomme_auto","smontagomme_moto"];
     if(state.uso === "truck" || state.uso === "furgoni") fams = ["smontagomme_auto","smontagomme_truck","smontagomme_moto"];
@@ -145,23 +187,66 @@ function familyProducts(){
     return state.products.filter(p => fams.includes(p.family));
   }
 
-  // fallback
   return state.products.filter(p => p.family === fam);
+}
+
+// ✅ Uso -> boost di scoring per far comparire a destra i prodotti “giusti”
+function usageBoost(p){
+  const tags = new Set(p.tags || []);
+  let b = 0;
+
+  // Smontagomme
+  if(state.family === "smontagomme_auto"){
+    if(state.uso === "moto"){
+      if(p.family === "smontagomme_moto") b += 6;
+      if(tags.has("moto")) b += 3;
+    }
+    if(state.uso === "truck"){
+      if(p.family === "smontagomme_truck") b += 6;
+      if(tags.has("truck")) b += 3;
+    }
+    if(state.uso === "furgoni"){
+      if(p.family === "smontagomme_truck") b += 3; // furgoni spesso verso heavy
+      if(tags.has("furgoni")) b += 3;
+    }
+  }
+
+  // Equilibratrici
+  if(state.family === "equilibratrici_auto"){
+    if(state.uso === "truck"){
+      if(p.family === "equilibratrici_truck") b += 6;
+      if(tags.has("truck")) b += 3;
+    }
+    if(state.uso === "furgoni"){
+      if(p.family === "equilibratrici_truck") b += 3;
+      if(tags.has("furgoni")) b += 3;
+    }
+  }
+
+  return b;
 }
 
 function matchScore(p){
   const tags = new Set(p.tags || []);
   const sel = [...state.selected];
   let score = 0;
+
+  // base: match con flag
   for(const t of sel){
     if(tags.has(t)) score += 2;
     else score -= 3;
   }
+
+  // ✅ boost per "Uso" (così a destra cambiano davvero i prodotti)
+  score += usageBoost(p);
+
+  // ricerca testo
   if(state.q){
     const q = state.q.toUpperCase();
     const hay = (p.name + " " + p.code).toUpperCase();
     if(hay.includes(q)) score += 2;
   }
+
   return score;
 }
 
