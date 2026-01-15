@@ -3,9 +3,7 @@
     "code": "00100208",
     "name": "PUMA CE 1ph 230V 50-60Hz",
     "family": "smontagomme_auto",
-    "tags": [
-      "alimentazione_1ph"
-    ],
+    "tags": [],
     "source": "excel_rev_23_09_2025"
   },
   {
@@ -13,8 +11,6 @@
     "name": "CM 1200BB CE 1ph 230V 50-60Hz MI",
     "family": "smontagomme_auto",
     "tags": [
-      "alimentazione_1ph",
-      "bb_doppio_disco",
       "motoinverter"
     ],
     "source": "excel_rev_23_09_2025"
@@ -24,7 +20,6 @@
     "name": "F 26A BIKE CE 1ph 230V NERO",
     "family": "smontagomme_moto",
     "tags": [
-      "alimentazione_1ph",
       "moto"
     ],
     "source": "excel_rev_23_09_2025"
@@ -34,7 +29,6 @@
     "name": "F 536S GT RACING CE 1ph 230V MI",
     "family": "smontagomme_auto",
     "tags": [
-      "alimentazione_1ph",
       "motoinverter",
       "racing",
       "tubeless_gt"
@@ -45,18 +39,14 @@
     "code": "00100302",
     "name": "F 524S CE 3ph 400V",
     "family": "smontagomme_auto",
-    "tags": [
-      "alimentazione_3ph"
-    ],
+    "tags": [],
     "source": "excel_rev_23_09_2025"
   },
   {
     "code": "00100318",
     "name": "F 535S CE 3ph 400V 2 Vel",
     "family": "smontagomme_auto",
-    "tags": [
-      "alimentazione_3ph"
-    ],
+    "tags": [],
     "source": "excel_rev_23_09_2025"
   },
   {
@@ -64,7 +54,6 @@
     "name": "F 535S GT CE 3ph 400V 2 Vel",
     "family": "smontagomme_auto",
     "tags": [
-      "alimentazione_3ph",
       "tubeless_gt"
     ],
     "source": "excel_rev_23_09_2025"
@@ -73,9 +62,7 @@
     "code": "00100321",
     "name": "F 524S CE 1ph 230V",
     "family": "smontagomme_auto",
-    "tags": [
-      "alimentazione_1ph"
-    ],
+    "tags": [],
     "source": "excel_rev_23_09_2025"
   },
   {
@@ -83,7 +70,6 @@
     "name": "F 26A BIKE CE 3ph 400V NERO",
     "family": "smontagomme_auto",
     "tags": [
-      "alimentazione_3ph",
       "moto"
     ],
     "source": "excel_rev_23_09_2025"
@@ -92,18 +78,14 @@
     "code": "00100323",
     "name": "F 524SW CE 1ph 230V",
     "family": "smontagomme_auto",
-    "tags": [
-      "alimentazione_1ph"
-    ],
+    "tags": [],
     "source": "excel_rev_23_09_2025"
   },
   {
     "code": "00100324",
     "name": "F 524SW CE 3ph 400V",
     "family": "smontagomme_auto",
-    "tags": [
-      "alimentazione_3ph"
-    ],
+    "tags": [],
     "source": "excel_rev_23_09_2025"
   },
   {
@@ -111,7 +93,6 @@
     "name": "CM 646 CE 1ph 230V 50-60Hz MI",
     "family": "smontagomme_auto",
     "tags": [
-      "alimentazione_1ph",
       "motoinverter"
     ],
     "source": "excel_rev_23_09_2025"
@@ -121,7 +102,6 @@
     "name": "CM 646 GT CE 1ph 230V 50-60Hz MI",
     "family": "smontagomme_auto",
     "tags": [
-      "alimentazione_1ph",
       "motoinverter",
       "tubeless_gt"
     ],
@@ -132,7 +112,6 @@
     "name": "F 535S CE 1ph 230V 50/60Hz MI",
     "family": "smontagomme_auto",
     "tags": [
-      "alimentazione_1ph",
       "motoinverter"
     ],
     "source": "excel_rev_23_09_2025"
@@ -142,7 +121,6 @@
     "name": "F 535S GT CE 1ph 230V 50/60Hz MI",
     "family": "smontagomme_auto",
     "tags": [
-      "alimentazione_1ph",
       "motoinverter",
       "tubeless_gt"
     ],
@@ -152,9 +130,7 @@
     "code": "00100336",
     "name": "F 524S CE 3ph 400V 2Vel",
     "family": "smontagomme_auto",
-    "tags": [
-      "alimentazione_3ph"
-    ],
+    "tags": [],
     "source": "excel_rev_23_09_2025"
   },
   {
@@ -162,7 +138,6 @@
     "name": "F 524S GT CE 3ph 400V 2Vel",
     "family": "smontagomme_auto",
     "tags": [
-      "alimentazione_3ph",
       "tubeless_gt"
     ],
     "source": "excel_rev_23_09_2025"
@@ -172,7 +147,6 @@
     "name": "F 536S GT RACING CE 3ph 400V 2Vel",
     "family": "smontagomme_auto",
     "tags": [
-      "alimentazione_3ph",
       "racing",
       "tubeless_gt"
     ],
@@ -183,7 +157,6 @@
     "name": "F 536S GT RAC LIGHT NOW 1ph 230V MI",
     "family": "smontagomme_auto",
     "tags": [
-      "alimentazione_1ph",
       "motoinverter",
       "tubeless_gt"
     ],
@@ -193,9 +166,7 @@
     "code": "00100347",
     "name": "LIGRO CE 1ph 230V 50/60Hz",
     "family": "smontagomme_auto",
-    "tags": [
-      "alimentazione_1ph"
-    ],
+    "tags": [],
     "source": "excel_rev_23_09_2025"
   },
   {
@@ -203,7 +174,6 @@
     "name": "LIGRO GT CE 1ph 230V 50/60Hz",
     "family": "smontagomme_auto",
     "tags": [
-      "alimentazione_1ph",
       "tubeless_gt"
     ],
     "source": "excel_rev_23_09_2025"
@@ -213,7 +183,6 @@
     "name": "F 528S GT CE 1ph 230V MI",
     "family": "smontagomme_auto",
     "tags": [
-      "alimentazione_1ph",
       "motoinverter",
       "tubeless_gt"
     ],
@@ -224,7 +193,6 @@
     "name": "F 24 BIKE CE 1ph 230V NERO",
     "family": "smontagomme_moto",
     "tags": [
-      "alimentazione_1ph",
       "moto"
     ],
     "source": "excel_rev_23_09_2025"
@@ -234,7 +202,6 @@
     "name": "F 24 BIKE CE 3ph 400V NERO",
     "family": "smontagomme_moto",
     "tags": [
-      "alimentazione_3ph",
       "moto"
     ],
     "source": "excel_rev_23_09_2025"
@@ -243,85 +210,63 @@
     "code": "00200013",
     "name": "CM SUPER 27\" CE 3ph 400V",
     "family": "smontagomme_truck",
-    "tags": [
-      "alimentazione_3ph",
-      "superautomatico"
-    ],
+    "tags": [],
     "source": "excel_rev_23_09_2025"
   },
   {
     "code": "00200025",
     "name": "CM SUPER 56N CE 3ph 400V",
     "family": "smontagomme_truck",
-    "tags": [
-      "alimentazione_3ph",
-      "superautomatico"
-    ],
+    "tags": [],
     "source": "excel_rev_23_09_2025"
   },
   {
     "code": "00200034",
     "name": "SUPER VIGOR 2450N CE 3ph 400V",
     "family": "smontagomme_truck",
-    "tags": [
-      "alimentazione_3ph",
-      "superautomatico"
-    ],
+    "tags": [],
     "source": "excel_rev_23_09_2025"
   },
   {
     "code": "00200037",
     "name": "SUPER VIGOR 60\" CE 3ph 400V",
     "family": "smontagomme_truck",
-    "tags": [
-      "alimentazione_3ph",
-      "superautomatico"
-    ],
+    "tags": [],
     "source": "excel_rev_23_09_2025"
   },
   {
     "code": "00201022",
     "name": "TMS 26” CE 3ph 400V",
     "family": "smontagomme_truck",
-    "tags": [
-      "alimentazione_3ph"
-    ],
+    "tags": [],
     "source": "excel_rev_23_09_2025"
   },
   {
     "code": "00201023",
     "name": "FT 560SN CE 3ph 400V",
     "family": "smontagomme_truck",
-    "tags": [
-      "alimentazione_3ph"
-    ],
+    "tags": [],
     "source": "excel_rev_23_09_2025"
   },
   {
     "code": "00201024",
     "name": "TMS 26”+GENERATORE CE 3ph 400V",
     "family": "smontagomme_truck",
-    "tags": [
-      "alimentazione_3ph"
-    ],
+    "tags": [],
     "source": "excel_rev_23_09_2025"
   },
   {
     "code": "00201025",
     "name": "FT 26SN CE 3PH 400V",
     "family": "smontagomme_truck",
-    "tags": [
-      "alimentazione_3ph"
-    ],
+    "tags": [],
     "source": "excel_rev_23_09_2025"
   },
   {
     "code": "00201030",
     "name": "FT 600 HY CE 3ph 400V (NON ORDINABILE)",
     "family": "smontagomme_truck",
-    "tags": [
-      "alimentazione_3ph"
-    ],
+    "tags": [],
     "source": "excel_rev_23_09_2025"
   },
   {
@@ -329,7 +274,6 @@
     "name": "MEC 820VDL-P SONAR CE 1ph 230V",
     "family": "equilibratrici_auto",
     "tags": [
-      "alimentazione_1ph",
       "laser",
       "monitor",
       "nls",
@@ -342,7 +286,6 @@
     "name": "TOUCH MEC 1000-P RLC SONAR 1ph 230V",
     "family": "equilibratrici_auto",
     "tags": [
-      "alimentazione_1ph",
       "monitor",
       "nls",
       "rlc",
@@ -356,7 +299,6 @@
     "name": "TOUCH MEC 1000 SONAR CE 1ph 230V",
     "family": "equilibratrici_auto",
     "tags": [
-      "alimentazione_1ph",
       "monitor",
       "sonar",
       "touch"
@@ -368,7 +310,6 @@
     "name": "TOUCH MEC 1000-P SONAR CE 1ph 230V",
     "family": "equilibratrici_auto",
     "tags": [
-      "alimentazione_1ph",
       "monitor",
       "nls",
       "sonar",
@@ -381,7 +322,6 @@
     "name": "MEC 820VDL SONAR CE 1ph 230V",
     "family": "equilibratrici_auto",
     "tags": [
-      "alimentazione_1ph",
       "laser",
       "monitor",
       "sonar"
@@ -393,7 +333,6 @@
     "name": "MEC 820VDLL SONAR CE 1ph 230V",
     "family": "equilibratrici_auto",
     "tags": [
-      "alimentazione_1ph",
       "laser",
       "monitor",
       "sollevatore",
@@ -406,7 +345,6 @@
     "name": "MEC 820VDLL-P SONAR CE 1ph 230V",
     "family": "equilibratrici_auto",
     "tags": [
-      "alimentazione_1ph",
       "laser",
       "monitor",
       "nls",
@@ -419,18 +357,14 @@
     "code": "01100232",
     "name": "MEC 810VD CE 1ph 230V",
     "family": "equilibratrici_auto",
-    "tags": [
-      "alimentazione_1ph"
-    ],
+    "tags": [],
     "source": "excel_rev_23_09_2025"
   },
   {
     "code": "01100233",
     "name": "MEC 810VDB CE 1ph 230V",
     "family": "equilibratrici_auto",
-    "tags": [
-      "alimentazione_1ph"
-    ],
+    "tags": [],
     "source": "excel_rev_23_09_2025"
   },
   {
@@ -438,7 +372,6 @@
     "name": "MEC 810VDBL CE 1ph 230V",
     "family": "equilibratrici_auto",
     "tags": [
-      "alimentazione_1ph",
       "freno_pedale",
       "laser",
       "monitor"
@@ -450,7 +383,6 @@
     "name": "MEC 20 SONAR CE 1ph 230V",
     "family": "equilibratrici_auto",
     "tags": [
-      "alimentazione_1ph",
       "sonar"
     ],
     "source": "excel_rev_23_09_2025"
@@ -460,7 +392,6 @@
     "name": "MEC 20L SONAR CE 1ph 230V",
     "family": "equilibratrici_auto",
     "tags": [
-      "alimentazione_1ph",
       "sonar"
     ],
     "source": "excel_rev_23_09_2025"
@@ -470,7 +401,6 @@
     "name": "MEC 20L-P SONAR CE 1ph 230V",
     "family": "equilibratrici_auto",
     "tags": [
-      "alimentazione_1ph",
       "nls",
       "sonar"
     ],
@@ -480,9 +410,7 @@
     "code": "01100257",
     "name": "MEC 5 CE 1ph 230V",
     "family": "equilibratrici_auto",
-    "tags": [
-      "alimentazione_1ph"
-    ],
+    "tags": [],
     "source": "excel_rev_23_09_2025"
   },
   {
@@ -516,18 +444,14 @@
     "code": "01100350",
     "name": "MEC 10 ESD CE 1ph 230V",
     "family": "equilibratrici_auto",
-    "tags": [
-      "alimentazione_1ph"
-    ],
+    "tags": [],
     "source": "excel_rev_23_09_2025"
   },
   {
     "code": "01100351",
     "name": "MEC 10BL ESD CE 1ph 230V",
     "family": "equilibratrici_auto",
-    "tags": [
-      "alimentazione_1ph"
-    ],
+    "tags": [],
     "source": "excel_rev_23_09_2025"
   },
   {
@@ -535,7 +459,6 @@
     "name": "MEC 200 TRUCK CE 1ph 230V",
     "family": "equilibratrici_truck",
     "tags": [
-      "alimentazione_1ph",
       "truck"
     ],
     "source": "excel_rev_23_09_2025"
@@ -545,7 +468,6 @@
     "name": "MEC 200-C TRUCK CE 1ph 230V  ( C=CARTER )",
     "family": "equilibratrici_truck",
     "tags": [
-      "alimentazione_1ph",
       "truck"
     ],
     "source": "excel_rev_23_09_2025"
@@ -555,7 +477,6 @@
     "name": "MEC 200A TRUCK CE 1ph 230V   (A=AUTOMATICA )",
     "family": "equilibratrici_truck",
     "tags": [
-      "alimentazione_1ph",
       "truck"
     ],
     "source": "excel_rev_23_09_2025"
@@ -565,7 +486,6 @@
     "name": "MEC 200A-C TRUCK CE 1ph 230V  (A=AUTOMATICA ) ( C=CARTER )",
     "family": "equilibratrici_truck",
     "tags": [
-      "alimentazione_1ph",
       "truck"
     ],
     "source": "excel_rev_23_09_2025"
@@ -575,7 +495,6 @@
     "name": "MEC 200A-C TRUCK RLC CE 1ph 230V",
     "family": "equilibratrici_truck",
     "tags": [
-      "alimentazione_1ph",
       "rlc",
       "truck"
     ],
@@ -594,27 +513,21 @@
     "code": "00101079",
     "name": "BASIC 224 3Ph 400V-50Hz",
     "family": "smontagomme_auto",
-    "tags": [
-      "alimentazione_3ph"
-    ],
+    "tags": [],
     "source": "excel_rev_23_09_2025"
   },
   {
     "code": "00101083",
     "name": "BASIC 224 2 VELOCITA - 3Ph 400V-50Hz",
     "family": "smontagomme_auto",
-    "tags": [
-      "alimentazione_3ph"
-    ],
+    "tags": [],
     "source": "excel_rev_23_09_2025"
   },
   {
     "code": "00101084",
     "name": "BASIC 224 1PH 230V-50Hz",
     "family": "smontagomme_auto",
-    "tags": [
-      "alimentazione_1ph"
-    ],
+    "tags": [],
     "source": "excel_rev_23_09_2025"
   },
   {
@@ -622,7 +535,6 @@
     "name": "BASIC 22 BIKE 3Ph 400V-50Hz",
     "family": "smontagomme_moto",
     "tags": [
-      "alimentazione_3ph",
       "moto"
     ],
     "source": "excel_rev_23_09_2025"
@@ -632,7 +544,6 @@
     "name": "BASIC 22 BIKE 1PH 230V-50Hz",
     "family": "smontagomme_moto",
     "tags": [
-      "alimentazione_1ph",
       "moto"
     ],
     "source": "excel_rev_23_09_2025"

@@ -7,8 +7,56 @@
       "equilibratrici_truck"
     ],
     "tags": [
+      "centraggio",
       "furgoni",
       "truck"
+    ]
+  },
+  {
+    "code": "21100304",
+    "name": "CONO+DISTANZ.190-223 MEC",
+    "applies_to": [
+      "equilibratrici_auto",
+      "equilibratrici_truck"
+    ],
+    "tags": [
+      "centraggio",
+      "furgoni",
+      "truck"
+    ]
+  },
+  {
+    "code": "21100345",
+    "name": "GHIERA D. 40X4 LINEA MEC",
+    "applies_to": [
+      "equilibratrici_auto",
+      "equilibratrici_truck"
+    ],
+    "tags": [
+      "bloccaggio_rapido"
+    ]
+  },
+  {
+    "code": "21100349",
+    "name": "GHIERA D.40x4 CON POMOLO",
+    "applies_to": [
+      "equilibratrici_auto",
+      "equilibratrici_truck"
+    ],
+    "tags": [
+      "bloccaggio_rapido"
+    ]
+  },
+  {
+    "code": "21100399",
+    "name": "SOLLEVATORE PNEUMATICO AUTOM.MEC",
+    "applies_to": [
+      "equilibratrici_auto",
+      "equilibratrici_truck"
+    ],
+    "tags": [
+      "ergonomia",
+      "sollevatore_ruota"
     ]
   },
   {
@@ -16,13 +64,105 @@
     "name": "SOLLEVATORE RUOTA",
     "applies_to": [
       "equilibratrici_auto",
-      "equilibratrici_truck",
-      "smontagomme_auto",
-      "smontagomme_truck"
+      "equilibratrici_truck"
     ],
     "tags": [
       "ergonomia",
       "sollevatore_ruota"
+    ]
+  },
+  {
+    "code": "20100164",
+    "name": "GRUPPO GONFIAGGIO GT PUMA",
+    "applies_to": [
+      "smontagomme_auto",
+      "smontagomme_truck",
+      "smontagomme_moto"
+    ],
+    "tags": [
+      "tubeless_gt"
+    ]
+  },
+  {
+    "code": "20100165",
+    "name": "KIT PER CERCHI FURGONE PUMA",
+    "applies_to": [
+      "smontagomme_auto",
+      "smontagomme_truck",
+      "smontagomme_moto"
+    ],
+    "tags": [
+      "furgoni"
+    ]
+  },
+  {
+    "code": "20100161",
+    "name": "PREMITALLONE PNEUMATICO PUMA",
+    "applies_to": [
+      "smontagomme_auto",
+      "smontagomme_truck",
+      "smontagomme_moto"
+    ],
+    "tags": [
+      "helper",
+      "ribassati",
+      "runflat"
+    ]
+  },
+  {
+    "code": "20100387",
+    "name": "BASIC HELPER ARM",
+    "applies_to": [
+      "smontagomme_auto",
+      "smontagomme_truck",
+      "smontagomme_moto"
+    ],
+    "tags": [
+      "helper",
+      "ribassati",
+      "runflat"
+    ]
+  },
+  {
+    "code": "20100367",
+    "name": "SX PLUS SYSTEM PRO",
+    "applies_to": [
+      "smontagomme_auto",
+      "smontagomme_truck",
+      "smontagomme_moto"
+    ],
+    "tags": [
+      "helper",
+      "ribassati",
+      "runflat"
+    ]
+  },
+  {
+    "code": "20100368",
+    "name": "ELHA BRACCIO SX",
+    "applies_to": [
+      "smontagomme_auto",
+      "smontagomme_truck",
+      "smontagomme_moto"
+    ],
+    "tags": [
+      "helper",
+      "ribassati",
+      "runflat"
+    ]
+  },
+  {
+    "code": "20100369",
+    "name": "ERHA BRACCIO DX",
+    "applies_to": [
+      "smontagomme_auto",
+      "smontagomme_truck",
+      "smontagomme_moto"
+    ],
+    "tags": [
+      "helper",
+      "ribassati",
+      "runflat"
     ]
   }
 ]
