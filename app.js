@@ -1,6 +1,6 @@
-/* CORMACH Configuratore — v1
+/* CORMACH Configuratore — v2 (No Prezzi)
    - Data-driven: data/products.json + data/accessori.json
-   - Nessun prezzo: solo modello + codice
+   - Output: modello + codice (articolo)
 */
 
 const state = {
@@ -16,20 +16,20 @@ const FLAG_DEFS = {
   equilibratrici_auto: [
     { id:"monitor", label:"Monitor", hint:"Interfaccia evoluta (VD / VDL / VDBL…)" },
     { id:"touch", label:"Touch", hint:"Touchscreen (es. Touch MEC 1000)" },
-    { id:"laser", label:"Laser", hint:"Guida applicazione pesi (L / VDL / VDLL…)" },
-    { id:"sonar", label:"Sonar", hint:"Misure/diagnosi con sonar" },
+    { id:"laser", label:"Laser", hint:"Guida applicazione pesi (VDL / VDLL…)" },
+    { id:"sonar", label:"Sonar", hint:"Misurazione/diagnosi con sonar" },
     { id:"nls", label:"Bloccaggio NLS", hint:"Centraggio più ripetibile (opzione premium)" },
-    { id:"sollevatore", label:"Sollevatore ruota", hint:"Ergonomia: presente su varianti VDLL o come accessorio" },
+    { id:"sollevatore", label:"Sollevatore ruota", hint:"Ergonomia: sollevatore ruota (integrato o accessorio)" },
     { id:"rlc", label:"RLC", hint:"Analisi eccentricità (quando previsto)" },
     { id:"mobile_service", label:"Mobile service", hint:"Modelli portatili / alimentazione dedicata" }
   ],
   smontagomme_auto: [
     { id:"motoinverter", label:"Motoinverter (MI)", hint:"Più controllo e coppia gestita" },
-    { id:"tubeless_gt", label:"Tubeless (GT)", hint:"Funzioni/kit per tubeless" },
+    { id:"tubeless_gt", label:"Tubeless (GT)", hint:"Gruppo gonfiaggio / funzioni tubeless" },
     { id:"bb_doppio_disco", label:"BB doppio disco", hint:"Stallonatore evoluto (BB)" },
-    { id:"runflat", label:"Runflat", hint:"Lavoro su runflat/ribassati (se presente)" },
-    { id:"racing", label:"Racing", hint:"Allestimento racing (se presente)" },
-    { id:"palo_ribaltabile", label:"Palo ribaltabile", hint:"Comodità e accesso rapido (se presente)" }
+    { id:"runflat", label:"RunFlat", hint:"Lavoro su runflat (se presente)" },
+    { id:"ribassati", label:"Ribassati", hint:"Supporto pneumatici ribassati" },
+    { id:"racing", label:"Racing", hint:"Allestimento racing (se presente)" }
   ]
 };
 
@@ -69,69 +69,44 @@ function renderTabs(){
     });
   });
 
-  $("#q").addEventListener("input", (e)=>{
-    state.q = e.target.value.trim();
-    render();
-  });
-
-  $("#uso").addEventListener("change", (e)=>{
-    state.uso = e.target.value;
-    // non forziamo reset; solo aggiorniamo accessori/preset
-    render();
-  });
+  $("#q").addEventListener("input", (e)=>{ state.q = e.target.value.trim(); render(); });
+  $("#uso").addEventListener("change", (e)=>{ state.uso = e.target.value; render(); });
 
   $("#clearBtn").addEventListener("click", ()=>{
     state.selected.clear();
-    state.q = "";
-    $("#q").value = "";
-    $("#uso").value = "auto";
-    state.uso = "auto";
-    renderFlags();
-    render();
+    state.q = ""; $("#q").value = "";
+    $("#uso").value = "auto"; state.uso = "auto";
+    renderFlags(); render();
   });
 
   $("#applyPresetBtn").addEventListener("click", ()=>{
-    applyPreset();
-    renderFlags();
-    render();
+    applyPreset(); renderFlags(); render();
   });
 }
 
 function applyPreset(){
-  // Preset ragionati: servono come punto di partenza, non come regola.
   state.selected.clear();
 
   if(state.family === "equilibratrici_auto"){
-    if(state.uso === "auto"){
-      ["monitor","laser"].forEach(t=>state.selected.add(t));
-    } else if(state.uso === "suv"){
-      ["monitor","laser","sonar"].forEach(t=>state.selected.add(t));
-    } else if(state.uso === "furgoni"){
-      ["monitor","laser","sonar","nls"].forEach(t=>state.selected.add(t));
-    } else if(state.uso === "truck"){
-      ["monitor","laser","sonar","nls"].forEach(t=>state.selected.add(t));
-    }
+    if(state.uso === "auto") ["monitor","laser"].forEach(t=>state.selected.add(t));
+    if(state.uso === "suv") ["monitor","laser","sonar"].forEach(t=>state.selected.add(t));
+    if(state.uso === "furgoni") ["monitor","laser","sonar","nls","sollevatore"].forEach(t=>state.selected.add(t));
+    if(state.uso === "truck") ["monitor","laser","sonar","nls","sollevatore"].forEach(t=>state.selected.add(t));
   }
 
   if(state.family === "smontagomme_auto"){
-    if(state.uso === "auto"){
-      ["motoinverter"].forEach(t=>state.selected.add(t));
-    } else if(state.uso === "suv"){
-      ["motoinverter","tubeless_gt"].forEach(t=>state.selected.add(t));
-    } else if(state.uso === "furgoni"){
-      ["motoinverter"].forEach(t=>state.selected.add(t));
-    } else if(state.uso === "truck"){
-      // Per truck spesso è un'altra famiglia; qui teniamo preset minimale.
-      ["motoinverter"].forEach(t=>state.selected.add(t));
-    }
+    if(state.uso === "auto") ["motoinverter"].forEach(t=>state.selected.add(t));
+    if(state.uso === "suv") ["motoinverter","tubeless_gt"].forEach(t=>state.selected.add(t));
+    if(state.uso === "furgoni") ["motoinverter"].forEach(t=>state.selected.add(t));
+    if(state.uso === "truck") ["motoinverter","runflat"].forEach(t=>state.selected.add(t));
   }
 }
 
 function renderFlags(){
   const box = $("#flags");
   box.innerHTML = "";
-
   const defs = FLAG_DEFS[state.family] || [];
+
   defs.forEach(def=>{
     const id = `flag_${def.id}`;
     const wrap = el("label", { class:"chk", for:id });
@@ -142,16 +117,12 @@ function renderFlags(){
       else state.selected.delete(def.id);
       render();
     });
-
     const txt = el("div", { html:`<b>${def.label}</b><span>${def.hint}</span>` });
-    wrap.appendChild(cb);
-    wrap.appendChild(txt);
-    box.appendChild(wrap);
+    wrap.appendChild(cb); wrap.appendChild(txt); box.appendChild(wrap);
   });
 }
 
 function familyProducts(){
-  // Include anche varianti truck/moto se l'uso lo richiede
   const fam = state.family;
   let fams = [fam];
 
@@ -160,26 +131,20 @@ function familyProducts(){
     if(fam === "smontagomme_auto") fams = ["smontagomme_truck","smontagomme_auto"];
   }
   if(state.uso === "furgoni"){
-    // restiamo su auto, ma includiamo truck come alternativa se esiste
     if(fam === "equilibratrici_auto") fams = ["equilibratrici_auto","equilibratrici_truck"];
     if(fam === "smontagomme_auto") fams = ["smontagomme_auto","smontagomme_truck"];
   }
-
   return state.products.filter(p => fams.includes(p.family));
 }
 
 function matchScore(p){
   const tags = new Set(p.tags || []);
   const sel = [...state.selected];
-
-  // punteggio: match +2, miss -3 (per dare priorità a chi soddisfa i requisiti)
   let score = 0;
   for(const t of sel){
     if(tags.has(t)) score += 2;
     else score -= 3;
   }
-
-  // bonus: se query matcha nome/codice
   if(state.q){
     const q = state.q.toUpperCase();
     const hay = (p.name + " " + p.code).toUpperCase();
@@ -197,7 +162,6 @@ function filterAndRank(){
     filtered = list.filter(p => (p.name + " " + p.code).toUpperCase().includes(q));
   }
 
-  // se ci sono flag selezionati, proviamo prima il filtro "tutti i flag presenti"
   const sel = [...state.selected];
   let strict = filtered;
   if(sel.length){
@@ -205,30 +169,39 @@ function filterAndRank(){
   }
 
   let ranked = strict.length ? strict : filtered;
-  ranked = ranked
-    .map(p => ({...p, _score: matchScore(p)}))
-    .sort((a,b)=> b._score - a._score);
+  ranked = ranked.map(p => ({...p, _score: matchScore(p)}))
+                 .sort((a,b)=> b._score - a._score);
 
   return { ranked, strictCount: strict.length, total: filtered.length };
 }
 
 function accessoriSuggeriti(){
-  // Regole semplici: furgoni/truck => cono+distanziale; ergonomia => sollevatore ruota
-  const fam = state.family.startsWith("equilibratrici") ? ["equilibratrici_auto","equilibratrici_truck"] : ["smontagomme_auto","smontagomme_truck"];
+  const fam = state.family.startsWith("equilibratrici")
+    ? ["equilibratrici_auto","equilibratrici_truck"]
+    : ["smontagomme_auto","smontagomme_truck","smontagomme_moto"];
+
   const out = [];
+  const sel = state.selected;
 
   for(const a of state.accessori){
     const applies = (a.applies_to || []).some(x => fam.includes(x));
     if(!applies) continue;
 
-    if(a.code === "21100303"){
-      if(state.uso === "furgoni" || state.uso === "truck") out.push(a);
-    } else if(a.code === "21100397"){
-      // suggeriamolo sempre come optional ergonomia
-      out.push(a);
-    }
+    // EQUILIBRATRICI
+    if(a.code === "21100303" && (state.uso === "furgoni" || state.uso === "truck")) out.push(a);
+    if(a.code === "21100304" && (state.uso === "furgoni" || state.uso === "truck")) out.push(a);
+    if((a.code === "21100397" || a.code === "21100399") && (sel.has("sollevatore") || state.uso === "furgoni" || state.uso === "truck")) out.push(a);
+    if((a.code === "21100345" || a.code === "21100349") && !sel.has("nls")) out.push(a);
+
+    // SMONTAGOMME
+    if(a.code === "20100164" && sel.has("tubeless_gt")) out.push(a);
+    if(a.code === "20100165" && (state.uso === "furgoni" || state.uso === "truck")) out.push(a);
+    if((a.code === "20100161" || a.code === "20100367" || a.code === "20100387") && (sel.has("runflat") || sel.has("ribassati"))) out.push(a);
+    if((a.code === "20100368" || a.code === "20100369") && sel.has("runflat")) out.push(a);
   }
-  return out;
+
+  const seen = new Set();
+  return out.filter(a => (seen.has(a.code) ? false : (seen.add(a.code), true)));
 }
 
 function render(){
@@ -247,7 +220,7 @@ function render(){
     res.appendChild(el("div", { class:"note", html:"Nessun risultato. Prova a rimuovere qualche flag o cambia ricerca." }));
   } else {
     top.forEach((p, idx)=>{
-      const tags = (p.tags || []).slice(0, 8).map(t => `<span class="tag">${t}</span>`).join("");
+      const tags = (p.tags || []).slice(0, 10).map(t => `<span class="tag">${t}</span>`).join("");
       const box = el("div", { class:"result" });
 
       const topRow = el("div", { class:"r-top" }, [
@@ -261,13 +234,12 @@ function render(){
     });
   }
 
-  // Accessori
   const accBox = $("#accessoriBox");
   accBox.innerHTML = "";
   const acc = accessoriSuggeriti();
   if(acc.length){
     const html = acc.map(a=>`<div>• <b>${a.name}</b> — <span class="r-code">cod. ${a.code}</span></div>`).join("");
-    accBox.appendChild(el("div", { class:"acc", html:`<b>Optional consigliati</b><div class="tagline">In base all’uso selezionato.</div><div style="margin-top:8px">${html}</div>` }));
+    accBox.appendChild(el("div", { class:"acc", html:`<b>Optional consigliati</b><div class="tagline">In base a uso e flag selezionati.</div><div style="margin-top:8px">${html}</div>` }));
   }
 }
 
