@@ -59,6 +59,8 @@
     button{cursor:pointer;font-weight:700}
     button.primary{background:rgba(192,24,24,.22);border-color:rgba(192,24,24,.55);}
     button.ghost{background:transparent;}
+    /* ✅ stile opzionale: quando Accessori è OFF (gestito da app.js con class "off") */
+    #toggleAccBtn.off{opacity:.75;border-style:dashed;}
     .section-title{margin:12px 0 8px;font-size:12px;color:var(--muted);letter-spacing:.25px;text-transform:uppercase;}
     .checks{display:grid;grid-template-columns:1fr;gap:8px}
     .chk{display:flex;gap:10px;align-items:flex-start;padding:10px 10px;border:1px solid var(--line);border-radius:12px;background:rgba(0,0,0,.10);}
@@ -112,7 +114,10 @@
             <option value="truck">Truck / pesante</option>
             <option value="moto">Moto</option>
           </select>
+
           <button class="primary" id="applyPresetBtn" title="Pre-seleziona i flag consigliati">Preset</button>
+          <!-- ✅ nuovo: toggle accessori -->
+          <button class="ghost" id="toggleAccBtn" title="Mostra/Nascondi accessori">Accessori: ON</button>
         </div>
 
         <div class="section-title">Flag principali</div>
