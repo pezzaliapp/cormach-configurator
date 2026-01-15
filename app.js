@@ -1,10 +1,9 @@
-/* CORMACH Configuratore — v4.3 (No Prezzi)
+/* CORMACH Configuratore — v4.4 (No Prezzi)
    FIX principali:
-   - RIPRISTINO completo UI/logica (tabs, pill, preset, risultati, accessori box)
-   - platorello/piatto = filtro strutturale + match robusto anche senza tag nel JSON
-   - strict match non si rompe se mancano tag
-   - Accessori ON/OFF: usa il bottone già presente a sinistra (se c’è) oppure ne crea UNO solo (no duplicati)
-   - default risultati 7, poi +10
+   - Truck: include famiglie truck anche se family nel JSON varia (match robusto)
+   - A PIATTO: riconosce "PIATTO" in name/descrizione + evita falsi positivi platorello
+   - A PLATORELLO: riconosce anche "PLATORELLO" in name/descrizione
+   - resto invariato: tabs/pill/preset, risultati 7 poi +10, accessori toggle no duplicati
 */
 
 const DEFAULT_LIMIT = 7;
@@ -21,7 +20,6 @@ const state = {
   accessori: []
 };
 
-// Mutua esclusione tra flag
 const EXCLUSIVE_FLAGS = {
   smontagomme_auto: [
     ["platorello", "piatto"],
@@ -77,28 +75,43 @@ function tagsOf(p){
   return new Set(t);
 }
 
-/* ✅ Match robusto: se mancano tag, usa euristiche minime SOLO per platorello/piatto */
+function textOf(p){
+  // prova a leggere anche descrizione/descrizione_breve/note se esistono
+  const parts = [
+    p?.name,
+    p?.descrizione,
+    p?.description,
+    p?.note
+  ].filter(Boolean);
+  return upper(parts.join(" | "));
+}
+
+/* ✅ Match robusto: fallback SOLO per platorello/piatto */
 function hasFlag(p, flag){
   const tags = tagsOf(p);
   if(tags.has(flag)) return true;
 
-  const name = upper(p.name);
+  const txt = textOf(p);
 
   if(flag === "platorello"){
-    // PUMA / 1200 = platorello
-    if(/\bPUMA\b/.test(name)) return true;
-    if(/\b1200\b/.test(name) || /\b1200BB\b/.test(name)) return true;
+    // keyword + modelli tipici
+    if(txt.includes("PLATORELLO")) return true;
+    if(/\bPUMA\b/.test(txt)) return true;
+    if(/\b1200\b/.test(txt) || /\b1200BB\b/.test(txt)) return true;
     return false;
   }
 
   if(flag === "piatto"){
-    // BIKE o moto
-    if(/\bBIKE\b/.test(name)) return true;
+    // keyword PIATTO (auto) oppure BIKE/moto
+    if(txt.includes("PIATTO")) return true;
+    if(/\bBIKE\b/.test(txt)) return true;
     if(tags.has("moto")) return true;
+
+    // fallback “anti-platorello”: se NON è platorello e nel testo c’è qualche indizio
+    // (qui volutamente conservativo: senza PIATTO/BIKE/moto NON lo considero piatto)
     return false;
   }
 
-  // altri flag: no tag = no match
   return false;
 }
 
@@ -112,12 +125,12 @@ async function loadData(){
   state.accessori = Array.isArray(a) ? a : [];
 
   bindUI();
-  bindAccessoriToggle(); // ✅ usa quello a sinistra se c’è, altrimenti crea uno SOLO
+  bindAccessoriToggle();
   renderFlags();
   render();
 }
 
-/* ===================== UI BINDINGS ===================== */
+/* ===================== UI ===================== */
 function bindUI(){
   document.querySelectorAll(".tabbtn").forEach(btn=>{
     btn.addEventListener("click", ()=>{
@@ -187,14 +200,10 @@ function applyPreset(){
   }
 
   if(state.family === "smontagomme_auto"){
-    // auto/furgoni: platorello (PUMA ecc.)
     if(state.uso === "auto") ["platorello"].forEach(t=>state.selected.add(t));
     if(state.uso === "furgoni") ["platorello"].forEach(t=>state.selected.add(t));
-    // suv: spesso piatto + tubeless
     if(state.uso === "suv") ["piatto","tubeless_gt"].forEach(t=>state.selected.add(t));
-    // moto: piatto
     if(state.uso === "moto") ["piatto"].forEach(t=>state.selected.add(t));
-    // truck: runflat come base
     if(state.uso === "truck") ["runflat"].forEach(t=>state.selected.add(t));
   }
 
@@ -239,7 +248,7 @@ function renderFlags(){
         state.selected.add(def.id);
         applyExclusives(def.id);
         normalizeConstraints();
-        renderFlags(); // refresh per mostrare esclusioni
+        renderFlags();
       } else {
         state.selected.delete(def.id);
         normalizeConstraints();
@@ -257,7 +266,6 @@ function renderFlags(){
 
 /* ===================== ACCESSORI TOGGLE (NO DUPLICATI) ===================== */
 function findLeftAccessoriButton(){
-  // Cerca un bottone già presente nel pannello sinistro che contenga "Accessori"
   const leftCard = document.querySelector('section.card[aria-label="Filtri"]') || document.querySelectorAll(".card")[0];
   if(!leftCard) return null;
   const buttons = leftCard.querySelectorAll("button");
@@ -268,19 +276,13 @@ function findLeftAccessoriButton(){
   return null;
 }
 
-function findRightAccessoriButton(){
-  return byId("toggleAccessoriBtn") || null;
-}
-
 function bindAccessoriToggle(){
-  // 1) Se esiste bottone a sinistra: usa quello e NON creare quello a destra
   const leftBtn = findLeftAccessoriButton();
   if(leftBtn){
-    leftBtn.id = "toggleAccessoriBtn"; // normalizzo ID
+    leftBtn.id = "toggleAccessoriBtn";
     leftBtn.type = "button";
     leftBtn.disabled = false;
     leftBtn.style.pointerEvents = "auto";
-    leftBtn.style.opacity = "1";
     leftBtn.onclick = null;
     leftBtn.addEventListener("click", ()=>{
       state.showAccessori = !state.showAccessori;
@@ -291,13 +293,13 @@ function bindAccessoriToggle(){
     return;
   }
 
-  // 2) Altrimenti creo quello a destra (UNA SOLA VOLTA)
-  if(findRightAccessoriButton()) {
+  if(byId("toggleAccessoriBtn")) {
     paintAccessoriToggle();
     return;
   }
 
-  const hd = document.querySelector('section.card[aria-label="Risultati"] .hd') || (document.querySelectorAll(".card")[1] ? document.querySelectorAll(".card")[1].querySelector(".hd") : null);
+  const hd = document.querySelector('section.card[aria-label="Risultati"] .hd') ||
+             (document.querySelectorAll(".card")[1] ? document.querySelectorAll(".card")[1].querySelector(".hd") : null);
   if(!hd) return;
 
   const btn = el("button", { id:"toggleAccessoriBtn", class:"ghost", type:"button" });
@@ -324,39 +326,42 @@ function paintAccessoriToggle(){
 }
 
 /* ===================== DATA FILTERING ===================== */
+function isFamily(p, key){
+  // key esempio: "smontagomme_truck" — match robusto
+  const f = String(p?.family || "");
+  return f === key || f.startsWith(key) || f.includes(key);
+}
+
 function familyProducts(){
   const fam = state.family;
 
-  // Equilibratrici: auto + truck se uso richiede
   if(fam === "equilibratrici_auto"){
     let fams = ["equilibratrici_auto"];
     if(state.uso === "truck" || state.uso === "furgoni") fams = ["equilibratrici_auto","equilibratrici_truck"];
-    return state.products.filter(p => fams.includes(p.family));
+    return state.products.filter(p => fams.some(k => isFamily(p, k)));
   }
 
-  // Smontagomme: auto + moto; truck se richiesto
   if(fam === "smontagomme_auto"){
+    // NB: qui serve davvero truck quando uso=truck
     let fams = ["smontagomme_auto","smontagomme_moto"];
     if(state.uso === "truck" || state.uso === "furgoni") fams = ["smontagomme_auto","smontagomme_truck","smontagomme_moto"];
 
-    // moto: includi auto solo se moto_ok/moto
     if(state.uso === "moto"){
       fams = ["smontagomme_moto","smontagomme_auto"];
-      const base = state.products.filter(p => fams.includes(p.family));
+      const base = state.products.filter(p => fams.some(k => isFamily(p, k)));
       return base.filter(p=>{
-        if(p.family === "smontagomme_moto") return true;
+        if(isFamily(p, "smontagomme_moto")) return true;
         const tags = tagsOf(p);
         return tags.has("moto_ok") || tags.has("moto");
       });
     }
 
-    return state.products.filter(p => fams.includes(p.family));
+    return state.products.filter(p => fams.some(k => isFamily(p, k)));
   }
 
-  return state.products.filter(p => p.family === fam);
+  return state.products.filter(p => isFamily(p, fam));
 }
 
-/* filtro strutturale: se seleziono platorello/piatto, la lista deve rispettarlo SEMPRE */
 function applyStructuralFilters(list){
   if(state.family !== "smontagomme_auto") return list;
 
@@ -367,7 +372,7 @@ function applyStructuralFilters(list){
 
   return list.filter(p=>{
     if(wantPlatorello) return hasFlag(p, "platorello");
-    if(wantPiatto) return hasFlag(p, "piatto");
+    if(wantPiatto) return hasFlag(p, "piatto") && !hasFlag(p, "platorello"); // evita contaminazioni
     return true;
   });
 }
@@ -376,7 +381,6 @@ function constraintPenalty(p){
   const tags = tagsOf(p);
   let pen = 0;
 
-  // 2 vel non compatibile con MI e 1ph/230v (se tag presenti)
   if(state.selected.has("doppia_velocita") && tags.has("motoinverter")) pen -= 12;
   if(state.selected.has("doppia_velocita") && (tags.has("alimentazione_1ph") || tags.has("230v"))) pen -= 12;
 
@@ -396,7 +400,7 @@ function matchScore(p){
 
   if(state.q){
     const q = upper(state.q);
-    const hay = upper(p.name) + " " + upper(p.code);
+    const hay = upper(p.name) + " " + upper(p.code) + " " + textOf(p);
     if(hay.includes(q)) score += 3;
   }
 
@@ -406,18 +410,15 @@ function matchScore(p){
 function filterAndRank(){
   let list = familyProducts();
 
-  // ricerca
   if(state.q){
     const q = upper(state.q);
-    list = list.filter(p => (upper(p.name) + " " + upper(p.code)).includes(q));
+    list = list.filter(p => (upper(p.name) + " " + upper(p.code) + " " + textOf(p)).includes(q));
   }
 
-  // strutturale prima
   list = applyStructuralFilters(list);
 
   const sel = [...state.selected];
 
-  // strict match: usa hasFlag
   let strict = list;
   if(sel.length){
     strict = list.filter(p => sel.every(t => hasFlag(p, t)));
@@ -444,7 +445,7 @@ function accessoriCompatibili(visibleProducts){
   const out = [];
 
   for(const a of state.accessori){
-    if(!(a.applies_to || []).some(f => famAllowed.has(f))) continue;
+    if(!(a.applies_to || []).some(f => [...famAllowed].some(k => String(f).includes(k)))) continue;
 
     const compat = Array.isArray(a.compat) ? a.compat : [];
     if(!compat.length) continue;
