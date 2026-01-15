@@ -397,7 +397,52 @@ function filterAndRank(){
 /* Accessori da compat[] (S/X per product_code)
    Nota: qui NON inventiamo niente: se compat non c'è, non mostra.
 */
-function accessoriCompatibili(rankedProducts){
+function accessoriCompatibili(visibleProducts){
+  if(!Array.isArray(visibleProducts) || !visibleProducts.length) return [];
+
+  // SOLO i codici dei prodotti realmente VISIBILI
+  const activeCodes = new Set(
+    visibleProducts.map(p => String(p.code))
+  );
+
+  const nameByCode = new Map(
+    visibleProducts.map(p => [String(p.code), p.name])
+  );
+
+  const famAllowed = state.family.startsWith("equilibratrici")
+    ? new Set(["equilibratrici_auto","equilibratrici_truck"])
+    : new Set(["smontagomme_auto","smontagomme_truck","smontagomme_moto"]);
+
+  const out = [];
+
+  for(const a of state.accessori){
+    // famiglia corretta
+    if(!(a.applies_to || []).some(f => famAllowed.has(f))) continue;
+
+    const compat = Array.isArray(a.compat) ? a.compat : [];
+    if(!compat.length) continue;
+
+    // SOLO compatibilità con prodotti visibili
+    const hits = compat.filter(c =>
+      activeCodes.has(String(c.product_code))
+    );
+
+    if(!hits.length) continue;
+
+    out.push({
+      code: String(a.code),
+      name: a.name || "Accessorio",
+      _models: hits.map(h => ({
+        code: String(h.product_code),
+        name: nameByCode.get(String(h.product_code)) || h.product_code,
+        type: (h.type || "X").toUpperCase()
+      }))
+    });
+  }
+
+  out.sort((a,b)=> b._models.length - a._models.length);
+  return out;
+}
   const activeCodes = new Set(rankedProducts.map(p => String(p.code)));
   const activeByCode = new Map(rankedProducts.map(p => [String(p.code), p.name]));
 
@@ -497,7 +542,7 @@ function render(){
 
   if(!state.showAccessori) return;
 
-  const acc = accessoriCompatibili(ranked);
+  const acc = accessoriCompatibili(top);
 
   if(acc.length){
     const html = acc.map(a=>{
