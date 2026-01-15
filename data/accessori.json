@@ -1,1 +1,28 @@
-
+[
+  {
+    "code": "21100303",
+    "name": "CONO+DISTANZIALE D.40 MEC",
+    "applies_to": [
+      "equilibratrici_auto",
+      "equilibratrici_truck"
+    ],
+    "tags": [
+      "furgoni",
+      "truck"
+    ]
+  },
+  {
+    "code": "21100397",
+    "name": "SOLLEVATORE RUOTA",
+    "applies_to": [
+      "equilibratrici_auto",
+      "equilibratrici_truck",
+      "smontagomme_auto",
+      "smontagomme_truck"
+    ],
+    "tags": [
+      "ergonomia",
+      "sollevatore_ruota"
+    ]
+  }
+]
