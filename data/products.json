@@ -632,7 +632,7 @@
   {
     "code": "01100262",
     "name": "MOTO MEC CE 12V",
-    "family": "equilibratrici_auto",
+    "family": "equilibratrici_moto",
     "tags": [
       "ce",
       "moto"
