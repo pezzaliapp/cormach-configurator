@@ -5,6 +5,12 @@
    - resto invariato (flag match robusto, toggle accessori, etc.)
 */
 
+if ("serviceWorker" in navigator) {
+  window.addEventListener("load", () => {
+    navigator.serviceWorker.register("./sw.js").catch(console.error);
+  });
+}
+
 const DEFAULT_LIMIT = 7;
 const MORE_STEP = 10;
 
