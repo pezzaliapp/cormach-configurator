@@ -1,12 +1,14 @@
-/* CORMACH Configuratore — v4.7 (No Prezzi)
-   FIX:
-   - Equilibratrici: "Uso" ora è un FILTRO reale (Truck/Moto), non solo scoring.
-     • Uso Truck  => SOLO truck-like
-     • Uso Moto   => SOLO moto-like
-     • Uso Furgoni=> auto + truck
-   - Smontagomme: A PIATTO = tutto ciò che NON è platorello (ok auto standard)
-   - Accessori toggle: no duplicati
-   - Default risultati 7 poi +10
+/* CORMACH Configuratore — v4.5 (No Prezzi)
+   FIX principali:
+   - Smontagomme: "Truck/pesante" => SOLO smontagomme_truck (niente auto/moto mischiati)
+   - Strutturale:
+      * A PLATORELLO => SOLO PUMA + CM 1200/1200BB
+      * A PIATTO     => TUTTI GLI ALTRI (auto), escludendo moto + platorello
+      * Moto => piatto mostra solo moto
+   - Flag (BB / Runflat / Ribassati / Racing / GT / 2Vel) funzionano anche senza tag (euristiche su name)
+   - Doppia velocità: mai su moto
+   - Accessori ON/OFF: usa bottone sinistra se c'è, altrimenti ne crea UNO solo a destra
+   - Default risultati 7, poi +10
 */
 
 const DEFAULT_LIMIT = 7;
@@ -14,7 +16,7 @@ const MORE_STEP = 10;
 
 const state = {
   limit: DEFAULT_LIMIT,
-  family: "equilibratrici_auto",
+  family: "equilibratrici_auto", // tab default
   selected: new Set(),
   q: "",
   uso: "auto",
@@ -23,6 +25,7 @@ const state = {
   accessori: []
 };
 
+// Mutua esclusione tra flag (solo dove ha senso)
 const EXCLUSIVE_FLAGS = {
   smontagomme_auto: [
     ["platorello", "piatto"],
@@ -36,18 +39,18 @@ const FLAG_DEFS = {
     { id:"touch", label:"Touch", hint:"Touchscreen (es. Touch MEC 1000)" },
     { id:"laser", label:"Laser", hint:"Guida applicazione pesi (VDL / VDLL…)" },
     { id:"sonar", label:"Sonar", hint:"Misurazione/diagnosi con sonar" },
-    { id:"nls", label:"Bloccaggio pneumatico (NLS – Versioni P)", hint:"Centraggio automatico pneumatico. Disponibile sulle versioni P" },
-    { id:"sollevatore", label:"Sollevatore ruota", hint:"Ergonomia: sollevatore ruota (integrato o accessorio)" },
+    { id:"nls", label:"Bloccaggio pneumatico (NLS – Versioni P)", hint:"Centraggio pneumatico (versioni P)" },
+    { id:"sollevatore", label:"Sollevatore ruota", hint:"Ergonomia: sollevatore ruota" },
     { id:"rlc", label:"RLC", hint:"Analisi eccentricità (quando previsto)" },
-    { id:"mobile_service", label:"Mobile service", hint:"Modelli portatili / alimentazione dedicata" }
+    { id:"mobile_service", label:"Mobile service", hint:"Portatile / alimentazione dedicata" }
   ],
 
   smontagomme_auto: [
-    { id:"platorello", label:"A platorello", hint:"Bloccaggio con platorelli (PUMA, CM 1200 BB…)" },
-    { id:"piatto", label:"A piatto", hint:"Autocentrante / a piatto (auto standard + moto + truck)" },
+    { id:"platorello", label:"A platorello", hint:"PUMA, CM 1200 BB…" },
+    { id:"piatto", label:"A piatto", hint:"Autocentrante / leverless / ecc." },
 
-    { id:"motoinverter", label:"Motoinverter (MI)", hint:"Controllo elettronico coppia e velocità (non è 2 velocità)" },
-    { id:"doppia_velocita", label:"Doppia velocità", hint:"Mandrino con 2 velocità (no MI, no 1ph, NO MOTO)" },
+    { id:"motoinverter", label:"Motoinverter (MI)", hint:"Regolazione elettronica (non è 2 velocità)" },
+    { id:"doppia_velocita", label:"Doppia velocità", hint:"Mandrino 2 velocità (no MI, no 1ph, no moto)" },
 
     { id:"tubeless_gt", label:"Tubeless (GT)", hint:"Gruppo gonfiaggio / funzioni tubeless" },
     { id:"bb_doppio_disco", label:"BB doppio disco", hint:"Stallonatore evoluto (BB)" },
@@ -72,134 +75,107 @@ function el(tag, attrs={}, children=[]){
 }
 
 function upper(s){ return String(s || "").toUpperCase(); }
-
-function tagsOf(p){
-  const t = Array.isArray(p?.tags) ? p.tags : [];
-  return new Set(t);
-}
+function tagsOf(p){ return new Set(Array.isArray(p?.tags) ? p.tags : []); }
 
 function textOf(p){
   const parts = [p?.name, p?.descrizione, p?.description, p?.note].filter(Boolean);
   return upper(parts.join(" | "));
 }
 
-function isFamily(p, key){
-  const f = String(p?.family || "");
-  return f === key || f.startsWith(key) || f.includes(key);
-}
-
-function isEquilibratriciFamily(p){
-  const f = String(p?.family || "");
-  return f.includes("equilibratrici");
-}
-
-function isSmontagommeFamily(p){
-  const f = String(p?.family || "");
-  return f.includes("smontagomme");
-}
-
-function isMotoProduct(p){
+function isMoto(p){
   const tags = tagsOf(p);
-  const txt = textOf(p);
-  const fam = String(p?.family || "");
-  return tags.has("moto") || tags.has("moto_ok") || fam.includes("moto") || txt.includes(" MOTO") || /\bBIKE\b/.test(txt);
+  const t = textOf(p);
+  return tags.has("moto") || tags.has("bike") || /\bBIKE\b/.test(t) || /\bMOTO\b/.test(t);
 }
 
-function isTruckLike(p){
+function isTruck(p){
   const tags = tagsOf(p);
-  const txt = textOf(p);
-  const fam = String(p?.family || "");
-  return (
-    fam.includes("truck") ||
-    tags.has("truck") || tags.has("pesante") ||
-    txt.includes("TRUCK") || txt.includes("CAMION") || txt.includes("AUTOCARRO") || txt.includes("TIR") ||
-    txt.includes("PESANTE")
-  );
+  const t = textOf(p);
+  return tags.has("truck") || /\bTRUCK\b/.test(t) || /\bPESANTE\b/.test(t);
 }
 
-function mergeUniqueByCode(list){
-  const seen = new Set();
-  const out = [];
-  for(const p of list){
-    const c = String(p?.code || "");
-    if(!c) continue;
-    if(seen.has(c)) continue;
-    seen.add(c);
-    out.push(p);
-  }
-  return out;
-}
-
-/* ========= FLAG MATCH ========= */
+/* ----------------- FLAG MATCH (robusto) ----------------- */
 function hasFlag(p, flag){
   const tags = tagsOf(p);
+  const t = textOf(p);
+
+  // tag diretto
   if(tags.has(flag)) return true;
 
-  const txt = textOf(p);
-
-  // strutturali smontagomme
+  // --- Smontagomme strutturali ---
   if(flag === "platorello"){
-    if(txt.includes("PLATORELLO")) return true;
-    if(/\bPUMA\b/.test(txt)) return true;
-    if(/\b1200\b/.test(txt) || /\b1200BB\b/.test(txt)) return true;
+    // SOLO PUMA e CM 1200/1200BB (come richiesto)
+    if(/\bPUMA\b/.test(t)) return true;
+    if(/\bCM\s*1200\b/.test(t)) return true;
+    if(/\b1200BB\b/.test(t)) return true;
+    if(/\b1200\b/.test(t) && /\bCM\b/.test(t)) return true;
     return false;
   }
 
   if(flag === "piatto"){
-    // A PIATTO = tutto ciò che NON è platorello, purché sia smontagomme
-    if(!isSmontagommeFamily(p)) return false;
+    // Non usare solo keyword PIATTO (che spesso non c'è).
+    // Regola pratica:
+    // - se è moto => piatto = sì
+    // - se NON è moto e NON è platorello => piatto = sì
+    // (evita il bug "A piatto mostra solo moto")
+    if(isMoto(p)) return true;
     if(hasFlag(p, "platorello")) return false;
     return true;
   }
 
-  // smontagomme features
-  if(flag === "motoinverter"){
-    if(txt.includes("MOTOINVERTER")) return true;
-    if(txt.includes("INVERTER")) return true;
-    if(/\bMI\b/.test(txt)) return true;
-    return false;
-  }
-
-  if(flag === "doppia_velocita"){
-    if(isMotoProduct(p)) return false;
-    if(txt.includes("DOPPIA VELOC")) return true;
-    if(txt.includes("2 VELOC")) return true;
-    if(/\b2V\b/.test(txt)) return true;
-    return false;
-  }
-
+  // --- Smontagomme flags su testo ---
   if(flag === "tubeless_gt"){
-    if(txt.includes("TUBELESS")) return true;
-    if(/\bGT\b/.test(txt)) return true;
-    if(txt.includes("GONFIAGG")) return true;
-    return false;
+    return tags.has("tubeless_gt") || /\bGT\b/.test(t) || /\bTUBELESS\b/.test(t);
   }
 
   if(flag === "bb_doppio_disco"){
-    if(/\bBB\b/.test(txt)) return true;
-    if(txt.includes("DOPPIO DISCO") || txt.includes("DOPPIODISCO")) return true;
-    if(txt.includes("STALLONAT")) return true;
+    // "BB" nel modello
+    return tags.has("bb") || tags.has("bb_doppio_disco") || /\bBB\b/.test(t);
+  }
+
+  if(flag === "runflat"){
+    return tags.has("runflat") || /\bRUNFLAT\b/.test(t);
+  }
+
+  if(flag === "ribassati"){
+    return tags.has("ribassati") || /\bRIBASS/.test(t) || /\bLOW\b/.test(t);
+  }
+
+  if(flag === "racing"){
+    return tags.has("racing") || /\bRACING\b/.test(t) || /\bRAC\b/.test(t);
+  }
+
+  if(flag === "motoinverter"){
+    return tags.has("motoinverter") || /\bMI\b/.test(t) || /\bMOTOINVERTER\b/.test(t);
+  }
+
+  if(flag === "doppia_velocita"){
+    // Mai su moto
+    if(isMoto(p)) return false;
+
+    // tag o testo "2 VEL", "2VEL", "2 VELOCITA"
+    if(tags.has("doppia_velocita")) return true;
+    if(/\b2\s*VEL\b/.test(t) || /\b2VEL\b/.test(t) || /\b2\s*VELOCIT/.test(t)) return true;
+
+    // alcuni tuoi record non hanno tag: ok.
     return false;
   }
 
-  if(flag === "runflat") return txt.includes("RUNFLAT");
-  if(flag === "ribassati") return txt.includes("RIBASSAT") || txt.includes("LOW PROFILE") || txt.includes("PROFILO BASSO");
-  if(flag === "racing") return txt.includes("RACING");
+  // --- Equilibratrici flags: prova anche su testo (quando i tag mancano) ---
+  if(flag === "monitor") return tags.has("monitor") || /\bVDL\b|\bVDLL\b|\bVDBL\b|\bMONITOR\b/.test(t);
+  if(flag === "laser") return tags.has("laser") || /\bLASER\b/.test(t);
+  if(flag === "touch") return tags.has("touch") || /\bTOUCH\b/.test(t);
+  if(flag === "sonar") return tags.has("sonar") || /\bSONAR\b/.test(t);
+  if(flag === "nls") return tags.has("nls") || /\b\-P\b/.test(t) || /\bPNEUMATICA\b/.test(t);
+  if(flag === "sollevatore") return tags.has("sollevatore") || /\bLIFT\b/.test(t) || /\bSOLLEVATORE\b/.test(t);
+  if(flag === "rlc") return tags.has("rlc") || /\bRLC\b/.test(t);
+  if(flag === "mobile_service") return tags.has("mobile_service") || /\b12V\b/.test(t) || /\bBAT\b/.test(t);
 
-  // equilibratrici (conservativo)
-  if(flag === "monitor") return txt.includes("MONITOR") || txt.includes("VD") || txt.includes("VDL") || txt.includes("VDBL");
-  if(flag === "touch") return txt.includes("TOUCH");
-  if(flag === "laser") return txt.includes("LASER") || txt.includes("VDL");
-  if(flag === "sonar") return txt.includes("SONAR");
-  if(flag === "nls") return txt.includes("NLS") || (txt.includes("BLOCCAGGIO") && txt.includes("PNEUM"));
-  if(flag === "sollevatore") return txt.includes("SOLLEV");
-  if(flag === "rlc") return /\bRLC\b/.test(txt);
-  if(flag === "mobile_service") return txt.includes("MOBILE") || txt.includes("SERVICE") || txt.includes("PORTAT");
-
+  // default: no match
   return false;
 }
 
-/* ========= LOAD ========= */
+/* ----------------- DATA LOAD ----------------- */
 async function loadData(){
   const [p, a] = await Promise.all([
     fetch("./data/products.json").then(r=>r.json()),
@@ -215,7 +191,7 @@ async function loadData(){
   render();
 }
 
-/* ===================== UI ===================== */
+/* ----------------- UI BIND ----------------- */
 function bindUI(){
   document.querySelectorAll(".tabbtn").forEach(btn=>{
     btn.addEventListener("click", ()=>{
@@ -246,11 +222,8 @@ function bindUI(){
       state.uso = e.target.value;
       state.limit = DEFAULT_LIMIT;
 
-      // vincolo: doppia velocità non ha senso su moto
-      if(state.uso === "moto" && state.selected.has("doppia_velocita")){
-        state.selected.delete("doppia_velocita");
-      }
-
+      // quando cambi USO, ripulisci flag incompatibili (es. doppia_velocita su moto)
+      normalizeConstraints();
       renderFlags();
       render();
     });
@@ -287,14 +260,13 @@ function applyPreset(){
     if(state.uso === "auto") ["monitor","laser"].forEach(t=>state.selected.add(t));
     if(state.uso === "suv") ["monitor","laser","sonar"].forEach(t=>state.selected.add(t));
     if(state.uso === "furgoni") ["monitor","laser","sonar","nls","sollevatore"].forEach(t=>state.selected.add(t));
-    if(state.uso === "truck") ["monitor","laser","sonar","nls","sollevatore"].forEach(t=>state.selected.add(t));
-    if(state.uso === "moto") ["monitor"].forEach(t=>state.selected.add(t));
+    if(state.uso === "truck") ["monitor","sonar"].forEach(t=>state.selected.add(t)); // più conservativo
+    if(state.uso === "moto") ["mobile_service"].forEach(t=>state.selected.add(t));
   }
 
   if(state.family === "smontagomme_auto"){
-    if(state.uso === "auto") state.selected.add("platorello");
-    if(state.uso === "furgoni") state.selected.add("platorello");
-    if(state.uso === "suv") { state.selected.add("piatto"); state.selected.add("tubeless_gt"); }
+    if(state.uso === "auto" || state.uso === "furgoni") state.selected.add("piatto");
+    if(state.uso === "suv") ["piatto","tubeless_gt"].forEach(t=>state.selected.add(t));
     if(state.uso === "moto") state.selected.add("piatto");
     if(state.uso === "truck") state.selected.add("runflat");
   }
@@ -315,11 +287,18 @@ function applyExclusives(defId){
 
 function normalizeConstraints(){
   if(state.family === "smontagomme_auto"){
+    // doppia velocità non può coesistere con MI
     if(state.selected.has("doppia_velocita") && state.selected.has("motoinverter")){
       state.selected.delete("motoinverter");
     }
-    if(state.uso === "moto" && state.selected.has("doppia_velocita")){
+    // su moto: niente doppia velocità
+    if(state.uso === "moto"){
       state.selected.delete("doppia_velocita");
+    }
+    // su truck: platorello/piatto non hanno senso -> togli per evitare filtri errati
+    if(state.uso === "truck"){
+      state.selected.delete("platorello");
+      state.selected.delete("piatto");
     }
   }
 }
@@ -332,7 +311,14 @@ function renderFlags(){
   const defs = FLAG_DEFS[state.family] || [];
 
   defs.forEach(def=>{
-    if(state.family === "smontagomme_auto" && state.uso === "moto" && def.id === "doppia_velocita") return;
+    // regole UI: nascondi doppia_velocita se moto
+    if(state.family === "smontagomme_auto" && state.uso === "moto" && def.id === "doppia_velocita"){
+      return;
+    }
+    // regole UI: nascondi platorello/piatto se truck
+    if(state.family === "smontagomme_auto" && state.uso === "truck" && (def.id === "platorello" || def.id === "piatto")){
+      return;
+    }
 
     const id = `flag_${def.id}`;
     const wrap = el("label", { class:"chk", for:id });
@@ -344,12 +330,11 @@ function renderFlags(){
       if(cb.checked){
         state.selected.add(def.id);
         applyExclusives(def.id);
-        normalizeConstraints();
-        renderFlags();
       } else {
         state.selected.delete(def.id);
-        normalizeConstraints();
       }
+      normalizeConstraints();
+      renderFlags();
       state.limit = DEFAULT_LIMIT;
       render();
     });
@@ -361,32 +346,36 @@ function renderFlags(){
   });
 }
 
-/* ===================== ACCESSORI TOGGLE (NO DUPLICATI) ===================== */
-function findExistingAccessoriButton(){
-  const candidates = Array.from(document.querySelectorAll("button"))
-    .filter(b => /accessori/i.test((b.textContent || "").trim()) || b.id === "toggleAccessoriBtn");
-
-  const leftCard = document.querySelector('section.card[aria-label="Filtri"]') || document.querySelectorAll(".card")[0] || null;
-  if(leftCard){
-    const inLeft = candidates.find(b => leftCard.contains(b));
-    if(inLeft) return inLeft;
+/* ----------------- ACCESSORI TOGGLE (NO DUPLICATI) ----------------- */
+function findLeftAccessoriButton(){
+  const leftCard = document.querySelector('section.card[aria-label="Filtri"]') || document.querySelectorAll(".card")[0];
+  if(!leftCard) return null;
+  const buttons = leftCard.querySelectorAll("button");
+  for(const b of buttons){
+    const t = (b.textContent || "").trim();
+    if(/^Accessori\s*:/i.test(t) || t.toLowerCase() === "accessori") return b;
   }
-  return candidates[0] || null;
+  return null;
 }
 
 function bindAccessoriToggle(){
-  const existing = findExistingAccessoriButton();
-  if(existing){
-    existing.id = "toggleAccessoriBtn";
-    existing.type = "button";
-    existing.disabled = false;
-    existing.style.pointerEvents = "auto";
-    existing.onclick = null;
-    existing.addEventListener("click", ()=>{
+  const leftBtn = findLeftAccessoriButton();
+  if(leftBtn){
+    leftBtn.id = "toggleAccessoriBtn";
+    leftBtn.type = "button";
+    leftBtn.disabled = false;
+    leftBtn.style.pointerEvents = "auto";
+    leftBtn.onclick = null;
+    leftBtn.addEventListener("click", ()=>{
       state.showAccessori = !state.showAccessori;
       paintAccessoriToggle();
       render();
     });
+    paintAccessoriToggle();
+    return;
+  }
+
+  if(byId("toggleAccessoriBtn")) {
     paintAccessoriToggle();
     return;
   }
@@ -418,100 +407,112 @@ function paintAccessoriToggle(){
   btn.style.opacity = state.showAccessori ? "1" : ".65";
 }
 
-/* ===================== DATA FILTERING ===================== */
+/* ----------------- FAMILY SELECTION (qui era il bug Truck) ----------------- */
 function familyProducts(){
   const fam = state.family;
 
-  // -------- EQUILIBRATRICI --------
+  // EQUILIBRATRICI
   if(fam === "equilibratrici_auto"){
-    // prendo tutte le equilibratrici (auto/truck/moto) e poi applico "uso" come filtro reale
-    const allEq = state.products.filter(p => isEquilibratriciFamily(p));
+    // IMPORTANTISSIMO: non andare a "0 risultati" se non esiste equilibratrici_truck nel JSON.
+    // Usiamo:
+    // - per "moto" => equilibratrici_moto + qualsiasi equilibratrice con tag moto
+    // - per "truck/furgoni" => equilibratrici_truck SE esiste, altrimenti fallback su equilibratrici_auto con tag truck/name TRUCK
+    const allEq = state.products.filter(p => String(p.family || "").startsWith("equilibratrici"));
+
+    if(state.uso === "moto"){
+      return allEq.filter(p => String(p.family || "").includes("moto") || isMoto(p));
+    }
+
+    if(state.uso === "truck" || state.uso === "furgoni"){
+      const truckFam = allEq.filter(p => String(p.family || "").includes("truck"));
+      if(truckFam.length) return truckFam;
+
+      // fallback robusto (se il JSON non ha family truck)
+      const byTag = allEq.filter(p => isTruck(p));
+      if(byTag.length) return byTag;
+
+      // ultimo fallback: non bloccare la UI
+      return allEq;
+    }
+
+    // auto/suv standard
+    return allEq.filter(p => !String(p.family || "").includes("moto"));
+  }
+
+  // SMONTAGOMME
+  if(fam === "smontagomme_auto"){
+    const allSm = state.products.filter(p => String(p.family || "").startsWith("smontagomme"));
 
     if(state.uso === "truck"){
-      // SOLO truck
-      const byFamily = allEq.filter(p => isFamily(p, "equilibratrici_truck"));
-      const byText   = allEq.filter(p => isTruckLike(p));
-      return mergeUniqueByCode(byFamily.concat(byText));
+      // FIX: SOLO TRUCK
+      return allSm.filter(p => String(p.family || "").includes("truck") || isTruck(p));
     }
 
     if(state.uso === "moto"){
-      // SOLO moto
-      const byFamily = allEq.filter(p => isFamily(p, "equilibratrici_moto"));
-      const byTagTxt = allEq.filter(p => isMotoProduct(p));
-      return mergeUniqueByCode(byFamily.concat(byTagTxt));
+      // SOLO moto + auto moto_ok/moto (se vuoi)
+      const base = allSm.filter(p => String(p.family || "").includes("moto") || isMoto(p));
+      return base;
     }
 
-    if(state.uso === "furgoni"){
-      // auto + truck (molto realistico)
-      const auto = allEq.filter(p => isFamily(p, "equilibratrici_auto"));
-      const truck = allEq.filter(p => isFamily(p, "equilibratrici_truck") || isTruckLike(p));
-      return mergeUniqueByCode(auto.concat(truck));
-    }
-
-    // auto/suv: SOLO auto
-    return allEq.filter(p => isFamily(p, "equilibratrici_auto"));
+    // auto / suv / furgoni
+    // qui includiamo auto, e (se vuoi) anche truck quando uso=furgoni? NO: furgoni resta auto.
+    return allSm.filter(p => !String(p.family || "").includes("truck"));
   }
 
-  // -------- SMONTAGOMME --------
-  if(fam === "smontagomme_auto"){
-    let list = state.products.filter(p => isSmontagommeFamily(p));
-
-    // moto = solo moto
-    if(state.uso === "moto"){
-      return list.filter(p => isMotoProduct(p));
-    }
-
-    // truck/furgoni = includi truck-like
-    if(state.uso === "truck" || state.uso === "furgoni"){
-      const base = list.filter(p => isFamily(p, "smontagomme_auto") || isFamily(p, "smontagomme_moto") || isFamily(p, "smontagomme_truck"));
-      const truckByText = list.filter(p => isTruckLike(p));
-      return mergeUniqueByCode(base.concat(truckByText));
-    }
-
-    // auto/suv = auto + moto (se vuoi solo auto dimmelo)
-    return list.filter(p => isFamily(p, "smontagomme_auto") || isFamily(p, "smontagomme_moto"));
-  }
-
-  return state.products.filter(p => isFamily(p, fam));
+  // fallback
+  return state.products.filter(p => String(p.family || "") === fam);
 }
 
+/* ----------------- STRUCTURAL FILTER (platorello/piatto) ----------------- */
 function applyStructuralFilters(list){
   if(state.family !== "smontagomme_auto") return list;
+  if(state.uso === "truck") return list; // su truck NON applicare piatto/platorello
 
   const wantPlatorello = state.selected.has("platorello");
   const wantPiatto = state.selected.has("piatto");
+
   if(!wantPlatorello && !wantPiatto) return list;
 
-  return list.filter(p=>{
-    if(wantPlatorello) return hasFlag(p, "platorello");
-    if(wantPiatto) return hasFlag(p, "piatto"); // piatto = NOT platorello
-    return true;
-  });
-}
-
-function applySpecialConstraints(list){
-  if(state.family === "smontagomme_auto" && state.selected.has("doppia_velocita")){
-    list = list.filter(p => !isMotoProduct(p));
+  // platorello = solo PUMA/1200
+  if(wantPlatorello){
+    return list.filter(p => hasFlag(p, "platorello"));
   }
+
+  // piatto:
+  // - se moto: solo moto
+  // - se auto: tutti gli altri, escludendo moto e platorello
+  if(wantPiatto){
+    if(state.uso === "moto"){
+      return list.filter(p => isMoto(p) && !hasFlag(p, "platorello"));
+    }
+    return list.filter(p => !isMoto(p) && !hasFlag(p, "platorello"));
+  }
+
   return list;
 }
 
+/* ----------------- MATCH / RANK ----------------- */
+function constraintPenalty(p){
+  const tags = tagsOf(p);
+  let pen = 0;
+
+  // 2 vel incompatibile con MI / 1ph / 230v (se presenti tag)
+  if(state.selected.has("doppia_velocita") && (hasFlag(p,"motoinverter") || tags.has("motoinverter"))) pen -= 12;
+  if(state.selected.has("doppia_velocita") && (tags.has("alimentazione_1ph") || tags.has("230v"))) pen -= 12;
+
+  return pen;
+}
+
 function matchScore(p){
-  const sel = [...state.selected];
   let score = 0;
+  const sel = [...state.selected];
 
-  for(const t of sel){
-    if(hasFlag(p, t)) score += 2;
-    else score -= 3;
+  for(const f of sel){
+    if(hasFlag(p, f)) score += 2;
+    else score -= 2;
   }
 
-  // Se sto già filtrando truck/moto, lo score serve meno: comunque un boost leggero
-  if(state.family === "equilibratrici_auto" && state.uso === "truck"){
-    score += isTruckLike(p) ? 4 : -5;
-  }
-  if(state.family === "equilibratrici_auto" && state.uso === "moto"){
-    score += isMotoProduct(p) ? 4 : -5;
-  }
+  score += constraintPenalty(p);
 
   if(state.q){
     const q = upper(state.q);
@@ -525,18 +526,21 @@ function matchScore(p){
 function filterAndRank(){
   let list = familyProducts();
 
+  // ricerca testuale
   if(state.q){
     const q = upper(state.q);
     list = list.filter(p => (upper(p.name) + " " + upper(p.code) + " " + textOf(p)).includes(q));
   }
 
+  // strutturale
   list = applyStructuralFilters(list);
-  list = applySpecialConstraints(list);
 
   const sel = [...state.selected];
+
+  // strict match su flag selezionati
   let strict = list;
   if(sel.length){
-    strict = list.filter(p => sel.every(t => hasFlag(p, t)));
+    strict = list.filter(p => sel.every(f => hasFlag(p, f)));
   }
 
   const ranked = (strict.length ? strict : list)
@@ -546,7 +550,7 @@ function filterAndRank(){
   return { ranked, strictCount: strict.length, total: list.length };
 }
 
-/* ===================== ACCESSORI ===================== */
+/* ----------------- ACCESSORI ----------------- */
 function accessoriCompatibili(visibleProducts){
   if(!Array.isArray(visibleProducts) || !visibleProducts.length) return [];
 
@@ -560,10 +564,11 @@ function accessoriCompatibili(visibleProducts){
   const out = [];
 
   for(const a of state.accessori){
-    const applies = (a.applies_to || []).some(f => {
-      const sf = String(f || "");
+    const appliesTo = Array.isArray(a.applies_to) ? a.applies_to : [];
+    const applies = appliesTo.some(f => {
+      const s = String(f || "");
       for(const k of famAllowed){
-        if(sf === k || sf.includes(k)) return true;
+        if(s.includes(k)) return true;
       }
       return false;
     });
@@ -590,7 +595,7 @@ function accessoriCompatibili(visibleProducts){
   return out;
 }
 
-/* ===================== RENDER ===================== */
+/* ----------------- RENDER ----------------- */
 function render(){
   paintAccessoriToggle();
 
@@ -613,13 +618,13 @@ function render(){
   const top = ranked.slice(0, state.limit);
 
   if(!top.length){
-    const msg = (state.selected.has("platorello") || state.selected.has("piatto"))
-      ? "Nessun risultato per questo tipo (piatto/platorello). Prova a togliere altri flag."
-      : "Nessun risultato. Prova a rimuovere qualche flag o cambia ricerca.";
+    const msg = "Nessun risultato. Prova a rimuovere qualche flag o cambia ricerca.";
     res.appendChild(el("div", { class:"note", html: msg }));
   } else {
     top.forEach((p, idx)=>{
-      const tags = (Array.isArray(p.tags) ? p.tags : []).slice(0, 10).map(t => `<span class="tag">${t}</span>`).join("");
+      const tags = (Array.isArray(p.tags) ? p.tags : []).slice(0, 12)
+        .map(t => `<span class="tag">${t}</span>`).join("");
+
       const box = el("div", { class:"result" });
 
       const famLabel = String(p.family || "").replaceAll("_"," ");
@@ -663,12 +668,12 @@ function render(){
   if(acc.length){
     const html = acc.map(a=>{
       const tags = a._models
-        .slice(0, 10)
+        .slice(0, 12)
         .map(m => `<span class="tag">${m.type} — ${m.name}</span>`)
         .join("");
 
-      const more = a._models.length > 10
-        ? `<div class="tagline" style="margin-top:6px">+ altri ${a._models.length - 10} modelli compatibili…</div>`
+      const more = a._models.length > 12
+        ? `<div class="tagline" style="margin-top:6px">+ altri ${a._models.length - 12} modelli compatibili…</div>`
         : "";
 
       return `
@@ -688,7 +693,7 @@ function render(){
     accBox.appendChild(el("div", {
       class:"acc",
       html:`<b>Accessori compatibili</b>
-            <div class="tagline">Derivati dalla compatibilità (S / X) per i modelli visibili.</div>
+            <div class="tagline">Derivati dalla compatibilità (S / X) sui modelli visibili.</div>
             <div style="margin-top:10px">${html}</div>`
     }));
   } else {
