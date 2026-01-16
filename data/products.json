@@ -640,6 +640,41 @@
     "source": "csv_09_01_26"
   },
   {
+    "code": "01200111",
+    "name": "MEC 200 TRUCK CE 1ph 230V",
+    "family": "equilibratrici_truck",
+    "tags": ["truck", "mec200", "ce", "230v", "alimentazione_1ph"],
+    "source": "csv_09_01_26"
+  },
+  {
+    "code": "01200112",
+    "name": "MEC 200-C TRUCK CE 1ph 230V",
+    "family": "equilibratrici_truck",
+    "tags": ["truck", "mec200", "ce", "230v", "alimentazione_1ph"],
+    "source": "csv_09_01_26"
+  },
+  {
+    "code": "01200116",
+    "name": "MEC 200A-C TRUCK CE 1ph 230V",
+    "family": "equilibratrici_truck",
+    "tags": ["truck", "mec200", "ce", "230v", "alimentazione_1ph"],
+    "source": "csv_09_01_26"
+  },
+  {
+    "code": "01200115",
+    "name": "MEC 200-A TRUCK CE 1ph 230V",
+    "family": "equilibratrici_truck",
+    "tags": ["truck", "mec200", "ce", "230v", "alimentazione_1ph"],
+    "source": "csv_09_01_26"
+  },
+  {
+    "code": "01200119",
+    "name": "MEC 200A-C TRUCK RLC + LASER CE 1ph 230V",
+    "family": "equilibratrici_truck",
+    "tags": ["truck", "mec200", "ce", "230v", "alimentazione_1ph"],
+    "source": "csv_09_01_26"
+  },
+  {
     "code": "00101079",
     "name": "BASIC 224 3Ph 400V-50Hz",
     "family": "smontagomme_auto",
