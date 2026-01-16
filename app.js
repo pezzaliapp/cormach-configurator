@@ -1,10 +1,12 @@
-/* CORMACH Configuratore — v4.6 (No Prezzi)
-   FIX richiesti:
-   - Equilibratrici: uso TRUCK/MOTO ora filtra correttamente anche se family nel JSON non è perfetta (fallback su testo)
-   - Smontagomme: flag "A PIATTO" NON deve mostrare solo moto → A PIATTO = tutto ciò che NON è platorello (auto standard inclusi)
-   - Smontagomme: "A PLATORELLO" resta stretto (PUMA/1200BB/keyword)
+/* CORMACH Configuratore — v4.7 (No Prezzi)
+   FIX:
+   - Equilibratrici: "Uso" ora è un FILTRO reale (Truck/Moto), non solo scoring.
+     • Uso Truck  => SOLO truck-like
+     • Uso Moto   => SOLO moto-like
+     • Uso Furgoni=> auto + truck
+   - Smontagomme: A PIATTO = tutto ciò che NON è platorello (ok auto standard)
    - Accessori toggle: no duplicati
-   - Default risultati 7, poi +10
+   - Default risultati 7 poi +10
 */
 
 const DEFAULT_LIMIT = 7;
@@ -86,16 +88,14 @@ function isFamily(p, key){
   return f === key || f.startsWith(key) || f.includes(key);
 }
 
-function isSmontagomme(p){
+function isEquilibratriciFamily(p){
   const f = String(p?.family || "");
-  const txt = textOf(p);
-  return f.includes("smontagomme") || txt.includes("SMONTAGOMME");
+  return f.includes("equilibratrici");
 }
 
-function isEquilibratrice(p){
+function isSmontagommeFamily(p){
   const f = String(p?.family || "");
-  const txt = textOf(p);
-  return f.includes("equilibratric") || txt.includes("EQUILIBR");
+  return f.includes("smontagomme");
 }
 
 function isMotoProduct(p){
@@ -106,21 +106,39 @@ function isMotoProduct(p){
 }
 
 function isTruckLike(p){
+  const tags = tagsOf(p);
   const txt = textOf(p);
   const fam = String(p?.family || "");
-  return fam.includes("truck") || txt.includes("TRUCK") || txt.includes("CAMION") || txt.includes("AUTOCARRO") || txt.includes("TIR");
+  return (
+    fam.includes("truck") ||
+    tags.has("truck") || tags.has("pesante") ||
+    txt.includes("TRUCK") || txt.includes("CAMION") || txt.includes("AUTOCARRO") || txt.includes("TIR") ||
+    txt.includes("PESANTE")
+  );
 }
 
-/* ========= FLAG MATCH (tag + fallback testo) ========= */
+function mergeUniqueByCode(list){
+  const seen = new Set();
+  const out = [];
+  for(const p of list){
+    const c = String(p?.code || "");
+    if(!c) continue;
+    if(seen.has(c)) continue;
+    seen.add(c);
+    out.push(p);
+  }
+  return out;
+}
+
+/* ========= FLAG MATCH ========= */
 function hasFlag(p, flag){
   const tags = tagsOf(p);
   if(tags.has(flag)) return true;
 
   const txt = textOf(p);
 
-  // ---- STRUTTURALI (fondamentali) ----
+  // strutturali smontagomme
   if(flag === "platorello"){
-    // vuoi che A platorello sia stretta (PUMA + 1200BB + keyword)
     if(txt.includes("PLATORELLO")) return true;
     if(/\bPUMA\b/.test(txt)) return true;
     if(/\b1200\b/.test(txt) || /\b1200BB\b/.test(txt)) return true;
@@ -128,16 +146,14 @@ function hasFlag(p, flag){
   }
 
   if(flag === "piatto"){
-    // FIX: A PIATTO = tutto ciò che NON è platorello, purché sia smontagomme.
-    // Questo evita che ti restino solo i moto.
-    if(!isSmontagomme(p)) return false;
+    // A PIATTO = tutto ciò che NON è platorello, purché sia smontagomme
+    if(!isSmontagommeFamily(p)) return false;
     if(hasFlag(p, "platorello")) return false;
     return true;
   }
 
-  // ---- altri flag smontagomme ----
+  // smontagomme features
   if(flag === "motoinverter"){
-    if(tags.has("mi") || tags.has("motoinverter")) return true;
     if(txt.includes("MOTOINVERTER")) return true;
     if(txt.includes("INVERTER")) return true;
     if(/\bMI\b/.test(txt)) return true;
@@ -145,7 +161,6 @@ function hasFlag(p, flag){
   }
 
   if(flag === "doppia_velocita"){
-    // mai moto
     if(isMotoProduct(p)) return false;
     if(txt.includes("DOPPIA VELOC")) return true;
     if(txt.includes("2 VELOC")) return true;
@@ -154,7 +169,6 @@ function hasFlag(p, flag){
   }
 
   if(flag === "tubeless_gt"){
-    if(tags.has("tubeless") || tags.has("gt")) return true;
     if(txt.includes("TUBELESS")) return true;
     if(/\bGT\b/.test(txt)) return true;
     if(txt.includes("GONFIAGG")) return true;
@@ -162,38 +176,18 @@ function hasFlag(p, flag){
   }
 
   if(flag === "bb_doppio_disco"){
-    if(tags.has("bb")) return true;
     if(/\bBB\b/.test(txt)) return true;
     if(txt.includes("DOPPIO DISCO") || txt.includes("DOPPIODISCO")) return true;
     if(txt.includes("STALLONAT")) return true;
     return false;
   }
 
-  if(flag === "runflat"){
-    if(tags.has("runflat")) return true;
-    if(txt.includes("RUNFLAT")) return true;
-    return false;
-  }
+  if(flag === "runflat") return txt.includes("RUNFLAT");
+  if(flag === "ribassati") return txt.includes("RIBASSAT") || txt.includes("LOW PROFILE") || txt.includes("PROFILO BASSO");
+  if(flag === "racing") return txt.includes("RACING");
 
-  if(flag === "ribassati"){
-    if(tags.has("ribassati")) return true;
-    if(txt.includes("RIBASSAT")) return true;
-    if(txt.includes("LOW PROFILE") || txt.includes("PROFILO BASSO")) return true;
-    return false;
-  }
-
-  if(flag === "racing"){
-    if(tags.has("racing")) return true;
-    if(txt.includes("RACING")) return true;
-    return false;
-  }
-
-  // ---- equilibratrici (conservativo) ----
-  if(flag === "monitor"){
-    if(txt.includes("MONITOR")) return true;
-    if(txt.includes("VD") || txt.includes("VDL") || txt.includes("VDBL")) return true;
-    return false;
-  }
+  // equilibratrici (conservativo)
+  if(flag === "monitor") return txt.includes("MONITOR") || txt.includes("VD") || txt.includes("VDL") || txt.includes("VDBL");
   if(flag === "touch") return txt.includes("TOUCH");
   if(flag === "laser") return txt.includes("LASER") || txt.includes("VDL");
   if(flag === "sonar") return txt.includes("SONAR");
@@ -252,7 +246,7 @@ function bindUI(){
       state.uso = e.target.value;
       state.limit = DEFAULT_LIMIT;
 
-      // se passo a moto, rimuovo doppia velocità (moto = 1 velocità)
+      // vincolo: doppia velocità non ha senso su moto
       if(state.uso === "moto" && state.selected.has("doppia_velocita")){
         state.selected.delete("doppia_velocita");
       }
@@ -338,7 +332,6 @@ function renderFlags(){
   const defs = FLAG_DEFS[state.family] || [];
 
   defs.forEach(def=>{
-    // Nascondi doppia velocità su uso=moto
     if(state.family === "smontagomme_auto" && state.uso === "moto" && def.id === "doppia_velocita") return;
 
     const id = `flag_${def.id}`;
@@ -431,60 +424,55 @@ function familyProducts(){
 
   // -------- EQUILIBRATRICI --------
   if(fam === "equilibratrici_auto"){
-    // base auto
-    let list = state.products.filter(p => isFamily(p, "equilibratrici_auto"));
+    // prendo tutte le equilibratrici (auto/truck/moto) e poi applico "uso" come filtro reale
+    const allEq = state.products.filter(p => isEquilibratriciFamily(p));
 
-    // truck/furgoni: includi truck family + truck-like (fallback su testo)
-    if(state.uso === "truck" || state.uso === "furgoni"){
-      const truckByFamily = state.products.filter(p => isFamily(p, "equilibratrici_truck"));
-      const truckByText = state.products.filter(p => isEquilibratrice(p) && isTruckLike(p));
-      list = mergeUniqueByCode(list.concat(truckByFamily, truckByText));
+    if(state.uso === "truck"){
+      // SOLO truck
+      const byFamily = allEq.filter(p => isFamily(p, "equilibratrici_truck"));
+      const byText   = allEq.filter(p => isTruckLike(p));
+      return mergeUniqueByCode(byFamily.concat(byText));
     }
 
-    // moto: includi moto-like (fallback su testo) se esistono
     if(state.uso === "moto"){
-      const motoByFamily = state.products.filter(p => isFamily(p, "equilibratrici_moto"));
-      const motoByText = state.products.filter(p => isEquilibratrice(p) && isMotoProduct(p));
-      list = mergeUniqueByCode(list.concat(motoByFamily, motoByText));
+      // SOLO moto
+      const byFamily = allEq.filter(p => isFamily(p, "equilibratrici_moto"));
+      const byTagTxt = allEq.filter(p => isMotoProduct(p));
+      return mergeUniqueByCode(byFamily.concat(byTagTxt));
     }
 
-    return list;
+    if(state.uso === "furgoni"){
+      // auto + truck (molto realistico)
+      const auto = allEq.filter(p => isFamily(p, "equilibratrici_auto"));
+      const truck = allEq.filter(p => isFamily(p, "equilibratrici_truck") || isTruckLike(p));
+      return mergeUniqueByCode(auto.concat(truck));
+    }
+
+    // auto/suv: SOLO auto
+    return allEq.filter(p => isFamily(p, "equilibratrici_auto"));
   }
 
   // -------- SMONTAGOMME --------
   if(fam === "smontagomme_auto"){
-    // base: auto + moto
-    let list = state.products.filter(p => isFamily(p, "smontagomme_auto") || isFamily(p, "smontagomme_moto"));
+    let list = state.products.filter(p => isSmontagommeFamily(p));
 
-    // truck/furgoni: includi truck + truck-like
-    if(state.uso === "truck" || state.uso === "furgoni"){
-      const truckByFamily = state.products.filter(p => isFamily(p, "smontagomme_truck"));
-      const truckByText = state.products.filter(p => isSmontagomme(p) && isTruckLike(p));
-      list = mergeUniqueByCode(list.concat(truckByFamily, truckByText));
-    }
-
-    // moto: togli tutto ciò che non è moto-like
+    // moto = solo moto
     if(state.uso === "moto"){
-      list = list.filter(p => isMotoProduct(p));
+      return list.filter(p => isMotoProduct(p));
     }
 
-    return list;
+    // truck/furgoni = includi truck-like
+    if(state.uso === "truck" || state.uso === "furgoni"){
+      const base = list.filter(p => isFamily(p, "smontagomme_auto") || isFamily(p, "smontagomme_moto") || isFamily(p, "smontagomme_truck"));
+      const truckByText = list.filter(p => isTruckLike(p));
+      return mergeUniqueByCode(base.concat(truckByText));
+    }
+
+    // auto/suv = auto + moto (se vuoi solo auto dimmelo)
+    return list.filter(p => isFamily(p, "smontagomme_auto") || isFamily(p, "smontagomme_moto"));
   }
 
   return state.products.filter(p => isFamily(p, fam));
-}
-
-function mergeUniqueByCode(list){
-  const seen = new Set();
-  const out = [];
-  for(const p of list){
-    const c = String(p?.code || "");
-    if(!c) continue;
-    if(seen.has(c)) continue;
-    seen.add(c);
-    out.push(p);
-  }
-  return out;
 }
 
 function applyStructuralFilters(list){
@@ -496,13 +484,12 @@ function applyStructuralFilters(list){
 
   return list.filter(p=>{
     if(wantPlatorello) return hasFlag(p, "platorello");
-    if(wantPiatto) return hasFlag(p, "piatto"); // (piatto = NOT platorello)
+    if(wantPiatto) return hasFlag(p, "piatto"); // piatto = NOT platorello
     return true;
   });
 }
 
 function applySpecialConstraints(list){
-  // doppia velocità: no moto
   if(state.family === "smontagomme_auto" && state.selected.has("doppia_velocita")){
     list = list.filter(p => !isMotoProduct(p));
   }
@@ -518,15 +505,14 @@ function matchScore(p){
     else score -= 3;
   }
 
-  // preferenza truck quando uso=truck
-  if(state.family === "smontagomme_auto" && state.uso === "truck"){
-    score += isTruckLike(p) ? 3 : -2;
-  }
+  // Se sto già filtrando truck/moto, lo score serve meno: comunque un boost leggero
   if(state.family === "equilibratrici_auto" && state.uso === "truck"){
-    score += isTruckLike(p) ? 3 : -1;
+    score += isTruckLike(p) ? 4 : -5;
+  }
+  if(state.family === "equilibratrici_auto" && state.uso === "moto"){
+    score += isMotoProduct(p) ? 4 : -5;
   }
 
-  // ricerca libera
   if(state.q){
     const q = upper(state.q);
     const hay = upper(p.name) + " " + upper(p.code) + " " + textOf(p);
@@ -539,7 +525,6 @@ function matchScore(p){
 function filterAndRank(){
   let list = familyProducts();
 
-  // ricerca
   if(state.q){
     const q = upper(state.q);
     list = list.filter(p => (upper(p.name) + " " + upper(p.code) + " " + textOf(p)).includes(q));
